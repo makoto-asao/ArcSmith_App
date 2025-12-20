@@ -6,8 +6,10 @@ import re
 class AIGenerator:
     def __init__(self):
         genai.configure(api_key=Config.GEMINI_API_KEY)
-        # 404エラー対策として -latest を指定
-        self.model = genai.GenerativeModel('gemini-1.5-flash-latest')
+        # 2025年12月現在の最新安定版 gemini-2.5-flash を利用
+        # (gemini-3-flash-preview も利用可能だが、安定性を考慮して 2.5 を選択)
+        self.model = genai.GenerativeModel('gemini-2.5-flash')
+        # もし 2.5 でエラーが出る環境の場合は 'gemini-1.5-flash-latest' に戻してください
 
     def generate_new_ideas(self, existing_titles):
         """新しいネタを5つ生成"""
