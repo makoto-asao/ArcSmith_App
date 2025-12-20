@@ -5,7 +5,7 @@ class SheetsHandler:
     def __init__(self):
         self.gc = gspread.service_account(filename=Config.GOOGLE_APPLICATION_CREDENTIALS)
         self.sh = self.gc.open_by_key(Config.SPREADSHEET_ID)
-        self.worksheet = self.sh.get_worksheet(0) # 1枚目のシートを使用
+        self.worksheet = self.sh.worksheet("データ") # 「データ」という名前のタブを使用
 
     def get_all_titles(self):
         """A列（タイトル）を取得"""
