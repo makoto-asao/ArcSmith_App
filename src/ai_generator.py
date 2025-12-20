@@ -6,7 +6,7 @@ import re
 class AIGenerator:
     def __init__(self):
         genai.configure(api_key=Config.GEMINI_API_KEY)
-        # 404エラー対策として -latest を試行。または 'gemini-1.5-flash'
+        # 404エラー対策として -latest を指定
         self.model = genai.GenerativeModel('gemini-1.5-flash-latest')
 
     def generate_new_ideas(self, existing_titles):
