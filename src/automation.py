@@ -1,6 +1,6 @@
 import time
 import os
-import requests
+import os
 from playwright.sync_api import sync_playwright
 from src.auth_manager import AuthManager
 
@@ -18,20 +18,33 @@ class MJAutomation:
         print(f"Midjourney: Prompt sent -> {prompt}")
 
     def download_latest_image(self, page, download_dir="assets/images"):
-        """最新の画像をダウンロードする"""
+        """最新の画像をダウンロードする（セッション維持のためブラウザコンテキストを使用）"""
         os.makedirs(download_dir, exist_ok=True)
-        image_selector = 'img[alt*="Imagine"]' 
-        page.wait_for_selector(image_selector, timeout=30000)
-        img_url = page.eval_on_selector(image_selector, "el => el.src")
-        
-        if img_url:
-            response = requests.get(img_url)
-            filename = f"mj_{int(time.time())}.png"
-            filepath = os.path.join(download_dir, filename)
-            with open(filepath, "wb") as f:
-                f.write(response.content)
-            print(f"Midjourney: Image saved to {filepath}")
-            return filepath
+        # より確実なセレクタ：生成完了後に表示される画像
+        image_selector = 'img[alt*="Imagine"], img[src*="cdn.midjourney.com"]' 
+        try:
+            page.wait_for_selector(image_selector, timeout=30000)
+            img_url = page.eval_on_selector(image_selector, "el => el.src")
+            
+            if img_url:
+                # requestsの代わりにbrowser contextのrequestを使用してCookie/Authを維持
+                response = page.request.get(img_url)
+                if response.status == 200:
+                    content_type = response.headers.get("content-type", "")
+                    if "image" not in content_type:
+                        print(f"Warning: Downloaded content is not an image ({content_type})")
+                        return None
+                        
+                    filename = f"mj_{int(time.time())}.png"
+                    filepath = os.path.join(download_dir, filename)
+                    with open(filepath, "wb") as f:
+                        f.write(response.body())
+                    print(f"Midjourney: Image saved to {filepath}")
+                    return filepath
+                else:
+                    print(f"Midjourney Download Failed: HTTP {response.status}")
+        except Exception as e:
+            print(f"Midjourney Download Error: {e}")
         return None
 
     def generate_and_download_images(self, prompt, download_dir="assets/images"):

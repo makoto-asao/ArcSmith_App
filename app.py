@@ -235,6 +235,23 @@ with tabs[2]:
     st.markdown('### 📽️ Mode C: Automated Asset Production')
     st.markdown('<p style="color: #94a3b8;">Midjourney と Vrew を同期し、最終アセットを錬成します。</p>', unsafe_allow_html=True)
     
+    with st.expander("📖 Operation Guide (必ずお読みください)", expanded=True):
+        st.markdown("""
+        **【Midjourney の操作】**
+        1. 自動起動したブラウザで、プロンプトが入力されています。**Enter** を押して生成を開始してください。
+        2. 生成には約1分かかります。お茶を飲んでお待ちください。
+        3. 気に入った画像の **[U1]〜[U4]** ボタンを押し、高解像度化（Upscale）します。
+        4. アップスケールされた画像をクリックし、左下の **Download アイコン** で PC に保存してください。
+        
+        **【Vrew の操作】**
+        1. 台本は自動的に入力されています。
+        2. AI音声、BGM、フォントなどを選択し、プロジェクトを完成させてください。
+        3. 最後に「書き出し」を行って動画ファイルを保存します。
+        
+        **最後に:**
+        すべての作業が終わったら、ブラウザを閉じてアプリに戻り **「Mark as Published」** を押してください。
+        """)
+
     if st.button("Launch Full Production Pipeline", use_container_width=True):
         try:
             handler = SheetsHandler()
