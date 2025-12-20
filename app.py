@@ -110,10 +110,26 @@ with st.sidebar:
     
     gemini_key = st.text_input("Gemini API Key", value=Config.GEMINI_API_KEY or "", type="password")
     if st.button("Apply Changes", use_container_width=True):
-        # .envを更新するロジック（簡易版）
-        with open(".env", "a") as f:
-            f.write(f"\nGEMINI_API_KEY={gemini_key}")
-        st.success("API Key updated.")
+        # .envを賢く更新する
+        env_lines = []
+        if os.path.exists(".env"):
+            with open(".env", "r", encoding="utf-8") as f:
+                env_lines = f.readlines()
+        
+        updated = False
+        with open(".env", "w", encoding="utf-8") as f:
+            for line in env_lines:
+                if line.startswith("GEMINI_API_KEY="):
+                    f.write(f"GEMINI_API_KEY={gemini_key}\n")
+                    updated = True
+                else:
+                    f.write(line)
+            if not updated:
+                if env_lines and not env_lines[-1].endswith("\n"):
+                    f.write("\n")
+                f.write(f"GEMINI_API_KEY={gemini_key}\n")
+        
+        st.success("API Key updated. Please restart the app if changes don't reflect.")
 
     st.markdown('<h2 style="color: #f8fafc; font-size: 1.5rem; margin-top: 2.5rem;">Auth Sessions</h2>', unsafe_allow_html=True)
     st.markdown('<p style="color: #94a3b8; font-size: 0.9rem;">Maintain browser sessions</p>', unsafe_allow_html=True)
