@@ -10,26 +10,17 @@ def run_production(mode, data):
     mode: 'mj' or 'vrew'
     data: prompt (for mj) or script (for vrew)
     """
+    mj = MJAutomation(headless=False)
+    vrew = VrewAutomation(headless=False)
+
     with sync_playwright() as p:
         if mode == 'mj':
-            mj = MJAutomation(headless=False)
-            # MJAutomationクラス内のロジックをここで実行するか、クラスを呼び出す
-            # 現状のMJAutomationは内部でsync_playwrightを呼んでいるので、二重にならないよう注意が必要
-            # ここではシンプルに直接実行するロジックを記述
-            
             browser, context = AuthManager.get_context(p, headless=False)
             page = context.new_page()
-            page.goto("https://www.midjourney.com/explore")
+            page.goto(mj.url)
             
             try:
-                # プロンプト入力
-                input_selector = 'textarea[placeholder*="Imagine"], input[placeholder*="Imagine"]'
-                page.wait_for_selector(input_selector, timeout=20000)
-                page.fill(input_selector, data)
-                page.keyboard.press("Enter")
-                print(f"Midjourney: Prompt sent")
-                
-                # 生成完了を待つ（手動で確認してもらうために長めに待機するか、page.pause()する）
+                mj.input_prompt(page, data)
                 print("生成が終わるまでお待ちください。完了したらブラウザを閉じてください。")
                 page.wait_for_event("close", timeout=0)
             except Exception as e:
@@ -40,18 +31,10 @@ def run_production(mode, data):
         elif mode == 'vrew':
             browser, context = AuthManager.get_context(p, headless=False)
             page = context.new_page()
-            page.goto("https://vrew.voyagerx.com/ja/")
+            page.goto(vrew.url)
             
             try:
-                # Vrewの操作
-                page.wait_for_selector('text="新規で作成する"', timeout=20000)
-                page.click('text="新規で作成する"')
-                page.click('text="テキストからビデオを作成"')
-                
-                # スクリプト入力
-                page.wait_for_selector('textarea', timeout=20000)
-                page.fill('textarea', data)
-                
+                vrew.paste_script(page, data)
                 print("Vrew: Script pasted. ブラウザを閉じて完了してください。")
                 page.wait_for_event("close", timeout=0)
             except Exception as e:
