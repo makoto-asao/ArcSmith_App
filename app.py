@@ -157,11 +157,12 @@ with tabs[0]:
                 handler = SheetsHandler()
                 existing = handler.get_all_titles()
                 
-                st.write("Gemini 2.5 がバズるネタを構築中...")
+                st.write("Gemini がバズるネタを構築中...")
                 ai = AIGenerator()
-                new_ideas = ai.generate_new_ideas(existing)
+                new_ideas, full_response = ai.generate_new_ideas(existing)
                 
                 st.session_state.new_ideas = new_ideas
+                st.session_state.ideation_full = full_response
                 status.update(label="✅ Innovation complete", state="complete", expanded=False)
                 st.balloons()
             except Exception as e:
@@ -169,8 +170,7 @@ with tabs[0]:
 
     if "new_ideas" in st.session_state:
         st.markdown('<div style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1); margin: 1rem 0;">', unsafe_allow_html=True)
-        for i, idea in enumerate(st.session_state.new_ideas):
-            st.markdown(f"**{i+1}.** {idea}")
+        st.write(st.session_state.ideation_full)
         st.markdown('</div>', unsafe_allow_html=True)
         
         if st.button("Commit to Database (Google Sheets)", key="add_to_sheet"):
@@ -197,10 +197,11 @@ with tabs[1]:
                     
                     st.write("AI Director is thinking...")
                     ai = AIGenerator()
-                    script, prompt = ai.generate_script_and_prompts(title)
+                    res = ai.generate_script_and_prompts(title)
                     
-                    st.session_state.current_script = script
-                    st.session_state.current_prompt = prompt
+                    st.session_state.current_script = res["vrew_script"]
+                    st.session_state.current_prompt = res["mj_prompts"]
+                    st.session_state.script_full = res["full_text"]
                     st.session_state.current_row = row_idx
                     status.update(label=f"✅ Script ready: {title}", state="complete", expanded=False)
                 else:
@@ -209,9 +210,12 @@ with tabs[1]:
                 st.error(f"Error: {e}")
 
     if "current_script" in st.session_state:
+        st.markdown("### 🎬 Production Details")
+        st.info(st.session_state.script_full)
+        
         col1, col2 = st.columns(2)
         with col1:
-            st.markdown("#### 📜 Script (Vrew)")
+            st.markdown("#### 📜 Script (Vrew - No Scene Numbers)")
             st.text_area("Script", st.session_state.current_script, height=300, label_visibility="collapsed")
         with col2:
             st.markdown("#### 🎨 Prompts (Midjourney)")
