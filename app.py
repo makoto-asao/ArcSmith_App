@@ -6,51 +6,125 @@ from src.automation import MJAutomation, VrewAutomation
 from src.config import Config
 import os
 
-st.set_page_config(page_title="Jホラー動画制作スタジオ", layout="wide")
+st.set_page_config(
+    page_title="ArcSmith | J-Horror AI Studio",
+    page_icon="🎬",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-# カスタムCSSでホラー感を演出
+# ITベンチャー・AIスタジオ風の洗練されたCSS
 st.markdown("""
 <style>
-    .main {
-        background-color: #0e1117;
-        color: #e0e0e0;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@300;600;900&display=swap');
+
+    html, body, [data-testid="stAppViewContainer"] {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        color: #f8fafc;
     }
-    .stButton>button {
+
+    /* タイポグラフィ */
+    h1, h2, h3 {
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    .main-title {
+        font-size: 3.5rem !important;
+        background: linear-gradient(to right, #818cf8, #c084fc, #f472b6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 2rem !important;
+    }
+
+    /* カードスタイル */
+    .stCard {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 20px;
-        border: 1px solid #ff4b4b;
-        background-color: #1e1e1e;
-        color: #ff4b4b;
-        transition: 0.3s;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        margin-bottom: 1.5rem;
     }
-    .stButton>button:hover {
-        background-color: #ff4b4b;
+
+    /* ボタンのプレミアム化 */
+    .stButton>button {
+        width: 100%;
+        border-radius: 12px;
+        border: none;
+        background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
         color: white;
-        box-shadow: 0 0 15px #ff4b4b;
+        font-weight: 600;
+        padding: 0.6rem 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
-    h1 {
-        color: #ff4b4b;
-        text-shadow: 2px 2px 5px black;
+
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        opacity: 0.9;
+    }
+
+    /* タブのスタイル */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+        background-color: transparent;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        white-space: pre-wrap;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        color: #94a3b8;
+        border: none;
+        padding: 0 20px;
+    }
+
+    .stTabs [aria-selected="true"] {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #f8fafc !important;
+    }
+
+    /* 入力エリア */
+    .stTextInput>div>div>input, .stTextArea>div>div>textarea {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #f8fafc !important;
+        border-radius: 10px !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("👻 Jホラー動画自動制作システム")
+st.markdown('<h1 class="main-title">ArcSmith</h1>', unsafe_allow_html=True)
+st.markdown('<p style="color: #94a3b8; font-size: 1.2rem; margin-top: -1.5rem; margin-bottom: 2.5rem;">The Next Gen J-Horror Production Engine</p>', unsafe_allow_html=True)
 
 # サイドバー：設定と認証
 with st.sidebar:
-    st.header("⚙️ 設定")
+    st.markdown('<h2 style="color: #f8fafc; font-size: 1.5rem; margin-top: 2rem;">System config</h2>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #94a3b8; font-size: 0.9rem;">API Key & Credentials</p>', unsafe_allow_html=True)
+    
     gemini_key = st.text_input("Gemini API Key", value=Config.GEMINI_API_KEY or "", type="password")
-    if st.button("設定を保存"):
+    if st.button("Apply Changes", use_container_width=True):
         # .envを更新するロジック（簡易版）
         with open(".env", "a") as f:
             f.write(f"\nGEMINI_API_KEY={gemini_key}")
-        st.success("API Keyを保存しました（再起動後に反映）")
+        st.success("API Key updated.")
 
-    st.header("🔑 認証")
-    if st.button("Midjourney ログイン"):
-        AuthManager.save_session("https://www.midjourney.com/explore")
-    if st.button("Vrew ログイン"):
-        AuthManager.save_session("https://vrew.voyagerx.com/ja/")
+    st.markdown('<h2 style="color: #f8fafc; font-size: 1.5rem; margin-top: 2.5rem;">Auth Sessions</h2>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #94a3b8; font-size: 0.9rem;">Maintain browser sessions</p>', unsafe_allow_html=True)
+    
+    col_a, col_b = st.columns(2)
+    with col_a:
+        if st.button("Midjourney", key="btn_mj"):
+            AuthManager.save_session("https://www.midjourney.com/explore")
+    with col_b:
+        if st.button("Vrew", key="btn_vrew"):
+            AuthManager.save_session("https://vrew.voyagerx.com/ja/")
 
 # メインコンテンツ
 tabs = st.tabs(["企画・重複チェック", "台本生成", "動画制作"])
