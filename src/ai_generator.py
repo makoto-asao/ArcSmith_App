@@ -22,9 +22,16 @@ class AIGenerator:
 出力は、1行に1つのタイトルだけを記述してください。余計な説明は不要です。
 """
         response = self.model.generate_content(prompt)
-        titles = response.text.strip().split("\n")
-        # クリーニング（番号等がついている場合を考慮）
-        clean_titles = [re.sub(r'^\d+\.\s*', '', t).strip() for t in titles if t.strip()]
+        lines = response.text.strip().split("\n")
+        clean_titles = []
+        for line in lines:
+            line = line.strip()
+            if not line: continue
+            # 番号、箇条書き記号、Markdown（**等）を削除
+            t = re.sub(r'^[\d\.\-\*縲、)]+\s*', '', line)
+            t = t.replace('**', '').replace('"', '').replace("'", '').strip()
+            if t:
+                clean_titles.append(t)
         return clean_titles[:5]
 
     def generate_script_and_prompts(self, title):
@@ -50,16 +57,15 @@ Scene 4: (英文プロンプト)
         response = self.model.generate_content(prompt)
         full_text = response.text
 
-        # パース処理
-        script_part = ""
-        prompt_part = ""
+        # セクションを正規表現で柔軟に抽出
+        script_match = re.search(r'【Vrew用スクリプト】(.*?)(?=【Midjourneyプロンプト】|$)', full_text, re.DOTALL)
+        prompt_match = re.search(r'【Midjourneyプロンプト】(.*)', full_text, re.DOTALL)
         
-        if "【Vrew用スクリプト】" in full_text and "【Midjourneyプロンプト】" in full_text:
-            parts = full_text.split("【Midjourneyプロンプト】")
-            script_part = parts[0].replace("【Vrew用スクリプト】", "").strip()
-            prompt_part = parts[1].strip()
-        else:
-            # フォールバック（うまくパースできなかった場合）
+        script_part = script_match.group(1).strip() if script_match else ""
+        prompt_part = prompt_match.group(1).strip() if prompt_match else ""
+
+        # 万が一マッチしなかった場合のフォールバック
+        if not script_part and not prompt_part:
             script_part = full_text
 
         return script_part, prompt_part
