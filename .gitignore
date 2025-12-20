@@ -1,0 +1,11 @@
+arcsmith-app-*.json
+.env
+auth/
+__pycache__/
+*.pyc
+assets/images/
+temp/
+heads.txt
+remote_heads.txt
+tree.txt
+push_error.txt
