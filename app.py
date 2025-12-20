@@ -127,87 +127,95 @@ with st.sidebar:
             AuthManager.save_session("https://vrew.voyagerx.com/ja/")
 
 # メインコンテンツ
-tabs = st.tabs(["企画・重複チェック", "台本生成", "動画制作"])
+tabs = st.tabs(["✨ Ideation", "🖋️ Scripting", "🚀 Production"])
 
 with tabs[0]:
-    st.header("📝 モードA: ネタ企画")
+    st.markdown('<div class="stCard">', unsafe_allow_html=True)
+    st.markdown('### 📝 Mode A: Ideation & Market Research')
+    st.markdown('<p style="color: #94a3b8;">呪いの連鎖を断ち切る、新しい恐怖を設計します。</p>', unsafe_allow_html=True)
     
-    if st.button("✨ 新しいネタを5つ生成", use_container_width=True):
+    if st.button("Generate New Concepts", use_container_width=True):
         with st.status("👻 ホラーの深淵を探索中...", expanded=True) as status:
             try:
-                st.write("スプレッドシートから既存の呪いを読み込み中...")
+                st.write("スプレッドシートから既存のデータを分析中...")
                 handler = SheetsHandler()
                 existing = handler.get_all_titles()
                 
-                st.write("Geminiが新しい恐怖を考案中...")
+                st.write("Gemini 2.5 がバズるネタを構築中...")
                 ai = AIGenerator()
                 new_ideas = ai.generate_new_ideas(existing)
                 
                 st.session_state.new_ideas = new_ideas
-                status.update(label="✅ 5つの新しい怪談が誕生しました", state="complete", expanded=False)
+                status.update(label="✅ Innovation complete", state="complete", expanded=False)
                 st.balloons()
             except Exception as e:
-                st.error(f"エラー: {e}")
+                st.error(f"Error: {e}")
 
     if "new_ideas" in st.session_state:
-        st.subheader("💀 生成されたネタ")
+        st.markdown('<div style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1); margin: 1rem 0;">', unsafe_allow_html=True)
         for i, idea in enumerate(st.session_state.new_ideas):
             st.markdown(f"**{i+1}.** {idea}")
+        st.markdown('</div>', unsafe_allow_html=True)
         
-        if st.button("📂 スプレッドシートに魂を刻む（追加）", key="add_to_sheet"):
-            with st.spinner("シートを更新中..."):
+        if st.button("Commit to Database (Google Sheets)", key="add_to_sheet"):
+            with st.spinner("Synchronizing..."):
                 handler = SheetsHandler()
                 handler.append_new_titles(st.session_state.new_ideas)
-                st.success("スプレッドシートへの追記が完了しました。")
+                st.success("Database synchronized.")
                 del st.session_state.new_ideas
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with tabs[1]:
-    st.header("🎬 モードB: 台本・プロンプト生成")
-    if st.button("👁️ 未処理のネタを脚本化する", use_container_width=True):
-        with st.status("🖋️ 脚本を執筆中...", expanded=True) as status:
+    st.markdown('<div class="stCard">', unsafe_allow_html=True)
+    st.markdown('### 🎬 Mode B: Scripting & Visual Concepts')
+    st.markdown('<p style="color: #94a3b8;">選定された魂（ネタ）に、言葉と映像の命を吹き込みます。</p>', unsafe_allow_html=True)
+
+    if st.button("Process Unscheduled Content", use_container_width=True):
+        with st.status("🖋️ Crafting the narrative...", expanded=True) as status:
             try:
                 handler = SheetsHandler()
                 row_idx, row_data = handler.get_unprocessed_row()
                 if row_idx:
                     title = row_data[0]
-                    st.write(f"対象ネタ: **{title}**")
+                    st.write(f"Analyzing: **{title}**")
                     
-                    st.write("Geminiがビデオ構成と画像案を構築中...")
+                    st.write("AI Director is thinking...")
                     ai = AIGenerator()
                     script, prompt = ai.generate_script_and_prompts(title)
                     
                     st.session_state.current_script = script
                     st.session_state.current_prompt = prompt
                     st.session_state.current_row = row_idx
-                    status.update(label=f"✅ 『{title}』の脚本が完成しました", state="complete", expanded=False)
-                    st.toast("台本生成完了！")
+                    status.update(label=f"✅ Script ready: {title}", state="complete", expanded=False)
                 else:
-                    st.warning("未処理のネタが見つかりません。")
+                    st.warning("No unprocessed content found.")
             except Exception as e:
-                st.error(f"エラー: {e}")
+                st.error(f"Error: {e}")
 
     if "current_script" in st.session_state:
         col1, col2 = st.columns(2)
         with col1:
-            st.subheader("📜 Vrew用スクリプト")
-            st.text_area("Script", st.session_state.current_script, height=300)
+            st.markdown("#### 📜 Script (Vrew)")
+            st.text_area("Script", st.session_state.current_script, height=300, label_visibility="collapsed")
         with col2:
-            st.subheader("🎨 Midjourneyプロンプト")
-            st.text_area("Prompt", st.session_state.current_prompt, height=300)
+            st.markdown("#### 🎨 Prompts (Midjourney)")
+            st.text_area("Prompt", st.session_state.current_prompt, height=300, label_visibility="collapsed")
         
-        if st.button("💾 この内容をシートに封印する", key="save_to_sheet"):
-            with st.spinner("保存中..."):
+        if st.button("Push to Sheet", key="save_to_sheet"):
+            with st.spinner("Updating records..."):
                 handler = SheetsHandler()
                 handler.update_row_data(st.session_state.current_row, st.session_state.current_script, st.session_state.current_prompt)
-                st.success("スプレッドシートに書き込みました。")
+                st.success("Asset records updated.")
                 del st.session_state.current_script
                 del st.session_state.current_prompt
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with tabs[2]:
-    st.header("📽️ モードC: 自動操作（MJ/Vrew）")
-    st.warning("この機能はブラウザが表示された状態で動作します。")
+    st.markdown('<div class="stCard">', unsafe_allow_html=True)
+    st.markdown('### 📽️ Mode C: Automated Asset Production')
+    st.markdown('<p style="color: #94a3b8;">Midjourney と Vrew を同期し、最終アセットを錬成します。</p>', unsafe_allow_html=True)
     
-    if st.button("🚀 未処理のアセット制作を開始（MJ & Vrew）", use_container_width=True):
+    if st.button("Launch Full Production Pipeline", use_container_width=True):
         try:
             handler = SheetsHandler()
             row_idx, row_data = handler.get_unprocessed_row()
@@ -217,39 +225,26 @@ with tabs[2]:
                 script = row_data[1]
                 prompt = row_data[2]
                 
-                st.subheader(f"🕯️ 現在の制作対象: {title}")
+                st.markdown(f"**Target:** {title}")
                 
-                # 1. Midjourney
-                with st.status("🎨 Midjourneyで画像生成中...", expanded=True) as status:
-                    st.write("Midjourneyを起動中...")
+                with st.status("🎨 Generation in progress (Midjourney)", expanded=True) as s1:
                     helper_path = os.path.join("src", "automation_helper.py")
-                    try:
-                        import subprocess
-                        import sys
-                        st.write("プロンプトを入力しています...")
-                        subprocess.run([sys.executable, helper_path, "mj", prompt], check=True)
-                        status.update(label="✅ Midjourneyの操作が完了しました", state="complete")
-                    except Exception as e:
-                        st.error(f"Midjourney実行エラー: {e}")
+                    import subprocess
+                    import sys
+                    subprocess.run([sys.executable, helper_path, "mj", prompt], check=True)
+                    s1.update(label="✅ Imaging complete", state="complete")
                 
-                # 2. Vrew
-                with st.status("🎬 Vrewで動画プロジェクト作成中...", expanded=True) as status:
-                    st.write("Vrewを起動中...")
-                    try:
-                        st.write("スクリプトを流し込んでいます...")
-                        subprocess.run([sys.executable, helper_path, "vrew", script], check=True)
-                        status.update(label="✅ Vrewの操作が完了しました", state="complete")
-                    except Exception as e:
-                        st.error(f"Vrew実行エラー: {e}")
+                with st.status("🎬 Assembling project (Vrew)", expanded=True) as s2:
+                    subprocess.run([sys.executable, helper_path, "vrew", script], check=True)
+                    s2.update(label="✅ Video project established", state="complete")
                 
-                # 3. 完了フラグ
                 st.divider()
-                st.success("全ての自動操作が一旦終了しました。ブラウザでの最終確認をお願いします。")
-                if st.button("👿 全ての制作を完了とし、シートに刻む", key="mark_final"):
+                st.success("Pipeline tasks completed. Please finalize in your browser.")
+                if st.button("Mark as Published", key="mark_final"):
                     handler.mark_as_completed(row_idx)
-                    st.success("スプレッドシートを『完了』に更新しました。")
                     st.snow()
             else:
-                st.warning("対象となる未処理データが見つかりません。")
+                st.warning("No ready-to-produce content found.")
         except Exception as e:
-            st.error(f"エラー: {e}")
+            st.error(f"Error: {e}")
+    st.markdown('</div>', unsafe_allow_html=True)
