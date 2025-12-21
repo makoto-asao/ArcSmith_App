@@ -19,9 +19,10 @@ class SheetsHandler:
             raise ConnectionError(f"スプレッドシートの接続に失敗しました: {e}")
 
     def get_all_titles(self):
-        """A列（タイトル）を取得"""
+        """A列（タイトル）を取得（1行目のヘッダーは除外）"""
         try:
-            return self.worksheet.col_values(1)
+            titles = self.worksheet.col_values(1)
+            return titles[1:] if len(titles) > 1 else []
         except Exception as e:
             logger.error(f"Error getting titles: {e}")
             return []

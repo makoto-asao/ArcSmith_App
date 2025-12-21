@@ -21,55 +21,94 @@ class AIGenerator:
 
 **出力フォーマット:**
 1. **[テーマ名 (日/英)]**
-   - **概要:** (1行で)
-   - **恐怖ポイント:** (海外受けする理由)
+   - **概要:** (具体的な内容)
+   - **恐怖ポイント:** (海外視聴者が恐怖を感じる理由)
    - **映像イメージ:** (冒頭3秒のフック)
 
 ...これを5つ。
 """
         response = self.model.generate_content(prompt)
-        # 単純なタイトルリストとして抽出（後続処理のため）
-        lines = response.text.strip().split("\n")
-        clean_titles = []
-        for line in lines:
-            if line.startswith("1. **") or line.startswith("2. **") or line.startswith("3. **") or line.startswith("4. **") or line.startswith("5. **"):
-                title = re.search(r'\*\*(.*?)\*\*', line)
-                if title:
-                    clean_titles.append(title.group(1))
+        text = response.text
         
-        # マッチしなかった場合のフォールバック
-        if not clean_titles:
-            clean_titles = [re.sub(r'^[\d\.\-\*縲、)]+\s*', '', l).strip() for l in lines if l.strip()][:5]
-            
-        return clean_titles, response.text
+        # タイトルと関連情報を抽出
+        ideas_data = {}
+        sections = re.split(r'\n\d+\.\s*\*\*\[', text)
+        if len(sections) > 1:
+            for section in sections[1:]:
+                # タイトルの抽出
+                title_match = re.search(r'^(.*?)\]\*\*', section)
+                if title_match:
+                    title = title_match.group(1).strip()
+                    # 概要と恐怖ポイントの抽出
+                    overview = re.search(r'概要:?\s*\*\*(.*?)\*\*', section) or re.search(r'概要:?\s*(.*?)\n', section)
+                    horror_point = re.search(r'恐怖ポイント:?\s*\*\*(.*?)\*\*', section) or re.search(r'恐怖ポイント:?\s*(.*?)\n', section)
+                    
+                    ideas_data[title] = {
+                        "overview": overview.group(1).strip() if overview else "",
+                        "horror_point": horror_point.group(1).strip() if horror_point else ""
+                    }
+        
+        # フォールバック (以前の頑健なロジックをベースに辞書化)
+        if not ideas_data:
+            lines = text.split("\n")
+            current_title = None
+            for line in lines:
+                line_s = line.strip()
+                if "**[" in line_s or (re.match(r'^\d[\.\)]', line_s) and "**" in line_s):
+                    match = re.search(r'\*\*(.*?)\*\*', line_s)
+                    if match:
+                        title = match.group(1).strip("[] ")
+                        if title and not any(k in title for k in ["概要", "恐怖ポイント", "映像イメージ"]):
+                            title = re.sub(r'^\d[\.\)]\s*', '', title)
+                            current_title = title
+                            ideas_data[current_title] = {"overview": "", "horror_point": ""}
+                elif current_title and "概要" in line_s:
+                    ideas_data[current_title]["overview"] = line_s
+                elif current_title and "恐怖ポイント" in line_s:
+                    ideas_data[current_title]["horror_point"] = line_s
 
-    def generate_script_and_prompts(self, title):
-        """【モードB：制作実行】台本とプロンプトを生成"""
+        return ideas_data, text
+
+    def generate_script_and_prompts(self, title, context=None, expert_persona=None):
+        """【モードB：制作実行】3人のエキスパートによる共同制作"""
+        
+        # パーソナ設定の適用
+        persona_logic = expert_persona if expert_persona else """
+1. **Viral Architect (YouTube Shortsマーケター)**: 冒頭1秒の「めくり」と視聴維持率に異常にこだわる。
+2. **The Whisperer (ホラー作家)**: 日本特有の「湿り気のある恐怖」を英語の短い台本に昇華させる。
+3. **The Visionary (映像監督)**: Midjourneyを完璧に操る呪文（プロンプト）の魔術師。
+"""
+        
+        # コンテキストの準備
+        context_str = ""
+        if context:
+            context_str = f"\n【背景情報】\n概要: {context.get('overview', '')}\n恐怖ポイント: {context.get('horror_point', '')}\n"
+
         prompt = f"""
 あなたはYouTubeショート特化の「Jホラー動画制作スタジオ」の統括AIです。
+以下のテーマと背景情報に基づき、3人のエキスパートを召喚して最高品質の台本を作成してください。
+
 テーマ：「{title}」
+{context_str}
 
-### 🔴 【モードB：制作実行】
-指定されたテーマに対し、監督とマーケターの視点を取り入れたコンテンツを作成してください。
+### 👥 召喚するエキスパート
+{persona_logic}
 
-**【制作ルール】**
-- シーン数: 8〜12シーン。
-- 英語台本: Vrew貼り付け用に1文を短く区切り、US単位(Feet/Miles)を使用。
+### 🔴 制作フロー
+1. **論議**: 3人がそれぞれの視点から、このネタをどう料理すべきか1行ずつ意見を出す。
+2. **最終成果物**: 論議を踏まえ、以下のフォーマットで出力する。
 
 **【出力フォーマット】**
-議論ログは非表示にし、以下の形式で出力してください。
-
 ## 1. Title Idea
 **English:** (英語タイトル案 #Shorts 含む)
 **Japanese:** (日本語訳)
 
 ## 2. YouTube Description & Hashtags
 **English:** (英語の説明文)
-**Hashtags:** #Shorts #JHorror #UrbanLegend #Japan #ScaryStories (他3つ追加)
-**Japanese:** (日本語訳)
+**Hashtags:** #Shorts #JHorror #UrbanLegend #Japan #ScaryStories (他3つ)
 
 ## 3. Translation & Director's Notes (For Creator)
-(英文の意味と演出指示を日本語で解説)
+(英文の意味と、監督からの演出指示を日本語で解説)
 
 **Scene [1]:**
 **EN:** [English Text]
@@ -77,12 +116,10 @@ class AIGenerator:
 ...
 
 ## 4. Video Script (For Vrew - Copy & Paste)
-**【重要ルール】**
-1. 英語のナレーションテキストのみをコードブロック内に出力すること（日本語、Scene番号、前置き、記号は一切禁止）。
-2. 各Sceneの文章ごとに必ず改行すること。
+**【重要】** 英語のナレーションテキストのみをコードブロック内に出力すること。
 
 ## 5. Midjourney Prompts
-**【重要】プロンプト本文のみをコードブロックに入れてください。「Scene [X]:」の文字はコードブロックの【外】に出してください。**
+**【重要】** プロンプト本文のみをコードブロックに。Scene文字は外に出す。
 (末尾に "photorealistic, 8k, cinematic lighting, horror atmosphere, dark style, --ar 9:16 --v 6.0" を付与)
 """
         response = self.model.generate_content(prompt)
