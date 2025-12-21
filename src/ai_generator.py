@@ -1,7 +1,6 @@
 import google.generativeai as genai
 from src.config import Config
 import json
-import re
 
 class AIGenerator:
     def __init__(self):
@@ -27,58 +26,37 @@ class AIGenerator:
 現在の管理表にある既存ネタ：{json.dumps(existing_titles, ensure_ascii=False)}
 
 ### 【モードA：企画会議】
-1. **論議**: 3人がそれぞれの視点から、どのようなネタが今求められているか、あるいは既存ネタの弱点は何かを1行ずつ議論する。
+1. **論議**: 3人がそれぞれの視点から議論する。
 2. **提案**: 既存ネタとは重複しない、海外でバズりそうな日本のホラー・都市伝説・怪異のネタを5つ提案してください。
 
-**出力フォーマット:**
-1. **[テーマ名 (日/英)]**
-   - **概要:** (具体的な内容)
-   - **恐怖ポイント:** (海外視聴者が恐怖を感じる理由)
-   - **映像イメージ:** (冒頭3秒のフック)
-
-...これを5つ。
+**出力形式 (JSONのみ):**
+以下のJSONスキーマに従って、**余計な解説文を一切含まずJSONのみ**を出力してください。
+{{
+  "discussion": "3名による議論の要約",
+  "ideas": [
+    {{
+      "title": "日本語タイトル (English Title)",
+      "overview": "具体的な内容を日本語で",
+      "horror_point": "なぜ海外視聴者が怖いと感じるのか"
+    }}
+  ]
+}}
 """
-        response = self.model.generate_content(prompt)
-        text = response.text
+        response = self.model.generate_content(
+            prompt, 
+            generation_config={"response_mime_type": "application/json"}
+        )
         
-        # タイトルと関連情報を抽出
-        ideas_data = {}
-        sections = re.split(r'\n\d+\.\s*\*\*\[', text)
-        if len(sections) > 1:
-            for section in sections[1:]:
-                # タイトルの抽出
-                title_match = re.search(r'^(.*?)\]\*\*', section)
-                if title_match:
-                    title = title_match.group(1).strip()
-                    # 概要と恐怖ポイントの抽出
-                    overview = re.search(r'概要:?\s*\*\*(.*?)\*\*', section) or re.search(r'概要:?\s*(.*?)\n', section)
-                    horror_point = re.search(r'恐怖ポイント:?\s*\*\*(.*?)\*\*', section) or re.search(r'恐怖ポイント:?\s*(.*?)\n', section)
-                    
-                    ideas_data[title] = {
-                        "overview": overview.group(1).strip() if overview else "",
-                        "horror_point": horror_point.group(1).strip() if horror_point else ""
-                    }
-        
-        # フォールバック (以前の頑健なロジックをベースに辞書化)
-        if not ideas_data:
-            lines = text.split("\n")
-            current_title = None
-            for line in lines:
-                line_s = line.strip()
-                if "**[" in line_s or (re.match(r'^\d[\.\)]', line_s) and "**" in line_s):
-                    match = re.search(r'\*\*(.*?)\*\*', line_s)
-                    if match:
-                        title = match.group(1).strip("[] ")
-                        if title and not any(k in title for k in ["概要", "恐怖ポイント", "映像イメージ"]):
-                            title = re.sub(r'^\d[\.\)]\s*', '', title)
-                            current_title = title
-                            ideas_data[current_title] = {"overview": "", "horror_point": ""}
-                elif current_title and "概要" in line_s:
-                    ideas_data[current_title]["overview"] = line_s
-                elif current_title and "恐怖ポイント" in line_s:
-                    ideas_data[current_title]["horror_point"] = line_s
+        try:
+            data = json.loads(response.text)
+            ideas_data = {item["title"]: {"overview": item["overview"], "horror_point": item["horror_point"]} for item in data.get("ideas", [])}
+            full_text = f"### 👥 エキスパートによる議論\n{data.get('discussion', '')}\n\n"
+            for item in data.get("ideas", []):
+                full_text += f"#### {item['title']}\n- **概要**: {item['overview']}\n- **恐怖ポイント**: {item['horror_point']}\n\n"
+        except Exception as e:
+            return {}, f"JSON解析エラー: {e}\nRaw Response: {response.text}"
 
-        return ideas_data, text
+        return ideas_data, full_text
 
     def generate_script_and_prompts(self, title, context=None, expert_persona=None):
         """【モードB：制作実行】3人のエキスパートによる共同制作"""
@@ -105,62 +83,59 @@ class AIGenerator:
 ### 👥 召喚するエキスパート
 {persona_logic}
 
-### 🔴 制作フロー
-1. **論議**: 3人がそれぞれの視点から、このネタをどう料理すべきか1行ずつ意見を出す。
-2. **最終成果物**: 論議を踏まえ、以下のフォーマットで出力する。
-
-**【出力フォーマット】**
-## 1. Title Idea
-**English:** (英語タイトル案 #Shorts 含む)
-**Japanese:** (日本語訳)
-
-## 2. YouTube Description & Hashtags
-**English:** (英語の説明文)
-**Hashtags:** #Shorts #JHorror #UrbanLegend #Japan #ScaryStories (他3つ)
-
-## 3. Translation & Director's Notes (For Creator)
-(英文の意味と、監督からの演出指示を日本語で解説)
-
-**Scene [1]:**
-**EN:** [English Text]
-**JP:** [Japanese Translation]
-...
-
-## 4. Video Script (For Vrew - Copy & Paste)
-**【重要】** 英語のナレーションテキストのみをコードブロック内に出力すること。
-
-## 5. Midjourney Prompts
-**【重要】** プロンプト本文のみをコードブロックに。Scene文字は外に出す。
-(末尾に "photorealistic, 8k, cinematic lighting, horror atmosphere, dark style, --ar 9:16 --v 6.0" を付与)
+**出力形式 (JSONのみ):**
+以下のJSON形式で、**余計な解説文を一切含まずJSONのみ**を出力してください。
+{{
+  "editorial_notes": "エキスパートによる演出指示や制作意図の日本語解説",
+  "title_en": "English Title for #Shorts",
+  "title_jp": "日本語タイトル",
+  "description": "YouTube Description in English",
+  "hashtags": ["#Shorts", "#JHorror", ...],
+  "vrew_script": ["English line 1", "English line 2", ...],
+  "mj_prompts": [
+    {{
+      "scene": 1,
+      "prompt": "Technical prompt in English with cinematic lighting, photorealistic, 8k, etc."
+    }}
+  ]
+}}
 """
-        response = self.model.generate_content(prompt)
-        text = response.text
-
-        # 各セクションの抽出
-        # 1. Video Script (Vrew用)
-        script_block = re.search(r'## 4\. Video Script.*?```(?:python|text|)\n(.*?)```', text, re.DOTALL)
-        script_content = script_block.group(1).strip() if script_block else ""
+        response = self.model.generate_content(
+            prompt,
+            generation_config={"response_mime_type": "application/json"}
+        )
         
-        # ユーザーの要望通り「Scene 1:」などのプレフィックスを除去
-        clean_script = []
-        for line in script_content.split("\n"):
-            line = re.sub(r'^Scene\s*\d+\s*[:：]\s*', '', line).strip()
-            if line:
-                clean_script.append(line)
-        script_final = "\n".join(clean_script)
+        try:
+            data = json.loads(response.text)
+            
+            # UI表示用のテキストを構築
+            full_display_text = f"## 🎬 Production Notes\n{data.get('editorial_notes', '')}\n\n"
+            full_display_text += f"## 📝 Video Info\n- **Title (EN)**: {data.get('title_en', '')}\n- **Title (JP)**: {data.get('title_jp', '')}\n"
+            full_display_text += f"- **Hashtags**: {' '.join(data.get('hashtags', []))}\n\n"
+            full_display_text += "## 📜 Script (EN)\n" + "\n".join(data.get('vrew_script', []))
 
-        # 2. Midjourney Prompts
-        prompts = []
-        prompt_sections = re.findall(r'\*\*Scene \[\d+\]:\*\*\n```(?:text|)\n(.*?)\n```', text, re.DOTALL)
-        if not prompt_sections:
-            # 代替パターン
-            prompt_sections = re.findall(r'Scene \[\d+\]:\n```(?:text|)\n(.*?)\n```', text, re.DOTALL)
-        
-        prompts_final = "\n\n".join(prompt_sections) if prompt_sections else ""
+            # Vrew用スクリプトの整形
+            script_final = "\n".join(data.get('vrew_script', []))
 
-        return {
-            "full_text": text,
-            "vrew_script": script_final,
-            "mj_prompts": prompts_final
-        }
+            # Midjourneyプロンプトの連結
+            prompt_list = []
+            for item in data.get('mj_prompts', []):
+                p = item.get('prompt', '')
+                if p:
+                    # 共通キーワードの付与
+                    if "--ar" not in p:
+                        p += " --ar 9:16 --v 6.0"
+                    prompt_list.append(p)
+            prompts_final = "\n\n".join(prompt_list)
 
+            return {
+                "full_text": full_display_text,
+                "vrew_script": script_final,
+                "mj_prompts": prompts_final
+            }
+        except Exception as e:
+            return {
+                "full_text": f"JSON解析エラー: {e}\nRaw Response: {response.text}",
+                "vrew_script": "",
+                "mj_prompts": ""
+            }

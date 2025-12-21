@@ -205,7 +205,6 @@ if st.session_state.current_page == "Production Console":
     # Mode A: Ideation & Selection
     # ---------------------------------------------------------
     with tabs[0]:
-        st.markdown('<div class="stCard">', unsafe_allow_html=True)
         st.markdown('### 📝 Mode A: Ideation')
         st.markdown('<p style="color: #94a3b8; font-size: 0.95rem;">マーケット分析に基づき、バズるネタを5つ提案します。採用するものを1つ選んでください。</p>', unsafe_allow_html=True)
         
@@ -240,7 +239,6 @@ if st.session_state.current_page == "Production Console":
             del st.session_state["trigger_forge_anim"] # 一回限り
 
         if "new_ideas" in st.session_state:
-            st.markdown(f'<div class="{anim_class}">', unsafe_allow_html=True)
             with st.expander("📝 View AI Analysis & Discussion", expanded=False):
                 st.markdown(st.session_state.ideation_full)
             
@@ -254,15 +252,12 @@ if st.session_state.current_page == "Production Console":
                 st.session_state.auto_script = True
                 st.info(f"「{selected_idea}」を採択しました。スクリプト生成を開始します...")
                 st.rerun()
-            st.markdown('</div>', unsafe_allow_html=True)
                 
-        st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------------------------------------
     # Mode B: Scripting & Editorial
     # ---------------------------------------------------------
     with tabs[1]:
-        st.markdown('<div class="stCard">', unsafe_allow_html=True)
         st.markdown('### 🎬 Mode B: Scripting')
         
         # Mode Aからの遷移、または直接開始
@@ -327,13 +322,11 @@ if st.session_state.current_page == "Production Console":
         else:
             st.warning("Please select an idea in Mode A first.")
             
-        st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------------------------------------
     # Mode C: Asset Production
     # ---------------------------------------------------------
     with tabs[2]:
-        st.markdown('<div class="stCard">', unsafe_allow_html=True)
         st.markdown('### 📽️ Mode C: Asset Production')
         
         if st.session_state.get("production_ready"):
@@ -380,12 +373,10 @@ if st.session_state.current_page == "Production Console":
                 else:
                     st.warning("No scripted content found in queue.")
 
-        st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.current_page == "🎭 AI Persona Studio":
     st.markdown('<p style="font-size: 0.8rem; color: #64748b; margin-bottom: 2rem;">Production Hub > AI Persona Studio</p>', unsafe_allow_html=True)
     
-    st.markdown('<div class="stCard">', unsafe_allow_html=True)
     st.markdown('### 🎭 AI Persona Studio')
     st.markdown('<p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem;">エージェントの性格と専門知識をカスタマイズします。ここでの設定は、台本生成時の「論議」と「成果物」の品質に直結します。</p>', unsafe_allow_html=True)
     
@@ -435,12 +426,10 @@ elif st.session_state.current_page == "🎭 AI Persona Studio":
             st.session_state.persona_prompts = DEFAULT_PERSONAS.copy()
             st.rerun()
             
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.current_page == "⚙️ System Configuration":
     st.markdown('<p style="font-size: 0.8rem; color: #64748b; margin-bottom: 2rem;">Production Hub > System Configuration</p>', unsafe_allow_html=True)
     
-    st.markdown('<div class="stCard">', unsafe_allow_html=True)
     st.markdown('### ⚙️ System Configuration')
     st.markdown('<p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem;">システムのコア設定を管理します。APIキーの変更や外部サービスとの認証を行います。</p>', unsafe_allow_html=True)
     
@@ -481,7 +470,6 @@ elif st.session_state.current_page == "⚙️ System Configuration":
             AuthManager.save_session("https://vrew.voyagerx.com/ja/")
             st.info("Vrew auth session initiated.")
             
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # サイドバー状況の更新（スクリプトの最後で実行することでUIの応答性を確保）
 with status_placeholder:
