@@ -76,10 +76,6 @@ st.markdown("""
         visibility: visible !important;
     }
 
-    .sidebar-logo {
-        font-weight: 800; font-size: 1.8rem; color: #ffffff;
-        letter-spacing: -0.05em; padding: 1rem 0 1.5rem 1rem;
-    }
     .status-container {
         padding: 1rem; margin: 0.5rem 1rem;
         background: rgba(255, 255, 255, 0.05);
@@ -175,7 +171,7 @@ def get_persona_str():
     return f"1. **{p['marketer']}**\n2. **{p['writer']}**\n3. **{p['director']}**"
 
 with st.sidebar:
-    st.markdown('<div class="sidebar-logo">ArcSmith</div>', unsafe_allow_html=True)
+    st.logo("assets/logo.png", size="large")
     
     # ナビゲーション
     st.markdown('<div class="section-header">Navigation</div>', unsafe_allow_html=True)
