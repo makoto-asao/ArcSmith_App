@@ -149,18 +149,12 @@ st.markdown("""
 with st.sidebar:
     st.markdown('<div class="sidebar-logo">ArcSmith</div>', unsafe_allow_html=True)
     
-    # プロジェクト状況のサマリー
+    # プロジェクト状況のタイトル
     st.markdown('<div class="section-header">Current Pipeline Status</div>', unsafe_allow_html=True)
-    handler = SheetsHandler()
-    try:
-        _, row_data = handler.get_unprocessed_row()
-        if row_data:
-            st.markdown(f'<div class="status-container"><span style="color: #94a3b8; font-size: 0.8rem;">Ready for Production:</span><br/><b style="color: #f8fafc;">{row_data[0]}</b></div>', unsafe_allow_html=True)
-        else:
-            st.markdown('<div class="status-container" style="color: #10b981;">✅ All rows processed.</div>', unsafe_allow_html=True)
-    except:
-        st.error("Sheets connection failed.")
-
+    
+    # 後程、非同期っぽく更新するためのプレースホルダー
+    status_placeholder = st.empty()
+    
     st.divider()
     
     with st.expander("⚙️ System Configuration"):
@@ -309,3 +303,16 @@ with tabs[2]:
         except Exception as e:
             st.error(f"Error: {e}")
     st.markdown('</div>', unsafe_allow_html=True)
+
+# サイドバー状況の更新（スクリプトの最後で実行することでUIの応答性を確保）
+with status_placeholder:
+    try:
+        with st.spinner("Checking..."):
+            handler = SheetsHandler()
+            _, row_data = handler.get_unprocessed_row()
+            if row_data:
+                st.markdown(f'<div class="status-container"><span style="color: #94a3b8; font-size: 0.8rem;">Ready for Production:</span><br/><b style="color: #f8fafc;">{row_data[0]}</b></div>', unsafe_allow_html=True)
+            else:
+                st.markdown('<div class="status-container" style="color: #10b981;">✅ All processed.</div>', unsafe_allow_html=True)
+    except:
+        st.markdown('<div class="status-container" style="color: #ef4444;">Disconnected</div>', unsafe_allow_html=True)
