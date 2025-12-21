@@ -1,11 +1,12 @@
 import google.generativeai as genai
 from src.config import Config
 import json
+import re
 
 class AIGenerator:
     def __init__(self):
         genai.configure(api_key=Config.GEMINI_API_KEY)
-        # 2025年12月現在の最新安定版を利用
+        # 2025年12月現在の最新安定版（構造化出力対応）
         self.model = genai.GenerativeModel('gemini-2.5-flash')
 
     def generate_new_ideas(self, existing_titles, expert_persona=None):
@@ -48,7 +49,16 @@ class AIGenerator:
         )
         
         try:
-            data = json.loads(response.text)
+            # AIがマークダウンでJSONを囲って出力した場合のクリーニング
+            raw_text = response.text
+            # 正規表現で一番最初に見つかる ```json ... ``` または ``` ... ``` を抽出
+            match = re.search(r'```(?:json)?\s*(.*?)\s*```', raw_text, re.DOTALL)
+            if match:
+                clean_json = match.group(1)
+            else:
+                clean_json = raw_text.strip("` \n")
+                
+            data = json.loads(clean_json)
             ideas_data = {item["title"]: {"overview": item["overview"], "horror_point": item["horror_point"]} for item in data.get("ideas", [])}
             full_text = f"### 👥 エキスパートによる議論\n{data.get('discussion', '')}\n\n"
             for item in data.get("ideas", []):
@@ -106,7 +116,15 @@ class AIGenerator:
         )
         
         try:
-            data = json.loads(response.text)
+            # AIがマークダウンでJSONを囲って出力した場合のクリーニング
+            raw_text = response.text
+            match = re.search(r'```(?:json)?\s*(.*?)\s*```', raw_text, re.DOTALL)
+            if match:
+                clean_json = match.group(1)
+            else:
+                clean_json = raw_text.strip("` \n")
+
+            data = json.loads(clean_json)
             
             # UI表示用のテキストを構築
             full_display_text = f"## 🎬 Production Notes\n{data.get('editorial_notes', '')}\n\n"

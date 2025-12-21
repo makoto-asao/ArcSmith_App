@@ -189,6 +189,12 @@ with st.sidebar:
     # 後程、非同期っぽく更新するためのプレースホルダー
     status_placeholder = st.empty()
 
+    # デバッグ情報 (開発中のみ)
+    with st.expander("🛠️ Debug Internals", expanded=False):
+        st.write(f"Current Tab: {st.session_state.get('active_tab')}")
+        st.write(f"Selected Title: {st.session_state.get('selected_title')}")
+        st.write(f"Auto Script: {st.session_state.get('auto_script')}")
+
 # メインコンテンツエリア
 if st.session_state.current_page == "Production Console":
     # セッション状態の初期化
@@ -197,14 +203,29 @@ if st.session_state.current_page == "Production Console":
 
     st.markdown('<p style="font-size: 0.8rem; color: #64748b; margin-bottom: 2rem;">Production Hub > Automated Content Pipeline</p>', unsafe_allow_html=True)
 
-    # タブの作成と制御
-    tab_titles = ["✨ Ideation", "🖋️ Scripting", "🚀 Production"]
-    tabs = st.tabs(tab_titles)
+    # 進行状況に応じたナビゲーション (State-managed)
+    steps = ["✨ Ideation", "🖋️ Scripting", "🚀 Production"]
+    
+    # 外部からのタブ遷移指示がある場合の処理
+    if st.session_state.get("next_step"):
+        st.session_state.active_tab = st.session_state.next_step
+        del st.session_state["next_step"]
+
+    # カスタムタブバーの描画
+    cols = st.columns(len(steps))
+    for i, step in enumerate(steps):
+        is_active = (st.session_state.active_tab == i)
+        button_style = "primary" if is_active else "secondary"
+        if cols[i].button(step, use_container_width=True, type=button_style, key=f"step_btn_{i}"):
+            st.session_state.active_tab = i
+            st.rerun()
+
+    st.divider()
 
     # ---------------------------------------------------------
     # Mode A: Ideation & Selection
     # ---------------------------------------------------------
-    with tabs[0]:
+    if st.session_state.active_tab == 0:
         st.markdown('### 📝 Mode A: Ideation')
         st.markdown('<p style="color: #94a3b8; font-size: 0.95rem;">マーケット分析に基づき、バズるネタを5つ提案します。採用するものを1つ選んでください。</p>', unsafe_allow_html=True)
         
@@ -250,14 +271,14 @@ if st.session_state.current_page == "Production Console":
                 st.session_state.selected_metadata = st.session_state.all_ideas_data.get(selected_idea, {})
                 # 自動的にスクリプト生成フラグを立てて、タブを移動
                 st.session_state.auto_script = True
-                st.info(f"「{selected_idea}」を採択しました。スクリプト生成を開始します...")
+                st.session_state.active_tab = 1 # Scriptingへ移動
                 st.rerun()
                 
 
     # ---------------------------------------------------------
     # Mode B: Scripting & Editorial
     # ---------------------------------------------------------
-    with tabs[1]:
+    elif st.session_state.active_tab == 1:
         st.markdown('### 🎬 Mode B: Scripting')
         
         # Mode Aからの遷移、または直接開始
@@ -316,6 +337,7 @@ if st.session_state.current_page == "Production Console":
                         
                         del st.session_state.selected_title
                         del st.session_state.current_script
+                        st.session_state.active_tab = 2 # Productionへ移動
                         st.rerun()
                     except Exception as e:
                         st.error(f"Publish failed: {e}")
@@ -326,7 +348,7 @@ if st.session_state.current_page == "Production Console":
     # ---------------------------------------------------------
     # Mode C: Asset Production
     # ---------------------------------------------------------
-    with tabs[2]:
+    elif st.session_state.active_tab == 2:
         st.markdown('### 📽️ Mode C: Asset Production')
         
         if st.session_state.get("production_ready"):
