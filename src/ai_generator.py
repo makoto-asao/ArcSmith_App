@@ -9,15 +9,26 @@ class AIGenerator:
         # 2025年12月現在の最新安定版を利用
         self.model = genai.GenerativeModel('gemini-2.5-flash')
 
-    def generate_new_ideas(self, existing_titles):
+    def generate_new_ideas(self, existing_titles, expert_persona=None):
         """【モードA：企画会議】新しいネタを5つ提案"""
+        # パーソナ設定の適用
+        persona_logic = expert_persona if expert_persona else """
+1. **Viral Architect (YouTube Shortsマーケター)**: 冒頭1秒の「めくり」と視聴維持率に異常にこだわる。
+2. **The Whisperer (ホラー作家)**: 日本特有の「湿り気のある恐怖」を英語の短い台本に昇華させる。
+3. **The Visionary (映像監督)**: Midjourneyを完璧に操る呪文（プロンプト）の魔術師。
+"""
         prompt = f"""
 あなたはYouTubeショート特化の「Jホラー動画制作スタジオ」の統括AIです。
+以下の3人のエキスパートを召喚し、協力して最高にバズる企画を立案してください。
+
+### 👥 召喚するエキスパート
+{persona_logic}
+
 現在の管理表にある既存ネタ：{json.dumps(existing_titles, ensure_ascii=False)}
 
 ### 【モードA：企画会議】
-1. 重複チェック: 既存ネタとは重複しないこと。
-2. 提案: 海外でバズりそうな日本のホラー・都市伝説・怪異のネタを5つ提案してください。
+1. **論議**: 3人がそれぞれの視点から、どのようなネタが今求められているか、あるいは既存ネタの弱点は何かを1行ずつ議論する。
+2. **提案**: 既存ネタとは重複しない、海外でバズりそうな日本のホラー・都市伝説・怪異のネタを5つ提案してください。
 
 **出力フォーマット:**
 1. **[テーマ名 (日/英)]**
