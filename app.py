@@ -352,7 +352,23 @@ if st.session_state.current_page == "Production Console":
     # Mode B: Scripting & Editorial
     # ---------------------------------------------------------
     elif st.session_state.active_tab == 1:
-        st.markdown('### 🎬 Mode B: Scripting')
+        col_header1, col_header2 = st.columns([3, 1])
+        with col_header1:
+            st.markdown('### 🎬 Mode B: Scripting')
+        with col_header2:
+            if st.button("🔄 企画立案に戻る", use_container_width=True, help="現在の作業を破棄して、最初から企画を立て直します"):
+                # リセット対象の変数リスト
+                keys_to_reset = [
+                    "new_ideas", "all_ideas_data", "ideation_full", "trigger_forge_anim",
+                    "selected_title", "selected_metadata", "title_en", "title_jp",
+                    "description", "hashtags", "editorial_notes", "current_script",
+                    "mj_prompts_list", "auto_script"
+                ]
+                for key in keys_to_reset:
+                    if key in st.session_state:
+                        del st.session_state[key]
+                st.session_state.active_tab = 0
+                st.rerun()
         
         # Mode Aからの遷移、または直接開始
         target_title = st.session_state.get("selected_title")
