@@ -4,7 +4,9 @@ from src.ai_generator import AIGenerator
 from src.auth_manager import AuthManager
 from src.automation import MJAutomation, VrewAutomation
 from src.config import Config
+from src.draft_manager import DraftManager
 import os
+import pyperclip
 
 st.set_page_config(
     page_title="ArcSmith | Production Console",
@@ -175,9 +177,20 @@ with st.sidebar:
     
     # ナビゲーション
     st.markdown('<div class="section-header">Navigation</div>', unsafe_allow_html=True)
+    
+    # ページリスト
+    pages = ["Production Console", "📋 Draft List", "🎭 AI Persona Studio", "⚙️ System Configuration"]
+    
+    # current_pageが設定されている場合、対応するindexを取得
+    if "current_page" in st.session_state and st.session_state.current_page in pages:
+        default_index = pages.index(st.session_state.current_page)
+    else:
+        default_index = 0
+    
     st.session_state.current_page = st.radio(
         "Select Workspace",
-        ["Production Console", "🎭 AI Persona Studio", "⚙️ System Configuration"],
+        pages,
+        index=default_index,
         label_visibility="collapsed"
     )
     
@@ -194,31 +207,93 @@ with st.sidebar:
         st.write(f"Current Tab: {st.session_state.get('active_tab')}")
         st.write(f"Selected Title: {st.session_state.get('selected_title')}")
         st.write(f"Auto Script: {st.session_state.get('auto_script')}")
+    
+    # 自動保存設定
+    st.markdown('<div class="section-header">Auto-Save Settings</div>', unsafe_allow_html=True)
+    st.session_state.auto_save_enabled = st.checkbox(
+        "自動保存を有効化",
+        value=st.session_state.get("auto_save_enabled", True),
+        help="Mode Bで作業中、一定時間ごとに自動的にドラフトを保存します"
+    )
+    if st.session_state.auto_save_enabled and st.session_state.get("last_auto_save"):
+        st.caption(f"最終自動保存: {st.session_state.last_auto_save}")
 
 # メインコンテンツエリア
 if st.session_state.current_page == "Production Console":
     # セッション状態の初期化
     if "active_tab" not in st.session_state:
         st.session_state.active_tab = 0
+    
+    # 自動保存設定の初期化
+    if "auto_save_enabled" not in st.session_state:
+        st.session_state.auto_save_enabled = True  # デフォルトで有効
+    if "last_auto_save" not in st.session_state:
+        st.session_state.last_auto_save = None
+    if "auto_save_interval" not in st.session_state:
+        st.session_state.auto_save_interval = 60  # 60秒ごと
 
     st.markdown('<p style="font-size: 0.8rem; color: #64748b; margin-bottom: 2rem;">Production Hub > Automated Content Pipeline</p>', unsafe_allow_html=True)
 
-    # 進行状況に応じたナビゲーション (State-managed)
-    steps = ["✨ Ideation", "🖋️ Scripting", "🚀 Production"]
+    # 進行状況インジケーター (Streamlit Native)
+    steps = [
+        {"icon": "✨", "label": "企画立案", "key": "ideation"},
+        {"icon": "🖋️", "label": "台本作成", "key": "scripting"},
+        {"icon": "🚀", "label": "制作実行", "key": "production"}
+    ]
     
     # 外部からのタブ遷移指示がある場合の処理
     if st.session_state.get("next_step"):
         st.session_state.active_tab = st.session_state.next_step
         del st.session_state["next_step"]
 
-    # カスタムタブバーの描画
+    # プログレスバー型UIの描画（Streamlit Native）
     cols = st.columns(len(steps))
     for i, step in enumerate(steps):
-        is_active = (st.session_state.active_tab == i)
-        button_style = "primary" if is_active else "secondary"
-        if cols[i].button(step, use_container_width=True, type=button_style, key=f"step_btn_{i}"):
-            st.session_state.active_tab = i
-            st.rerun()
+        with cols[i]:
+            # ステータスの判定
+            if i < st.session_state.active_tab:
+                # 完了
+                status_color = "#0f172a"
+                icon_display = "✓"
+                label_color = "#64748b"
+            elif i == st.session_state.active_tab:
+                # 進行中
+                status_color = "#3b82f6"
+                icon_display = step["icon"]
+                label_color = "#0f172a"
+            else:
+                # 未着手
+                status_color = "#e2e8f0"
+                icon_display = step["icon"]
+                label_color = "#94a3b8"
+            
+            # ステップの描画
+            st.markdown(f"""
+            <div style="text-align: center; padding: 1rem 0;">
+                <div style="
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background: {status_color};
+                    color: white;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.5rem;
+                    margin-bottom: 0.5rem;
+                    border: 3px solid {status_color};
+                ">
+                    {icon_display}
+                </div>
+                <div style="
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: {label_color};
+                ">
+                    {step["label"]}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 
     st.divider()
 
@@ -297,25 +372,270 @@ if st.session_state.current_page == "Production Console":
                             context=st.session_state.get("selected_metadata"),
                             expert_persona=get_persona_str()
                         )
-                        st.session_state.current_script = res["vrew_script"]
-                        st.session_state.current_prompt = res["mj_prompts"]
-                        st.session_state.script_full = res["full_text"]
+                        # 新しい構造でセッションに保存
+                        st.session_state.title_en = res.get("title_en", "")
+                        st.session_state.title_jp = res.get("title_jp", "")
+                        st.session_state.description = res.get("description", "")
+                        st.session_state.hashtags = res.get("hashtags", "")
+                        st.session_state.editorial_notes = res.get("editorial_notes", "")
+                        st.session_state.current_script = res.get("vrew_script", "")
+                        st.session_state.mj_prompts_list = res.get("mj_prompts_list", [])
                         st.session_state.auto_script = False # 実行完了
                     except Exception as e:
                         st.error(f"Error: {e}")
+        
+        # 自動保存機能
+        if st.session_state.get("auto_save_enabled") and "current_script" in st.session_state:
+            import time
+            current_time = time.time()
+            last_save = st.session_state.get("last_auto_save_time", 0)
+            
+            # 60秒経過していたら自動保存
+            if current_time - last_save > st.session_state.get("auto_save_interval", 60):
+                try:
+                    draft_mgr = DraftManager()
+                    
+                    # 自動保存用のデータを準備
+                    draft_data = {
+                        "selected_title": st.session_state.get("selected_title", ""),
+                        "selected_metadata": st.session_state.get("selected_metadata", {}),
+                        "title_en": st.session_state.get("title_en", ""),
+                        "title_jp": st.session_state.get("title_jp", ""),
+                        "description": st.session_state.get("description", ""),
+                        "hashtags": st.session_state.get("hashtags", ""),
+                        "editorial_notes": st.session_state.get("editorial_notes", ""),
+                        "vrew_script": st.session_state.get("current_script", ""),
+                        "mj_prompts_list": st.session_state.get("mj_prompts_list", [])
+                    }
+                    
+                    # 自動保存用のドラフト名
+                    from datetime import datetime
+                    auto_draft_name = f"[自動保存] {st.session_state.get('selected_title', '無題')} - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+                    
+                    # 保存
+                    draft_mgr.save_draft(
+                        data=draft_data,
+                        draft_name=auto_draft_name,
+                        tags=["自動保存"],
+                        memo="自動保存されたドラフトです"
+                    )
+                    
+                    st.session_state.last_auto_save_time = current_time
+                    st.session_state.last_auto_save = datetime.now().strftime('%H:%M:%S')
+                    
+                except Exception as e:
+                    # 自動保存のエラーは静かに処理
+                    import logging
+                    logging.error(f"Auto-save error: {e}")
+
+        # JavaScriptベースのコピーボタンを表示するヘルパー関数
+        def display_with_copy(label, content, height=100, key_suffix="", help_text=""):
+            import streamlit.components.v1 as components
+            
+            # テキストエリアを表示
+            displayed_content = st.text_area(
+                label, 
+                value=content, 
+                height=height, 
+                key=f"area_{key_suffix}",
+                label_visibility="visible"
+            )
+            
+            # 日本語説明がある場合は表示
+            if help_text:
+                st.caption(help_text)
+            
+            # JavaScriptによるコピー機能（リロードが発生しない）
+            # content内のバックスラッシュやバッククォートをエスケープ
+            escaped_content = content.replace('\\', '\\\\').replace('`', '\\`').replace('$', '\\$')
+            
+            html_code = f"""
+                <button id="copy-btn-{key_suffix}" style="
+                    width: 100%;
+                    background-color: #0e1117;
+                    color: white;
+                    border: 1px solid rgba(250, 250, 250, 0.2);
+                    padding: 0.6rem;
+                    border-radius: 0.5rem;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                    transition: all 0.2s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                ">📋 {label}をコピー</button>
+                
+                <script>
+                    document.getElementById('copy-btn-{key_suffix}').onclick = function() {{
+                        const text = `{escaped_content}`;
+                        navigator.clipboard.writeText(text).then(() => {{
+                            const btn = document.getElementById('copy-btn-{key_suffix}');
+                            const oldText = btn.innerHTML;
+                            btn.innerHTML = '✅ コピー完了！';
+                            btn.style.backgroundColor = '#1e293b';
+                            btn.style.borderColor = '#3b82f6';
+                            setTimeout(() => {{
+                                btn.innerHTML = oldText;
+                                btn.style.backgroundColor = '#0e1117';
+                                btn.style.borderColor = 'rgba(250, 250, 250, 0.2)';
+                            }}, 2000);
+                        }}).catch(err => {{
+                            alert('コピーに失敗しました: ' + err);
+                        }});
+                    }};
+                </script>
+            """
+            components.html(html_code, height=55)
+            
+            return displayed_content
 
         if "current_script" in st.session_state:
+            # エディトリアルノート
             with st.expander("📝 View AI Production Notes", expanded=False):
-                st.markdown(st.session_state.script_full)
+                st.markdown(st.session_state.get("editorial_notes", ""))
             
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("**📜 Vrew Script (Editable)**")
-                st.session_state.current_script = st.text_area("ScriptArea", st.session_state.current_script, height=400, label_visibility="collapsed")
-            with col2:
-                st.markdown("**🎨 MJ Prompts (Editable)**")
-                st.session_state.current_prompt = st.text_area("PromptArea", st.session_state.current_prompt, height=400, label_visibility="collapsed")
+            st.markdown("---")
             
+            # タイトルセクション
+            st.markdown("### 📝 タイトル")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画のタイトルを英語と日本語で編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.title_en = display_with_copy(
+                "Title (EN)", 
+                st.session_state.get("title_en", ""), 
+                height=80,
+                key_suffix="title_en",
+                help_text="英語タイトル - YouTubeのタイトルとして使用されます"
+            )
+            
+            st.session_state.title_jp = display_with_copy(
+                "Title (JP)", 
+                st.session_state.get("title_jp", ""), 
+                height=80,
+                key_suffix="title_jp",
+                help_text="日本語タイトル - サムネイルや補足情報として使用されます"
+            )
+            
+            st.markdown("---")
+            
+            # 説明文セクション
+            st.markdown("### 📄 YouTube Description")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画の説明文を編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.description = display_with_copy(
+                "Description", 
+                st.session_state.get("description", ""), 
+                height=150,
+                key_suffix="description",
+                help_text="動画説明文 - YouTubeの概要欄に表示されます"
+            )
+            
+            st.markdown("---")
+            
+            # ハッシュタグセクション
+            st.markdown("### #️⃣ Hashtags")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画に付けるハッシュタグを編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.hashtags = display_with_copy(
+                "Hashtags", 
+                st.session_state.get("hashtags", ""), 
+                height=60,
+                key_suffix="hashtags",
+                help_text="ハッシュタグ - 動画の発見性を高めるために使用されます"
+            )
+            
+            st.markdown("---")
+            
+            # 台本セクション
+            st.markdown("### 📜 Vrew Script")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">Vrewで使用する台本を編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.current_script = display_with_copy(
+                "Script (EN)", 
+                st.session_state.get("current_script", ""), 
+                height=300,
+                key_suffix="vrew_script",
+                help_text="英語台本 - Vrewにインポートして音声生成に使用されます"
+            )
+            
+            st.markdown("---")
+            
+            # Midjourneyプロンプトセクション（シーン別）
+            st.markdown("### 🎨 Midjourney Prompts")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">各シーンのMidjourneyプロンプトを編集できます。</p>', unsafe_allow_html=True)
+            
+            mj_list = st.session_state.get("mj_prompts_list", [])
+            if mj_list:
+                for i, prompt in enumerate(mj_list, 1):
+                    updated_prompt = display_with_copy(
+                        f"Scene {i}", 
+                        prompt, 
+                        height=120,
+                        key_suffix=f"mj_scene_{i}",
+                        help_text=f"シーン{i}の画像生成プロンプト - Midjourneyで使用されます"
+                    )
+                    # 更新された値をリストに反映
+                    mj_list[i-1] = updated_prompt
+                st.session_state.mj_prompts_list = mj_list
+            else:
+                st.info("Midjourneyプロンプトが生成されていません。")
+            
+            st.markdown("---")
+            
+            # ドラフト保存ボタン
+            st.markdown("### 💾 Save Draft")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">現在の作業内容をドラフトとして保存できます。</p>', unsafe_allow_html=True)
+            
+            col_save1, col_save2 = st.columns([2, 1])
+            with col_save1:
+                draft_name_input = st.text_input("ドラフト名", placeholder="例: ホラー台本 v1", key="draft_name_input")
+            with col_save2:
+                draft_tags_input = st.text_input("タグ (カンマ区切り)", placeholder="例: ホラー,実験的", key="draft_tags_input")
+            
+            draft_memo_input = st.text_area("メモ (オプション)", placeholder="このドラフトについてのメモ...", height=80, key="draft_memo_input")
+            
+            if st.button("💾 Save as Draft", key="save_draft_btn", use_container_width=True):
+                if not draft_name_input:
+                    st.warning("ドラフト名を入力してください。")
+                else:
+                    try:
+                        draft_mgr = DraftManager()
+                        
+                        # 保存するデータを準備
+                        draft_data = {
+                            "selected_title": st.session_state.get("selected_title", ""),
+                            "selected_metadata": st.session_state.get("selected_metadata", {}),
+                            "title_en": st.session_state.get("title_en", ""),
+                            "title_jp": st.session_state.get("title_jp", ""),
+                            "description": st.session_state.get("description", ""),
+                            "hashtags": st.session_state.get("hashtags", ""),
+                            "editorial_notes": st.session_state.get("editorial_notes", ""),
+                            "vrew_script": st.session_state.get("current_script", ""),
+                            "mj_prompts_list": st.session_state.get("mj_prompts_list", [])
+                        }
+                        
+                        # タグを処理
+                        tags = [tag.strip() for tag in draft_tags_input.split(",") if tag.strip()] if draft_tags_input else []
+                        
+                        # 保存
+                        draft_id = draft_mgr.save_draft(
+                            data=draft_data,
+                            draft_name=draft_name_input,
+                            tags=tags,
+                            memo=draft_memo_input
+                        )
+                        
+                        st.success(f"✅ ドラフト '{draft_name_input}' を保存しました！")
+                        st.toast("💾 ドラフトを保存しました", icon="✅")
+                        
+                    except Exception as e:
+                        st.error(f"保存エラー: {e}")
+            
+            st.markdown("---")
+            
+            # 公開ボタン
             if st.button("Finalize & Publish to Production", key="publish_to_prod", use_container_width=True):
                 with st.spinner("Publishing to Sheets..."):
                     try:
@@ -325,14 +645,17 @@ if st.session_state.current_page == "Production Console":
                         # 今追加した行のインデックスを取得（最後尾）
                         all_titles = handler.worksheet.col_values(1)
                         new_row_idx = len(all_titles)
-                        handler.update_row_data(new_row_idx, st.session_state.current_script, st.session_state.current_prompt)
+                        
+                        # プロンプトを連結して保存
+                        combined_prompts = "\n\n".join(st.session_state.mj_prompts_list)
+                        handler.update_row_data(new_row_idx, st.session_state.current_script, combined_prompts)
                         
                         st.success("Published! Moving to Production...")
                         # データをクリアしてMode Cへ移動
                         st.session_state.production_ready = True
                         st.session_state.prod_title = target_title
                         st.session_state.prod_script = st.session_state.current_script
-                        st.session_state.prod_prompt = st.session_state.current_prompt
+                        st.session_state.prod_prompt = combined_prompts
                         st.session_state.prod_row = new_row_idx
                         
                         del st.session_state.selected_title
@@ -341,6 +664,7 @@ if st.session_state.current_page == "Production Console":
                         st.rerun()
                     except Exception as e:
                         st.error(f"Publish failed: {e}")
+
         else:
             st.warning("Please select an idea in Mode A first.")
             
@@ -394,6 +718,113 @@ if st.session_state.current_page == "Production Console":
                     st.rerun()
                 else:
                     st.warning("No scripted content found in queue.")
+
+
+elif st.session_state.current_page == "📋 Draft List":
+    st.markdown('<p style="font-size: 0.8rem; color: #64748b; margin-bottom: 2rem;">Production Hub > Draft List</p>', unsafe_allow_html=True)
+    
+    st.markdown('### 📋 Draft List')
+    st.markdown('<p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem;">保存済みのドラフトを一覧表示・管理します。</p>', unsafe_allow_html=True)
+    
+    try:
+        draft_mgr = DraftManager()
+        
+        # ページネーション用のセッション状態を初期化
+        if "draft_list_page_size" not in st.session_state:
+            st.session_state.draft_list_page_size = 20  # 一覧ページでは20件ずつ
+        if "draft_list_offset" not in st.session_state:
+            st.session_state.draft_list_offset = 0
+        
+        # 総数を取得
+        total_count = draft_mgr.count_drafts()
+        
+        # ページネーションでドラフトを取得
+        drafts = draft_mgr.list_drafts(
+            limit=st.session_state.draft_list_page_size,
+            offset=st.session_state.draft_list_offset
+        )
+        
+        if total_count > 0:
+            # ヘッダー情報
+            showing_from = st.session_state.draft_list_offset + 1
+            showing_to = min(st.session_state.draft_list_offset + len(drafts), total_count)
+            st.markdown(f"**{showing_from}-{showing_to}件を表示中 (全{total_count}件)**")
+            st.markdown("---")
+            
+            for draft in drafts:
+                with st.container():
+                    col1, col2, col3 = st.columns([4, 1, 1])
+                    
+                    with col1:
+                        st.markdown(f"### {draft['draft_name']}")
+                        if draft.get('title_en'):
+                            st.markdown(f"**EN:** {draft['title_en']}")
+                        if draft.get('title_jp'):
+                            st.markdown(f"**JP:** {draft['title_jp']}")
+                        if draft.get('tags'):
+                            tags_display = " ".join([f"`{tag}`" for tag in draft['tags']])
+                            st.markdown(f"**Tags:** {tags_display}")
+                        st.caption(f"📅 保存日時: {draft['created_at'][:19].replace('T', ' ')}")
+                        if draft.get('memo'):
+                            with st.expander("📝 メモを表示"):
+                                st.write(draft['memo'])
+                    
+                    with col2:
+                        if st.button("🔄 復元", key=f"restore_{draft['id']}", use_container_width=True):
+                            loaded = draft_mgr.load_draft(draft['id'])
+                            if loaded:
+                                data = loaded.get('data', {})
+                                # セッション状態を更新
+                                st.session_state.selected_title = data.get('selected_title', '')
+                                st.session_state.selected_metadata = data.get('selected_metadata', {})
+                                st.session_state.title_en = data.get('title_en', '')
+                                st.session_state.title_jp = data.get('title_jp', '')
+                                st.session_state.description = data.get('description', '')
+                                st.session_state.hashtags = data.get('hashtags', '')
+                                st.session_state.editorial_notes = data.get('editorial_notes', '')
+                                st.session_state.current_script = data.get('vrew_script', '')
+                                st.session_state.mj_prompts_list = data.get('mj_prompts_list', [])
+                                
+                                # ページ遷移の準備
+                                st.session_state.active_tab = 1  # Mode Bへ
+                                st.session_state.current_page = "Production Console"
+                                
+                                st.toast(f"✅ ドラフト '{draft['draft_name']}' を復元しました", icon="🔄")
+                                st.rerun()
+                    
+                    with col3:
+                        if st.button("🗑️ 削除", key=f"delete_{draft['id']}", use_container_width=True):
+                            if draft_mgr.delete_draft(draft['id']):
+                                st.toast(f"🗑️ ドラフト '{draft['draft_name']}' を削除しました", icon="✅")
+                                st.rerun()
+                    
+                    st.markdown("---")
+            
+            # ページネーションコントロール
+            col_prev, col_info, col_next = st.columns([1, 2, 1])
+            
+            with col_prev:
+                if st.session_state.draft_list_offset > 0:
+                    if st.button("⬅️ 前のページ", key="prev_page_list", use_container_width=True):
+                        st.session_state.draft_list_offset = max(0, st.session_state.draft_list_offset - st.session_state.draft_list_page_size)
+                        st.rerun()
+            
+            with col_info:
+                current_page = (st.session_state.draft_list_offset // st.session_state.draft_list_page_size) + 1
+                total_pages = (total_count + st.session_state.draft_list_page_size - 1) // st.session_state.draft_list_page_size
+                st.markdown(f"<p style='text-align: center; font-weight: 600;'>ページ {current_page} / {total_pages}</p>", unsafe_allow_html=True)
+            
+            with col_next:
+                if showing_to < total_count:
+                    if st.button("次のページ ➡️", key="next_page_list", use_container_width=True):
+                        st.session_state.draft_list_offset += st.session_state.draft_list_page_size
+                        st.rerun()
+        else:
+            st.info("📭 保存済みドラフトはありません。")
+            st.markdown("Production Console > Mode Bで台本を作成し、ドラフトとして保存してください。")
+            
+    except Exception as e:
+        st.error(f"ドラフトの読み込みエラー: {e}")
 
 
 elif st.session_state.current_page == "🎭 AI Persona Studio":
