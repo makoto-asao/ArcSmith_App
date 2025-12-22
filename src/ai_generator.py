@@ -116,7 +116,7 @@ class AIGenerator:
 - ハッシュタグは含めない（別フィールド）。
 
 **Vrew Script:**
-- 台本の行数: 8-12行程度（YouTube Shorts 60秒に最適）
+- 台本の行数: 10-20行程度（YouTube Shorts 60秒に収まる範囲で柔軟に）
 - 各行: 10-15単語程度
 
 **Midjourney Prompts:**
@@ -128,16 +128,17 @@ class AIGenerator:
 
 ✅ **良い例（このように生成してください）:**
 [
-  "Beyond this sign, the law fades.",
-  "A path swallowed by whispers.",
-  "Ancient barks echo through the mist.",
-  "What secrets did they leave behind?"
+  "Beyond this sign the law fades",
+  "A path swallowed by whispers",
+  "Ancient barks echo through the mist",
+  "What secrets did they leave behind"
 ]
 
 ❌ **悪い例（絶対に避けてください）:**
 [
+  "Beyond this sign, the law fades.",  // 句点(.)は含めない
   "[Eerie dog barks begin softly, increasing in intensity]",  // 音響効果の指示は含めない
-  "\\"Beyond this sign... the law fades.\\"",  // 引用符は使わない
+  "\"Beyond this sign... the law fades.\"",  // 引用符は使わない
   "SFX: Thunder rumbles",  // 効果音の指示は含めない
 ]
 
@@ -146,6 +147,7 @@ class AIGenerator:
 2. 引用符 `"` は使わない（そのまま読み上げられてしまう）
 3. 1行は短く、リズミカルに（10-15単語程度）
 4. 音響効果や演出指示は `editorial_notes` に記載する
+5. 各行に句点（.）は絶対に含めない（Vrewでの意図しない分割を防ぐため、文末のピリオドを削除してください）
 
 ### 🎨 重要：Midjourneyプロンプトの対応規則
 **mj_prompts**は台本の各行（シーン）に1対1で対応する必要があります：
