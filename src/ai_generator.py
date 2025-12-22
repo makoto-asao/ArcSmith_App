@@ -73,7 +73,7 @@ class AIGenerator:
         
         # パーソナ設定の適用
         persona_logic = expert_persona if expert_persona else """
-1. **Viral Architect (YouTube Shortsマーケター)**: 冒頭1秒の「めくり」と視聴維持率に異常にこだわる。
+1. **Viral Architect (YouTube Shortsマーケター)**: 視聴維持率とクリック率（CTR）の鬼。冒頭1秒の「フック」と、スマホ表示で途切れない魅力的なタイトルの作成に命をかける。
 2. **The Whisperer (ホラー作家)**: 日本特有の「湿り気のある恐怖」を英語の短い台本に昇華させる。
 3. **The Visionary (映像監督)**: Midjourneyを完璧に操る呪文（プロンプト）の魔術師。
 """
@@ -96,25 +96,24 @@ class AIGenerator:
 ### 🎯 制作プロセス
 以下の手順で3人のエキスパートが協力して制作を進めてください：
 
-1. **Viral Architect**がタイトルとフックを提案
-2. **The Whisperer**が台本とストーリー展開を執筆
-3. **The Visionary**が各シーンの映像プロンプトを設計
-4. 3人で最終調整と品質チェック
+1. **Viral Architect**が、バズるための「タイトル案」を3つ提案し、その中から最もモバイル表示で引きが強く、クリック率（CTR）が高いものを1つ選定する。
+2. **The Whisperer**が、選定されたタイトルに合わせて台本とストーリー展開を執筆。
+3. **The Visionary**が、各シーンの映像プロンプトを設計。
+4. 3人で最終調整と品質チェック。
 
 ### 📏 品質基準と文字数制約
 
 **Title (EN):**
-- 文字数: **100文字以下**（必須）
-- YouTube Shortsで目を引く、インパクトのあるタイトル
-- SEOキーワードを含める（例: Japanese Horror, Creepy, Haunted, Urban Legend）
-- 例: "The Cursed Forest Where Dogs Never Stop Barking | Japanese Urban Legend #Shorts"
+- 文字数: **30〜50文字（推奨）**、最大100文字。
+- **重要**: スマートフォンで表示した際にタイトルが途切れないよう、最も重要なフック（キーワードやパワーワード）を最初の40文字以内に配置してください。
+- パワーワード（Shocking, Secret, Warning, Never before seen...）を効果的に使用。
+- 例: "The Secret of the Cursed Village #Shorts"
 
 **Description:**
 - 文字数: **300文字以上**（必須）
-- 動画の内容を詳しく説明
-- SEOキーワードを自然に含める
-- 視聴者の興味を引く文章
-- ハッシュタグは含めない（別フィールド）
+- **重要**: 最初の150文字（1〜2行）が「もっと見る」を押さずに見える範囲です。ここに動画の核心と、視聴者がコメントしたくなるような問いかけを含めてください。
+- SEOキーワード（Japanese Horror, Urban Legend, Creepy, Supernatural）を自然に含める。
+- ハッシュタグは含めない（別フィールド）。
 
 **Vrew Script:**
 - 台本の行数: 8-12行程度（YouTube Shorts 60秒に最適）
@@ -152,36 +151,18 @@ class AIGenerator:
 **mj_prompts**は台本の各行（シーン）に1対1で対応する必要があります：
 
 **規則:**
-1. **台本の行数 = Midjourneyプロンプトの数**（必ず一致させる）
+1. **台本の行数 = Midjourneyプロンプト의 数**（必ず一致させる）
 2. 各プロンプトは対応する台本の行の視覚的表現を記述
 3. シーン番号は1から順番に付ける
 4. 技術的な指定を含める（cinematic lighting, photorealistic, 8k, 35mm lens, grainy film, etc.）
 
-**例:**
-台本が4行の場合、mj_promptsも4つ必要：
-```
-vrew_script: [
-  "Beyond this sign, the law fades.",      // シーン1
-  "A path swallowed by whispers.",         // シーン2
-  "Ancient barks echo through the mist.",  // シーン3
-  "What secrets did they leave behind?"    // シーン4
-]
-
-mj_prompts: [
-  {{ "scene": 1, "prompt": "Weathered warning sign at forest entrance, ominous atmosphere, cinematic lighting, photorealistic, 8k, 35mm lens" }},
-  {{ "scene": 2, "prompt": "Dark overgrown forest path disappearing into mist, eerie silence, cinematic lighting, photorealistic, 8k" }},
-  {{ "scene": 3, "prompt": "Misty Japanese forest with ancient trees, mysterious shadows, cinematic lighting, photorealistic, 8k, grainy film" }},
-  {{ "scene": 4, "prompt": "Abandoned shrine deep in forest, decaying torii gate, haunting atmosphere, cinematic lighting, photorealistic, 8k" }}
-]
-```
-
 **出力形式 (JSONのみ):**
 以下のJSON形式で、**余計な解説文を一切含まずJSONのみ**を出力してください。
 {{
-  "editorial_notes": "3人のエキスパートによる協議内容、演出指示、制作意図の日本語解説（音響効果の指示もここに含める）",
-  "title_en": "English Title for #Shorts (100文字以下)",
+  "editorial_notes": "3人のエキスパートによる協議内容（タイトル案3つの提示と選定理由を含む）、演出指示、制作意図の日本語解説",
+  "title_en": "English Title for #Shorts (30〜50文字推奨)",
   "title_jp": "日本語タイトル",
-  "description": "YouTube Description in English (300文字以上)",
+  "description": "YouTube Description in English (300文字以上、冒頭150文字に核心を集約)",
   "hashtags": ["#Shorts", "#JHorror", "#UrbanLegend", ...],
   "vrew_script": ["English line 1", "English line 2", ...],
   "mj_prompts": [
@@ -240,8 +221,8 @@ mj_prompts: [
                 "title_jp": "",
                 "description": "",
                 "hashtags": "",
-                "editorial_notes": f"JSON解析エラー: {e}\nRaw Response: {response.text}",
+                "editorial_notes": f"JSON解析エラー: {e}\\nRaw Response: {response.text}",
                 "vrew_script": "",
                 "mj_prompts_list": [],
-                "full_text": f"JSON解析エラー: {e}\nRaw Response: {response.text}"
+                "full_text": f"JSON解析エラー: {e}\\nRaw Response: {response.text}"
             }

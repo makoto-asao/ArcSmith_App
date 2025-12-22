@@ -211,12 +211,10 @@ with st.sidebar:
     # 自動保存設定
     st.markdown('<div class="section-header">Auto-Save Settings</div>', unsafe_allow_html=True)
     st.session_state.auto_save_enabled = st.checkbox(
-        "自動保存を有効化",
+        "生成時に自動保存",
         value=st.session_state.get("auto_save_enabled", True),
-        help="Mode Bで作業中、一定時間ごとに自動的にドラフトを保存します"
+        help="Mode Bで台本生成が完了した際、自動的にドラフトとして保存します"
     )
-    if st.session_state.auto_save_enabled and st.session_state.get("last_auto_save"):
-        st.caption(f"最終自動保存: {st.session_state.last_auto_save}")
 
 # メインコンテンツエリア
 if st.session_state.current_page == "Production Console":
@@ -381,52 +379,39 @@ if st.session_state.current_page == "Production Console":
                         st.session_state.current_script = res.get("vrew_script", "")
                         st.session_state.mj_prompts_list = res.get("mj_prompts_list", [])
                         st.session_state.auto_script = False # 実行完了
+
+                        # 【新規追加】生成完了直後の自動保存
+                        if st.session_state.get("auto_save_enabled"):
+                            try:
+                                draft_mgr = DraftManager()
+                                draft_data = {
+                                    "selected_title": st.session_state.get("selected_title", ""),
+                                    "selected_metadata": st.session_state.get("selected_metadata", {}),
+                                    "title_en": st.session_state.get("title_en", ""),
+                                    "title_jp": st.session_state.get("title_jp", ""),
+                                    "description": st.session_state.get("description", ""),
+                                    "hashtags": st.session_state.get("hashtags", ""),
+                                    "editorial_notes": st.session_state.get("editorial_notes", ""),
+                                    "vrew_script": st.session_state.get("current_script", ""),
+                                    "mj_prompts_list": st.session_state.get("mj_prompts_list", [])
+                                }
+                                from datetime import datetime
+                                auto_draft_name = f"[自動保存] {st.session_state.get('selected_title', '無題')} - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+                                draft_mgr.save_draft(
+                                    data=draft_data,
+                                    draft_name=auto_draft_name,
+                                    tags=["自動保存"],
+                                    memo="生成完了時に自動保存されました"
+                                )
+                                st.toast("💾 生成完了にともない自動保存しました", icon="✅")
+                            except Exception as e:
+                                import logging
+                                logging.error(f"Post-generation auto-save error: {e}")
                     except Exception as e:
                         st.error(f"Error: {e}")
         
-        # 自動保存機能
-        if st.session_state.get("auto_save_enabled") and "current_script" in st.session_state:
-            import time
-            current_time = time.time()
-            last_save = st.session_state.get("last_auto_save_time", 0)
-            
-            # 60秒経過していたら自動保存
-            if current_time - last_save > st.session_state.get("auto_save_interval", 60):
-                try:
-                    draft_mgr = DraftManager()
-                    
-                    # 自動保存用のデータを準備
-                    draft_data = {
-                        "selected_title": st.session_state.get("selected_title", ""),
-                        "selected_metadata": st.session_state.get("selected_metadata", {}),
-                        "title_en": st.session_state.get("title_en", ""),
-                        "title_jp": st.session_state.get("title_jp", ""),
-                        "description": st.session_state.get("description", ""),
-                        "hashtags": st.session_state.get("hashtags", ""),
-                        "editorial_notes": st.session_state.get("editorial_notes", ""),
-                        "vrew_script": st.session_state.get("current_script", ""),
-                        "mj_prompts_list": st.session_state.get("mj_prompts_list", [])
-                    }
-                    
-                    # 自動保存用のドラフト名
-                    from datetime import datetime
-                    auto_draft_name = f"[自動保存] {st.session_state.get('selected_title', '無題')} - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-                    
-                    # 保存
-                    draft_mgr.save_draft(
-                        data=draft_data,
-                        draft_name=auto_draft_name,
-                        tags=["自動保存"],
-                        memo="自動保存されたドラフトです"
-                    )
-                    
-                    st.session_state.last_auto_save_time = current_time
-                    st.session_state.last_auto_save = datetime.now().strftime('%H:%M:%S')
-                    
-                except Exception as e:
-                    # 自動保存のエラーは静かに処理
-                    import logging
-                    logging.error(f"Auto-save error: {e}")
+        # 自動保存機能 (定期実行は廃止)
+        pass
 
         # JavaScriptベースのコピーボタンを表示するヘルパー関数
         def display_with_copy(label, content, height=100, key_suffix="", help_text=""):
