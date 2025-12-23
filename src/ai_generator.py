@@ -75,7 +75,7 @@ class AIGenerator:
         persona_logic = expert_persona if expert_persona else """
 1. **Viral Architect (YouTube Shortsマーケター)**: 視聴維持率とクリック率（CTR）の鬼。冒頭1秒の「フック」と、スマホ表示で途切れない魅力的なタイトルの作成に命をかける。
 2. **The Whisperer (ホラー作家)**: 日本特有の「湿り気のある恐怖」を英語の短い台本に昇華させる。
-3. **The Visionary (映像監督)**: Midjourneyを完璧に操る呪文（プロンプト）の魔術師。
+3. **The Visionary (映像監督)**: Midjourneyを完璧に操る呪文（プロンプト）の魔術師。単なる映像化ではなく、台本の物語性（ストーリーアーク）や象徴的なキーワードを視覚的なメタファーに変換する。
 """
         
         # コンテキストの準備
@@ -153,10 +153,11 @@ class AIGenerator:
 **mj_prompts**は台本の各行（シーン）に1対1で対応する必要があります：
 
 **規則:**
-1. **台本の行数 = Midjourneyプロンプト의 数**（必ず一致させる）
-2. 各プロンプトは対応する台本の行の視覚的表現を記述
-3. シーン番号は1から順番に付ける
-4. 技術的な指定を含める（cinematic lighting, photorealistic, 8k, 35mm lens, grainy film, etc.）
+1. **台本の行数 = Midjourneyプロンプトの数**（必ず一致させる）
+2. 各プロンプトは、対応する台本の行（ナレーション）の内容、感情、および**そこに登場する重要なキーワード（名詞）**を確実に視覚化すること
+3. **文脈の維持**: 全シーンを通じてキャラクター、場所の雰囲気、光源設定の一貫性を保ちつつ、物語の進行（恐怖の増大など）を視覚的に表現すること
+4. シーン番号は1から順番に付ける
+5. 技術的な指定を含める（cinematography, photorealistic, 8k, 35mm lens, grainy film, high contrast, moody lighting, etc.）
 
 **出力形式 (JSONのみ):**
 以下のJSON形式で、**余計な解説文を一切含まずJSONのみ**を出力してください。
