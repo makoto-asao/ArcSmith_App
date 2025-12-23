@@ -1,0 +1,43 @@
+{
+  "id": "1dfafa17-3139-4082-9001-d6d391a53b26",
+  "draft_name": "[自動保存] 産女 (Ubume - The Ghostly Mother) - 2025-12-23 21:57",
+  "created_at": "2025-12-23T21:57:18.012846",
+  "updated_at": "2025-12-23T21:57:18.012846",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "産女 (Ubume - The Ghostly Mother)",
+    "selected_metadata": {
+      "overview": "出産で命を落とした女性の怨霊。夜道で現れ、通行人に「この子を抱いてください」と赤ちゃんを預けようとする。しかし、抱き上げた瞬間、その赤ちゃんは恐ろしく重い石に変わり、捨てようにも捨てることはできない。母親の深い悲しみと執念が化け物と化した怪異。",
+      "horror_point": "母性という神聖なものが恐怖の対象となるギャップ。抱き上げたものが恐ろしく変貌する視覚的・体感的な恐怖と、その呪縛から逃れられない絶望感は、海外視聴者にも深く刺さる。音響で赤子の泣き声と怨嗟の声が重なる演出が効果的。"
+    },
+    "title_en": "The Mother's Curse: A Stone Baby You Can't Escape",
+    "title_jp": "母の呪い：逃れられない石の赤子",
+    "description": "Ever walked a dark path alone? Be warned: Some requests come with an eternal price. This chilling Japanese urban legend, Ubume, tells of a ghostly mother seeking solace, but her gift is a horrifying curse you can never escape. What would you do if a spectral mother asked you to hold her baby? Delve into the ancient horror of Ubume, a ghost born from profound maternal grief and obsession. Witnesses claim she appears on desolate roads, offering her child – a child that transforms into an impossibly heavy stone, binding you to her sorrow forever. This isn't just a spooky tale; it's a visceral exploration of motherhood twisted into pure terror. The weight of the stone, the inescapable bond, the haunting wails – this Japanese ghost story will challenge your perception of love and fear. Don't miss this deep dive into the supernatural. What's the heaviest burden you've ever carried?",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #JapaneseFolklore #Ubume #GhostStory #HorrorCommunity #Scary",
+    "editorial_notes": "Viral Architectが3つのタイトル案「WARNING: Never Hold a Baby on a Dark Japanese Road #JHorror」、「The Mother's Curse: A Stone Baby You Can't Escape #Ubume」、「JAPANESE URBAN LEGEND: The Terrifying Ghost of Ubume's Baby」を提案。モバイルでの視認性とクリック率を最優先し、動画の核心的な恐怖「石の赤子」と「逃れられない呪い」を明確に打ち出す「The Mother's Curse: A Stone Baby You Can't Escape」を選定しました。The Whispererは、選定されたタイトルに基づき、日本特有の「湿り気のある心理的恐怖」を短いフレーズで表現。特に、母性という聖なるものが呪いとなるギャップと、抱き上げたものが変質し、そこから逃れられない絶望感を際立たせました。The Visionaryは、各シーンの視覚効果を最大限に引き出すため、霧、湿った着物、石化する赤子の質感など、細かいディテールまでMidjourneyプロンプトに落とし込み、映画的なライティングと高精細な映像を指示しました。音響面では、赤子の弱い泣き声から始まり、石化した際の重苦しい音、そして怨嗟に満ちた母親の慟哭へと変化させることで、視聴者の聴覚にも訴えかける演出を意図しています。",
+    "vrew_script": "A lonely road under moonless sky\nWhispers follow every step\nA figure emerges from the fog\nHer kimono worn and soaking wet\nShe clutches something close\nA soft cry pierces the night\nPlease hold my child just for a moment\nHer eyes beg a silent plea\nThe weight feels strangely warm\nThen a chill spreads through your arms\nThe tiny form grows heavy cold\nA rough stone replacing soft skin\nYou try to drop it but cannot\nIt clings with a spectral grip\nHer mournful wail now fills the void\nHe is mine forever more\nThe mother's curse never ends\nA stone heart beating in your arms",
+    "mj_prompts_list": [
+      "A lonely, overgrown path through a dark, mist-shrouded forest at night, moonless sky, faint light from a distant, unseen source, deep shadows, ominous atmosphere, cinematic lighting, photorealistic, 8k, 35mm lens, grainy film, --ar 9:16",
+      "Close-up of a person's back, walking down the desolate path, trees looming, feeling of being watched, subtle swirling mist around ankles, shallow depth of field, cinematic lighting, photorealistic, 8k, 35mm lens, grainy film, --ar 9:16",
+      "A ghostly figure, barely visible, stepping out from dense fog on the path, a faint glow around her, long dark hair, silhouette against the mist, suspenseful, cinematic lighting, photorealistic, 8k, 35mm lens, grainy film, --ar 9:16",
+      "Medium shot of the ghostly woman, her tattered, soaking wet kimono clinging to her, water dripping, haunted expression, pale skin, sorrowful eyes, low key lighting, photorealistic, 8k, 50mm lens, gritty texture, --ar 9:16",
+      "Close-up on the woman's arms, holding an unseen bundle tightly wrapped in a dark cloth, her fingers skeletal, a sense of protectiveness and desperation, dark shadows, cinematic lighting, photorealistic, 8k, 85mm lens, shallow depth of field, --ar 9:16",
+      "Extreme close-up on the cloth bundle, a tiny, pale hand peeking out, almost translucent, a tear falling onto it from above (implied), haunting and fragile, cinematic lighting, photorealistic, 8k, macro lens, subtle glow, --ar 9:16",
+      "POV shot looking up at the ghostly woman's face, her mouth slightly open, pleading expression, hand reaching out with the bundle towards the viewer, desperate, sorrowful, cinematic lighting, photorealistic, 8k, 35mm lens, wide angle, --ar 9:16",
+      "Close-up on the woman's eyes, filled with profound sadness and a hint of desperation, reflecting a faint, unseen light, tear trails, intense and unsettling, cinematic lighting, photorealistic, 8k, 100mm lens, soft focus around edges, --ar 9:16",
+      "POV shot looking down at a pair of arms, now holding the wrapped bundle, the cloth feels slightly damp, a sense of immediate responsibility and warmth, eerie, low angle, cinematic lighting, photorealistic, 8k, 35mm lens, slight tilt, --ar 9:16",
+      "Close-up on the hands holding the bundle, a subtle ripple in the air around it, a growing chill emanating, fingers tensing, foreboding shift, cinematic lighting, photorealistic, 8k, 50mm lens, slightly desaturated colors, --ar 9:16",
+      "Extreme close-up of the bundle in the arms, the cloth slowly tearing away, revealing something hard and dark underneath, the tiny hand from before now appears stony, eerie transformation, cinematic lighting, photorealistic, 8k, macro lens, sharp focus on transformation, --ar 9:16",
+      "Close-up on the arms struggling to hold a grotesque, rough stone figure, vaguely humanoid baby shape, the skin now visibly a dark, heavy rock, impossible weight suggested, horror, cinematic lighting, photorealistic, 8k, 35mm lens, wide aperture, --ar 9:16",
+      "Shot from above, showing the person's hands straining, muscles tensed, trying to let go of the stone baby, but it's stuck, fingers locked onto it, a feeling of utter helplessness, cinematic lighting, photorealistic, 8k, 24mm lens, high angle, --ar 9:16",
+      "Close-up on the stone baby, now appearing to be fused with the person's hands, spectral chains or vines appearing to bind it, impossible to separate, despair, cinematic lighting, photorealistic, 8k, 85mm lens, dark and heavy texture, --ar 9:16",
+      "The ghostly woman's face, now contorted in a mournful, agonizing wail, mouth open in a silent scream, tears streaming down, a blend of immense grief and spectral fury, cinematic lighting, photorealistic, 8k, 50mm lens, dramatic shadows, --ar 9:16",
+      "Close-up on the woman's lips, forming the words \"He is mine forever more\", her eyes intense and possessive, a chilling smile, dark and unsettling, cinematic lighting, photorealistic, 8k, 100mm lens, sharp focus, --ar 9:16",
+      "The person's horrified face, wide eyes staring at the stone baby, tears blurring vision, realization of eternal burden, a deep sense of despair and entrapment, cinematic lighting, photorealistic, 8k, 35mm lens, shallow depth of field on face, --ar 9:16",
+      "Final shot: POV looking down at the heavy stone baby in the arms, now seemingly part of the viewer, the dark, desolate road stretching infinitely ahead, no escape, a single tear dropping onto the stone, extreme despair, cinematic lighting, photorealistic, 8k, 24mm lens, wide shot, grainy film, --ar 9:16"
+    ]
+  }
+}

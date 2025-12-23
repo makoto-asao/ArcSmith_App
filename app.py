@@ -172,6 +172,23 @@ def get_persona_str():
     p = st.session_state.persona_prompts
     return f"1. **{p['marketer']}**\n2. **{p['writer']}**\n3. **{p['director']}**"
 
+# --- Navigation Controller (Runs before UI) ---
+# 1. ユーザーによる直接操作（ウィジェット更新）をセッション状態に同期
+if "main_nav_radio" in st.session_state:
+    st.session_state.current_page = st.session_state.main_nav_radio
+
+# 2. プログラムによる強制遷移（保留中のリクエスト）を処理
+if "page_to_redirect" in st.session_state:
+    target_page = st.session_state.page_to_redirect
+    st.session_state.current_page = target_page
+    # ウィジェットの状態も強制的に上書きすることで、次回描画時に確実に反映させる
+    st.session_state["main_nav_radio"] = target_page
+    del st.session_state.page_to_redirect
+
+if "tab_to_redirect" in st.session_state:
+    st.session_state.active_tab = st.session_state.tab_to_redirect
+    del st.session_state.tab_to_redirect
+
 with st.sidebar:
     st.logo("assets/logo.png", size="large")
     
@@ -191,6 +208,7 @@ with st.sidebar:
         "Select Workspace",
         pages,
         index=default_index,
+        key="main_nav_radio",
         label_visibility="collapsed"
     )
     
@@ -641,11 +659,21 @@ if st.session_state.current_page == "Production Console":
                 with st.spinner("Publishing to Sheets..."):
                     try:
                         handler = SheetsHandler()
-                        # A列に新しい行として追加し、同時にB,C列を書き込む
-                        handler.append_new_titles([target_title])
-                        # 今追加した行のインデックスを取得（最後尾）
-                        all_titles = handler.worksheet.col_values(1)
-                        new_row_idx = len(all_titles)
+                        
+                        # 重複チェック: A列（タイトル）をすべて取得
+                        existing_titles = handler.get_all_titles()
+                        
+                        # 既にある場合は、新規追加（append）せずに、その行のインデックスを取得
+                        if target_title in existing_titles:
+                            # 1-indexed (Header is 1, data starts from 2)
+                            new_row_idx = existing_titles.index(target_title) + 2
+                            st.info(f"Existing title found at row {new_row_idx}. Updating existing record.")
+                        else:
+                            # A列に新しい行として追加し、同時にB,C列を書き込む
+                            handler.append_new_titles([target_title])
+                            # 今追加した行のインデックスを取得（最後尾）
+                            all_titles_after = handler.worksheet.col_values(1)
+                            new_row_idx = len(all_titles_after)
                         
                         # プロンプトを連結して保存
                         combined_prompts = "\n\n".join(st.session_state.mj_prompts_list)
@@ -659,12 +687,22 @@ if st.session_state.current_page == "Production Console":
                         st.session_state.prod_prompt = combined_prompts
                         st.session_state.prod_row = new_row_idx
                         
-                        del st.session_state.selected_title
-                        del st.session_state.current_script
-                        st.session_state.active_tab = 2 # Productionへ移動
-                        st.rerun()
+                        # セッション状態のリセット
+                        if "selected_title" in st.session_state:
+                            del st.session_state.selected_title
+                        if "current_script" in st.session_state:
+                            del st.session_state.current_script
+                        
+                        # ナビゲーション指示
+                        st.session_state.tab_to_redirect = 2 # Productionへ移動
+                        st.session_state.page_to_redirect = "Production Console"
+                        
                     except Exception as e:
                         st.error(f"Publish failed: {e}")
+                        st.stop() # ここで停止して表示を維持
+
+                # st.rerun() は try/except の外で行う (RerunException回避のため)
+                st.rerun()
 
         else:
             st.warning("Please select an idea in Mode A first.")
@@ -786,9 +824,9 @@ elif st.session_state.current_page == "📋 Draft List":
                                 st.session_state.current_script = data.get('vrew_script', '')
                                 st.session_state.mj_prompts_list = data.get('mj_prompts_list', [])
                                 
-                                # ページ遷移の準備
-                                st.session_state.active_tab = 1  # Mode Bへ
-                                st.session_state.current_page = "Production Console"
+                                # ページ遷移の指示
+                                st.session_state.tab_to_redirect = 1  # Mode Bへ
+                                st.session_state.page_to_redirect = "Production Console"
                                 
                                 st.toast(f"✅ ドラフト '{draft['draft_name']}' を復元しました", icon="🔄")
                                 st.rerun()
