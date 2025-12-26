@@ -86,21 +86,7 @@ class MJAutomation:
             print(f"Midjourney Download Error: {e}")
         return None
 
-    def generate_and_download_images(self, prompt, download_dir="assets/images"):
-        """一連の生成・ダウンロード処理を実行（旧API互換用）"""
-        with sync_playwright() as p:
-            browser, context = AuthManager.get_context(p, headless=self.headless)
-            page = context.new_page()
-            page.goto(self.url)
-            try:
-                self.input_prompt(page, prompt)
-                time.sleep(70) # 生成待機
-                return self.download_latest_image(page, download_dir)
-            except Exception as e:
-                print(f"Midjourney Error: {e}")
-            finally:
-                browser.close()
-        return None
+
 
 class VrewAutomation:
     def __init__(self, headless=False):
@@ -156,17 +142,4 @@ class VrewAutomation:
             print(f"Vrew Automation Error: Detailed Step Failure - {e}")
             raise e
 
-    def create_video_project(self, script):
-        """一連のビデオプロジェクト作成処理を実行（旧API互換用）"""
-        with sync_playwright() as p:
-            browser, context = AuthManager.get_context(p, headless=self.headless)
-            page = context.new_page()
-            page.goto(self.url)
-            try:
-                self.paste_script(page, script)
-                # ユーザーが確認できるように少し待つ
-                time.sleep(5)
-            except Exception as e:
-                print(f"Vrew sequence failed: {e}")
-            finally:
-                browser.close()
+

@@ -17,142 +17,17 @@ st.set_page_config(
 )
 
 # ArcSmith Editorial Production Console - Premium CSS
-st.markdown("""
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap');
 
-    /* --- Core Layout & Typography --- */
-    html, body, [data-testid="stAppViewContainer"] {
-        font-family: 'Inter', sans-serif;
-        background-color: #ffffff;
-        color: #0f172a;
-        line-height: 1.6;
-    }
+# ArcSmith Editorial Production Console - Premium CSS
+def load_css(file_name):
+    with open(file_name, "r", encoding="utf-8") as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-    /* --- Application Header --- */
-    [data-testid="stHeader"] {
-        background-color: rgba(255, 255, 255, 0.9) !important;
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid #e2e8f0;
-        height: 3.5rem !important;
-    }
-    [data-testid="stHeader"] svg { fill: #0f172a !important; }
-    [data-testid="stHeader"] button { background: transparent !important; color: #0f172a !important; }
+try:
+    load_css("assets/style.css")
+except FileNotFoundError:
+    st.warning("CSS file not found. Styles may not be applied.")
 
-    /* --- Sidebar Console --- */
-    [data-testid="stSidebar"] {
-        background-color: #0f172a !important;
-        border-right: 1px solid #1e293b;
-    }
-    
-    /* Text Color in Dark Sidebar */
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p, 
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] b,
-    [data-testid="stSidebar"] div[data-testid="stCaptionContainer"],
-    [data-testid="stSidebar"] .section-header {
-        color: #f8fafc !important;
-    }
-
-    /* Sidebar Controls (Collapse/Expand) - Visibility Failsafe */
-    [data-testid="stSidebarCollapseButton"] button {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        border-radius: 8px !important;
-        transition: all 0.3s ease;
-    }
-    [data-testid="stSidebarCollapseButton"] button:hover {
-        background-color: rgba(255, 255, 255, 0.2) !important;
-        border-color: #ffffff !important;
-    }
-
-    /* Responsive Icon Color Toggle (White on Blue / Black on White) */
-    [data-testid="stSidebarCollapseButton"] button * {
-        color: #ffffff !important;
-        fill: #ffffff !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    [data-testid="collapsedControl"] button * {
-        color: #0f172a !important;
-        fill: #0f172a !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-
-    .status-container {
-        padding: 1rem; margin: 0.5rem 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* --- Content Components --- */
-    .stCard {
-        background: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 16px !important;
-        padding: 2rem !important;
-        margin-bottom: 1.5rem !important;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
-    }
-
-    /* Modern Tabs */
-    .stTabs [data-baseweb="tab-list"] { gap: 12px; padding: 0; margin-bottom: 2rem; }
-    .stTabs [data-baseweb="tab"] {
-        height: 44px; border-radius: 10px; font-weight: 600;
-        background-color: #f1f5f9; color: #64748b;
-        padding: 0 24px; transition: all 0.2s;
-    }
-    .stTabs [aria-selected="true"] {
-        background-color: #0f172a !important; color: #ffffff !important;
-        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
-    }
-
-    /* Professional Buttons */
-    .stButton>button {
-        border-radius: 10px; font-weight: 700; padding: 0.7rem 1.5rem;
-        border: 2px solid #0f172a; background: #0f172a; color: #ffffff;
-        transition: all 0.2s;
-    }
-    .stButton>button:hover {
-        background: #334155; border-color: #334155;
-        color: #ffffff; transform: translateY(-2px);
-    }
-
-    /* High-Legibility Input Fields */
-    .stTextArea textarea, .stTextInput input {
-        background-color: #f8fafc !important;
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 10px !important;
-        font-family: 'JetBrains Mono', monospace !important;
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-    }
-    .stTextArea textarea:focus, .stTextInput input:focus {
-        border-color: #0f172a !important; box-shadow: 0 0 0 1px #0f172a !important;
-    }
-
-    /* Section Typography */
-    .section-header {
-        font-size: 0.75rem; font-weight: 800; color: #64748b;
-        text-transform: uppercase; letter-spacing: 0.15rem; margin-bottom: 0.6rem;
-    }
-    h3 { font-weight: 800 !important; letter-spacing: -0.02em; }
-    strong { color: #1e40af; }
-    
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-
-    /* Forging Glow Animation */
-    @keyframes forge-glow {
-        0% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0); transform: translateY(0); }
-        50% { box-shadow: 0 0 30px 10px rgba(15, 23, 42, 0.15); transform: translateY(-5px); }
-        100% { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); transform: translateY(0); }
-    }
-    .forge-animation {
-        animation: forge-glow 1.5s ease-out forwards;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 # サイドバー：ナビゲーションと設定
 # デフォルトプロンプトの設定 (初回のみ)
