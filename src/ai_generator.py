@@ -69,7 +69,7 @@ class AIGenerator:
 
         return ideas_data, full_text
 
-    def generate_script_and_prompts(self, title, context=None, expert_persona=None):
+    def generate_script_and_prompts(self, title, context=None, expert_persona=None, video_mode="Shorts"):
         """【モードB：制作実行】3人のエキスパートによる共同制作"""
         
         # パーソナ設定の適用
@@ -79,6 +79,52 @@ class AIGenerator:
 3. **The Visionary (映像監督)**: Midjourneyを完璧に操る呪文（プロンプト）の魔術師。単なる映像化ではなく、台本の物語性（ストーリーアーク）や象徴的なキーワードを視覚的なメタファーに変換する。
 """
         
+        # ビデオモードに応じた制約の設定
+        if video_mode == "Long-form":
+            length_constraints = """
+**Title (EN):**
+- 文字数: **50〜80文字（推奨）**、最大100文字。
+- 視聴者の好奇心を刺激しつつ、内容が伝わる魅力的なタイトル。
+- パワーワード（Shocking, Secret, Warning, Never before seen...）を効果的に使用。
+- **注意**: #Shorts は含めないでください。
+
+**Description:**
+- 文字数: **500文字以上**（推奨）
+- 冒頭150文字に動画の内容を凝縮し、詳細な背景情報や視聴者への問いかけを含める。
+- SEOキーワード（Japanese Horror, Urban Legend, Creepy, Supernatural）を自然に含める。
+
+**Vrew Script:**
+- 目標時間: **3分〜5分**
+- 台本の行数（シーン数）: **無制限**（30〜60行程度を目安に、ストーリーが完結するまで展開してください）
+- 各行: **10〜20単語程度**
+
+**Midjourney Prompts:**
+- 台本の各行に1対1で対応。
+"""
+            hashtags_instruction = '["#JapaneseHorror", "#UrbanLegend", "#ScaryStories", ...]'
+        else:  # Shorts
+            length_constraints = """
+**Title (EN):**
+- 文字数: **30〜50文字（推奨）**、最大100文字。
+- **重要**: スマートフォンで表示した際にタイトルが途切れないよう、最も重要なフック（キーワードやパワーワード）を最初の40文字以内に配置してください。
+- パワーワード（Shocking, Secret, Warning, Never before seen...）を効果的に使用。
+- 例: "The Secret of the Cursed Village #Shorts"
+
+**Description:**
+- 文字数: **300文字以上**（必須）
+- **重要**: 最初の150文字（1〜2行）が「もっと見る」を押さずに見える範囲です。ここに動画の核心と、視聴者がコメントしたくなるような問いかけを含めてください。
+- SEOキーワード（Japanese Horror, Urban Legend, Creepy, Supernatural）を自然に含める。
+- ハッシュタグは含めない（別フィールド）。
+
+**Vrew Script:**
+- 台本の行数: 10-20行程度（YouTube Shorts 60秒に収まる範囲で柔軟に）
+- 各行: 10-15単語程度
+
+**Midjourney Prompts:**
+- 台本の各行に1対1で対応。
+"""
+            hashtags_instruction = '["#Shorts", "#JHorror", "#UrbanLegend", ...]'
+
         # コンテキストの準備
         context_str = ""
         if context:
@@ -102,7 +148,8 @@ class AIGenerator:
                 context_str += "※ AIはこれらユーザーの指示を「絶対的なルール」として最優先に反映し、その上で専門知識を活かして補完してください。\n"
 
         prompt = f"""
-あなたはYouTubeショート特化の「Jホラー動画制作スタジオ」の統括AIです。
+あなたはYouTube動画制作特化の「Jホラー動画制作スタジオ」の統括AIです。
+現在は「**{video_mode}**」モードで制作を行っています。
 以下のテーマと背景情報に基づき、3人のエキスパートを召喚して最高品質の台本を作成してください。
 
 テーマ：「{title}」
@@ -114,32 +161,13 @@ class AIGenerator:
 ### 🎯 制作プロセス
 以下の手順で3人のエキスパートが協力して制作を進めてください：
 
-1. **Viral Architect**が、バズるための「タイトル案」を3つ提案し、その中から最もモバイル表示で引きが強く、クリック率（CTR）が高いものを1つ選定する。
+1. **Viral Architect**が、バズるための「タイトル案」を3つ提案し、その中から最も引きが強く、クリック率（CTR）が高いものを1つ選定する。
 2. **The Whisperer**が、選定されたタイトルに合わせて台本とストーリー展開を執筆。
 3. **The Visionary**が、各シーンの映像プロンプトを設計。
 4. 3人で最終調整と品質チェック。
 
-### 📏 品質基準と文字数制約
-
-**Title (EN):**
-- 文字数: **30〜50文字（推奨）**、最大100文字。
-- **重要**: スマートフォンで表示した際にタイトルが途切れないよう、最も重要なフック（キーワードやパワーワード）を最初の40文字以内に配置してください。
-- パワーワード（Shocking, Secret, Warning, Never before seen...）を効果的に使用。
-- 例: "The Secret of the Cursed Village #Shorts"
-
-**Description:**
-- 文字数: **300文字以上**（必須）
-- **重要**: 最初の150文字（1〜2行）が「もっと見る」を押さずに見える範囲です。ここに動画の核心と、視聴者がコメントしたくなるような問いかけを含めてください。
-- SEOキーワード（Japanese Horror, Urban Legend, Creepy, Supernatural）を自然に含める。
-- ハッシュタグは含めない（別フィールド）。
-
-**Vrew Script:**
-- 台本の行数: 10-20行程度（YouTube Shorts 60秒に収まる範囲で柔軟に）
-- 各行: 10-15単語程度
-
-**Midjourney Prompts:**
-- 台本の各行に1対1で対応
-- 技術的な指定を含める
+### 📏 品質基準と制約（{video_mode}モード）
+{length_constraints}
 
 ### 🎬 重要：Vrew台本のフォーマット規則
 **vrew_script**は音声合成ソフトウェアVrewで直接読み上げられます。以下の規則を厳守してください：
@@ -163,7 +191,7 @@ class AIGenerator:
 **規則:**
 1. 各行は純粋なナレーション文のみ（音響効果の指示 `[...]` や `SFX:` は含めない）
 2. 引用符 `"` は使わない（そのまま読み上げられてしまう）
-3. 1行は短く、リズミカルに（10-15単語程度）
+3. 1行は短く、リズミカルに（{video_mode}モードの単語数制約に従う）
 4. 音響効果や演出指示は `editorial_notes` に記載する
 5. 各行に句点（.）は絶対に含めない（Vrewでの意図しない分割を防ぐため、文末のピリオドを削除してください）
 
@@ -181,10 +209,10 @@ class AIGenerator:
 以下のJSON形式で、**余計な解説文を一切含まずJSONのみ**を出力してください。
 {{
   "editorial_notes": "3人のエキスパートによる協議内容（タイトル案3つの提示と選定理由を含む）、演出指示、制作意図の日本語解説",
-  "title_en": "English Title for #Shorts (30〜50文字推奨)",
+  "title_en": "English Title",
   "title_jp": "日本語タイトル",
-  "description": "YouTube Description in English (300文字以上、冒頭150文字に核心を集約)",
-  "hashtags": ["#Shorts", "#JHorror", "#UrbanLegend", ...],
+  "description": "YouTube Description in English",
+  "hashtags": {hashtags_instruction},
   "vrew_script": ["English line 1", "English line 2", ...],
   "mj_prompts": [
     {{

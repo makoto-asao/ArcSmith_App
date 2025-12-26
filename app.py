@@ -321,10 +321,23 @@ if st.session_state.current_page == "Production Console":
     # Mode A: Ideation & Selection
     # ---------------------------------------------------------
     if st.session_state.active_tab == 0:
-        st.markdown('### 📝 Mode A: Ideation')
+        st.markdown('### 📝 Mode A: Ideation (v2)')
         st.markdown('<p style="color: #94a3b8; font-size: 0.95rem;">マーケット分析に基づき、バズるネタを5つ提案します。採用するものを1つ選んでください。</p>', unsafe_allow_html=True)
         
-        if st.button("Generate New Concepts", use_container_width=True):
+        # --- 1. 動画モード ---
+        st.markdown("#### ⚙️ 基本設定")
+        video_mode = st.radio(
+            "🎥 動画モード",
+            ["Shorts", "Long-form"],
+            horizontal=True,
+            help="Shorts: 60秒以内 / Long-form: 3〜5分",
+            key="v_mode_radio"
+        )
+        st.session_state.video_mode = video_mode
+        st.markdown("---")
+
+        # --- 2. AIにアイディアを出させるボタン ---
+        if st.button("✨ AIにアイディアを5つ出させる", use_container_width=True, type="primary", help="現在のトレンドから、海外でバズりそうなネタを5つ提案します"):
             status_box = st.status("🎬 企画会議を開始します...", expanded=True)
             with status_box:
                 try:
@@ -336,7 +349,11 @@ if st.session_state.current_page == "Production Console":
                     ai = AIGenerator(model_name=st.session_state.selected_model)
                     
                     st.write("💡 新しい概念を鍛造（フォージ）中...")
-                    ideas_data, full_response = ai.generate_new_ideas(existing, expert_persona=get_persona_str())
+                    persona_str = get_persona_str()
+                    # 詳細設定を考慮して企画案を出す（タイトル等が入力されていればそれを反映）
+                    # Note: ctx_title, ctx_hook, ctx_outline are defined later, so they will be empty here if not manually set.
+                    # This is fine as the AI generation logic doesn't strictly depend on them for initial ideas.
+                    ideas_data, full_response = ai.generate_new_ideas(existing, expert_persona=persona_str)
                     
                     st.session_state.new_ideas = list(ideas_data.keys())
                     st.session_state.all_ideas_data = ideas_data
@@ -344,46 +361,67 @@ if st.session_state.current_page == "Production Console":
                     st.session_state.trigger_forge_anim = True
                     
                     status_box.update(label="✅ 戦略立案が完了しました", state="complete", expanded=False)
-                    st.toast("✨ 5つの新しい概念が鍛造されました", icon="🔥")
+                    st.toast("✨ アイディアが生成されました", icon="🔥")
                 except Exception as e:
                     status_box.update(label="❌ エラーが発生しました", state="error")
                     st.error(f"Error: {e}")
 
-        # アニメーション用のクラス適用（セッション状態で制御）
-        anim_class = "forge-animation" if st.session_state.get("trigger_forge_anim") else ""
-        if st.session_state.get("trigger_forge_anim"):
-            del st.session_state["trigger_forge_anim"] # 一回限り
+        st.markdown("---")
 
+        # --- 3. 台本の詳細設定（各種入力欄） ---
+        st.session_state.user_expanded = st.toggle("🎬 台本の詳細設定を編集 (任意)", value=True if st.session_state.get("user_script_context") else False)
+        if st.session_state.user_expanded:
+            st.info("特定のテーマやフックを指定したい場合は、以下の欄に入力してください。")
+            ctx_title = st.text_input("タイトル (Title)", placeholder="例: 深夜の鏡の儀式", help="具体的なテーマがあれば記載してください", key="ctx_t")
+            ctx_hook = st.text_area("フック (Hook)", placeholder="例: 鏡に映った自分が...", help="冒頭で惹きつける要素", key="ctx_h")
+            ctx_outline = st.text_area("アウトライン (Outline)", placeholder="例: 1.不審な噂 2.実行 3.異変", help="具体的なストーリー構成", key="ctx_o")
+        else:
+            ctx_title, ctx_hook, ctx_outline = "", "", ""
+
+        st.markdown("---")
+        
+        # --- 4. 制作を開始するセクション ---
+        st.markdown("#### 🚀 制作を開始する")
+        
+        # --- 5. 自作テーマで直接作成開始ボタン ---
+        valid_manual = ctx_title or ctx_hook or ctx_outline
+        if st.button("🚀 自作テーマで直接作成開始", use_container_width=True, type="primary", help="詳細設定に入力した内容を使用して、即座に台本作成（Mode B）へ進みます"):
+            if not valid_manual:
+                st.warning("⚠️ 自作テーマで進むには、上の「タイトル」や「フック」などを入力してください。")
+            else:
+                st.session_state.selected_title = ctx_title if ctx_title else "Unnamed Project"
+                st.session_state.selected_metadata = {"overview": ctx_outline, "horror_point": "Manual Entry"}
+                st.session_state.user_script_context = {
+                    "title": ctx_title,
+                    "hook": ctx_hook,
+                    "outline": ctx_outline
+                }
+                st.session_state.auto_script = True
+                st.session_state.active_tab = 1
+                st.rerun()
+
+        # --- 生成結果エリア (AI提案経由の場合のみ表示) ---
         if "new_ideas" in st.session_state:
-            with st.expander("📝 View AI Analysis & Discussion", expanded=False):
+            st.markdown("---")
+            with st.expander("📝 AIの分析・議論内容を表示", expanded=False):
                 st.markdown(st.session_state.ideation_full)
             
-            st.markdown('<p style="font-size: 0.9rem; font-weight: 700;">制作に進めるネタを1つ選択してください：</p>', unsafe_allow_html=True)
-            selected_idea = st.radio("Select Idea", st.session_state.new_ideas, label_visibility="collapsed")
+            st.markdown("#### 🎯 採用するアイディアを選択")
+            selected_idea = st.radio("生成されたアイディア", st.session_state.new_ideas, label_visibility="collapsed", key="idea_selector")
             
-            # --- New Input Fields for Script Context ---
-            st.markdown("---")
-            st.markdown("#### 🎬 台本の詳細設定 (任意)")
-            st.info("アイディアに基づいて、より具体的な要望がある場合は入力してください。")
-            
-            user_title = st.text_input("タイトル (Title)", placeholder="例: 深夜の鏡の儀式", help="動画のメインテーマや仮のタイトルを指定します")
-            user_hook = st.text_area("フック (Hook)", placeholder="例: 鏡に映った自分が瞬きをしない...", help="冒頭で視聴者を惹きつけるための要素を指定します")
-            user_outline = st.text_area("アウトライン (Outline)", placeholder="例: 1.儀式の説明、2.異変の発生、3.衝撃の結末...", help="動画の構成や具体的な展開を指定します")
-
-            if st.button("この情報で台本を作成する", use_container_width=True, type="primary"):
+            if st.button("🚀 選択したアイディアで台本作成へ進む", use_container_width=True, type="primary"):
                 st.session_state.selected_title = selected_idea
                 st.session_state.selected_metadata = st.session_state.all_ideas_data.get(selected_idea, {})
                 
-                # ユーザー入力を保存
+                # 入力された詳細設定も考慮
                 st.session_state.user_script_context = {
-                    "title": user_title,
-                    "hook": user_hook,
-                    "outline": user_outline
+                    "title": ctx_title,
+                    "hook": ctx_hook,
+                    "outline": ctx_outline
                 }
                 
-                # 自動的にスクリプト生成フラグを立てて、タブを移動
                 st.session_state.auto_script = True
-                st.session_state.active_tab = 1 # Scriptingへ移動
+                st.session_state.active_tab = 1
                 st.rerun()
                 
 
@@ -396,12 +434,12 @@ if st.session_state.current_page == "Production Console":
             st.markdown('### 🎬 Mode B: Scripting')
         with col_header2:
             if st.button("🔄 企画立案に戻る", use_container_width=True, help="現在の作業を破棄して、最初から企画を立て直します"):
-                # リセット対象の変数リスト
+                # リセット対象前
                 keys_to_reset = [
                     "new_ideas", "all_ideas_data", "ideation_full", "trigger_forge_anim",
                     "selected_title", "selected_metadata", "title_en", "title_jp",
                     "description", "hashtags", "editorial_notes", "current_script",
-                    "script_jp_list", "mj_prompts_list", "auto_script"
+                    "script_jp_list", "mj_prompts_list", "auto_script", "video_mode"
                 ]
                 for key in keys_to_reset:
                     if key in st.session_state:
@@ -411,9 +449,11 @@ if st.session_state.current_page == "Production Console":
         
         # Mode Aからの遷移、または直接開始
         target_title = st.session_state.get("selected_title")
+        current_mode = st.session_state.get("video_mode", "Shorts")
         
         if target_title:
-            st.success(f"Selected: **{target_title}**")
+            mode_label = "🎬 Shorts" if current_mode == "Shorts" else "📽️ Long-form"
+            st.success(f"Selected: **{target_title}** ({mode_label})")
             
             # 自動生成フラグがある場合のみ実行
             if st.session_state.get("auto_script"):
@@ -429,7 +469,8 @@ if st.session_state.current_page == "Production Console":
                         res = ai.generate_script_and_prompts(
                             target_title, 
                             context=full_context,
-                            expert_persona=get_persona_str()
+                            expert_persona=get_persona_str(),
+                            video_mode=current_mode
                         )
                         # 新しい構造でセッションに保存
                         st.session_state.title_en = res.get("title_en", "")
