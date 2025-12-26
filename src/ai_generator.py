@@ -82,7 +82,24 @@ class AIGenerator:
         # コンテキストの準備
         context_str = ""
         if context:
-            context_str = f"\n【背景情報】\n概要: {context.get('overview', '')}\n恐怖ポイント: {context.get('horror_point', '')}\n"
+            overview = context.get('overview', '')
+            horror_point = context.get('horror_point', '')
+            context_str = f"\n【背景情報】\n概要: {overview}\n恐怖ポイント: {horror_point}\n"
+            
+            # --- ユーザーからの追加詳細 (Title, Hook, Outline) ---
+            user_title = context.get('title')
+            user_hook = context.get('hook')
+            user_outline = context.get('outline')
+            
+            if user_title or user_hook or user_outline:
+                context_str += "\n【⚠️ ユーザーからの最優先指示（監督指示）】\n"
+                if user_title:
+                    context_str += f"- 製作したいタイトル/テーマ: {user_title}\n"
+                if user_hook:
+                    context_str += f"- 必須のフック（冒頭の引き）: {user_hook}\n"
+                if user_outline:
+                    context_str += f"- 指定のアウトライン（構成）: {user_outline}\n"
+                context_str += "※ AIはこれらユーザーの指示を「絶対的なルール」として最優先に反映し、その上で専門知識を活かして補完してください。\n"
 
         prompt = f"""
 あなたはYouTubeショート特化の「Jホラー動画制作スタジオ」の統括AIです。

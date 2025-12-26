@@ -361,9 +361,26 @@ if st.session_state.current_page == "Production Console":
             st.markdown('<p style="font-size: 0.9rem; font-weight: 700;">制作に進めるネタを1つ選択してください：</p>', unsafe_allow_html=True)
             selected_idea = st.radio("Select Idea", st.session_state.new_ideas, label_visibility="collapsed")
             
-            if st.button("Adopt this Idea & Proceed to Scripting", use_container_width=True):
+            # --- New Input Fields for Script Context ---
+            st.markdown("---")
+            st.markdown("#### 🎬 台本の詳細設定 (任意)")
+            st.info("アイディアに基づいて、より具体的な要望がある場合は入力してください。")
+            
+            user_title = st.text_input("タイトル (Title)", placeholder="例: 深夜の鏡の儀式", help="動画のメインテーマや仮のタイトルを指定します")
+            user_hook = st.text_area("フック (Hook)", placeholder="例: 鏡に映った自分が瞬きをしない...", help="冒頭で視聴者を惹きつけるための要素を指定します")
+            user_outline = st.text_area("アウトライン (Outline)", placeholder="例: 1.儀式の説明、2.異変の発生、3.衝撃の結末...", help="動画の構成や具体的な展開を指定します")
+
+            if st.button("この情報で台本を作成する", use_container_width=True, type="primary"):
                 st.session_state.selected_title = selected_idea
                 st.session_state.selected_metadata = st.session_state.all_ideas_data.get(selected_idea, {})
+                
+                # ユーザー入力を保存
+                st.session_state.user_script_context = {
+                    "title": user_title,
+                    "hook": user_hook,
+                    "outline": user_outline
+                }
+                
                 # 自動的にスクリプト生成フラグを立てて、タブを移動
                 st.session_state.auto_script = True
                 st.session_state.active_tab = 1 # Scriptingへ移動
@@ -403,9 +420,15 @@ if st.session_state.current_page == "Production Console":
                 with st.status("🖋️ 台本作成中...", expanded=True):
                     try:
                         ai = AIGenerator(model_name=st.session_state.selected_model)
+                        
+                        # アイディアのメタデータとユーザー入力のコンテキストを統合
+                        full_context = st.session_state.get("selected_metadata", {}).copy()
+                        if "user_script_context" in st.session_state:
+                            full_context.update(st.session_state.user_script_context)
+
                         res = ai.generate_script_and_prompts(
                             target_title, 
-                            context=st.session_state.get("selected_metadata"),
+                            context=full_context,
                             expert_persona=get_persona_str()
                         )
                         # 新しい構造でセッションに保存
