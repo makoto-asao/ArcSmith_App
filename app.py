@@ -168,6 +168,9 @@ if "persona_prompts" not in st.session_state:
 if "current_page" not in st.session_state:
     st.session_state.current_page = "Production Console"
 
+if "selected_model" not in st.session_state:
+    st.session_state.selected_model = "gemini-3-flash-preview"
+
 # AIGeneratorへのプロンプト同期
 def get_persona_str():
     p = st.session_state.persona_prompts
@@ -330,7 +333,7 @@ if st.session_state.current_page == "Production Console":
                     existing = handler.get_all_titles()
                     
                     st.write("📊 トレンドと既存コンテンツを分析中...")
-                    ai = AIGenerator()
+                    ai = AIGenerator(model_name=st.session_state.selected_model)
                     
                     st.write("💡 新しい概念を鍛造（フォージ）中...")
                     ideas_data, full_response = ai.generate_new_ideas(existing, expert_persona=get_persona_str())
@@ -399,7 +402,7 @@ if st.session_state.current_page == "Production Console":
             if st.session_state.get("auto_script"):
                 with st.status("🖋️ 台本作成中...", expanded=True):
                     try:
-                        ai = AIGenerator()
+                        ai = AIGenerator(model_name=st.session_state.selected_model)
                         res = ai.generate_script_and_prompts(
                             target_title, 
                             context=st.session_state.get("selected_metadata"),
@@ -1123,6 +1126,16 @@ elif st.session_state.current_page == "⚙️ System Configuration":
                 f.write(f"GEMINI_API_KEY={gemini_key}\n")
         st.success("API Key updated and saved to .env file.")
             
+    st.divider()
+
+    st.markdown('<div class="section-header">AI Content Engine</div>', unsafe_allow_html=True)
+    st.session_state.selected_model = st.selectbox(
+        "AI Generation Model",
+        options=["gemini-2.5-flash", "gemini-2.5-pro", "gemini-3-flash-preview"],
+        index=2 if st.session_state.selected_model == "gemini-3-flash-preview" else (1 if st.session_state.selected_model == "gemini-2.5-pro" else 0),
+        help="生成に使用するGeminiモデルを選択します。gemini-3-flash-previewが最新のプレビューモデルです。"
+    )
+    
     st.divider()
 
     st.markdown('<div class="section-header">External Auth Sessions</div>', unsafe_allow_html=True)

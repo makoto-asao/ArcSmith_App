@@ -5,10 +5,10 @@ import re
 from src.deepl_translator import DeepLTranslator
 
 class AIGenerator:
-    def __init__(self):
+    def __init__(self, model_name='gemini-3-flash-preview'):
         genai.configure(api_key=Config.GEMINI_API_KEY)
-        # 2025年12月現在の最新安定版（構造化出力対応）
-        self.model = genai.GenerativeModel('gemini-2.5-flash')
+        # 2025年12月現在の最新プレビュー版（gemini-3-flash-preview）
+        self.model = genai.GenerativeModel(model_name)
 
     def generate_new_ideas(self, existing_titles, expert_persona=None):
         """【モードA：企画会議】新しいネタを5つ提案"""

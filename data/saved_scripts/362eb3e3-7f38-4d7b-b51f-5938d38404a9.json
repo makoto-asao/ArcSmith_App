@@ -1,0 +1,53 @@
+{
+  "id": "362eb3e3-7f38-4d7b-b51f-5938d38404a9",
+  "draft_name": "[自動保存] 赤い部屋 (The Red Room - The Cursed Pop-up) - 2025-12-26 22:50",
+  "created_at": "2025-12-26T22:50:52.070568",
+  "updated_at": "2025-12-26T22:50:52.070568",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "赤い部屋 (The Red Room - The Cursed Pop-up)",
+    "selected_metadata": {
+      "overview": "ネットサーフィン中に現れるポップアップ広告の呪い。動画の最後にスマホの画面いっぱいに赤いウィンドウを表示させ、デバイスを介した感染を擬似体験させる。",
+      "horror_point": "2000年代初頭の日本のネットロアが持つアナログホラー的質感が新鮮。画面の枠を超えてくるメタフィクション的な恐怖が、スマホ視聴体験と完璧に合致する。"
+    },
+    "title_en": "WARNING: Do NOT Close the Red Pop-up #Shorts",
+    "title_jp": "警告：そのポップアップを消してはいけない",
+    "description": "Have you ever encountered the cursed Red Room pop-up during a late-night browsing session? This Japanese Urban Legend tells of a mysterious window that appears out of nowhere, asking a chilling question. If you try to close it, you seal your fate. Is your room turning red yet? This short explores the dark depths of J-horror and the internet myths that haunted a generation. Stay until the end to see if you can escape the infection. Watch more Japanese Horror and Creepy Urban Legend stories on our channel. Are you brave enough to click? Tell us in the comments if you've seen the Red Room. Supernatural phenomena and digital curses await those who linger too long.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Scary #RedRoom #JapaneseHorror #HorrorShorts #InternetMyth",
+    "editorial_notes": "Viral Architect: タイトル案は 1.「WARNING: Do NOT Close the Red Pop-up #Shorts」 2.「The Cursed Website You Must Avoid」 3.「Is Your Room Red Yet? #JHorror」の中から、最も視聴者の生存本能と好奇心を刺激する1を選定。YouTubeのアルゴリズムに『警告』として認識させるフックを重視しました。 The Whisperer: 日本の都市伝説『赤い部屋』をベースに、視聴者が自分のデバイスを通じて呪いに感染していくメタフィクション的な恐怖をナレーションに込めました。あえて説明しすぎず、問いかけることで不気味さを増幅させています。 The Visionary: 2000年代初頭のインターネット黎明期のアナログホラー的質感（CRTモニターの走査線やデジタルノイズ）をMidjourneyで再現。後半に向けて画面が赤に染まり、現実世界を侵食する視覚効果を狙っています。",
+    "vrew_script": "Have you ever heard of the Red Room\nA cursed pop-up appearing at midnight\nIt starts as a small glitching window\nA voice asks if you like the red room\nIf you try to close it the window grows\nSpreading across your screen like a virus\nUntil everything is painted in deep crimson\nThe cursor moves on its own now\nCold hands reach out from the static\nYour reality is being overwritten by code\nLook around your walls are turning red\nNow answer the question one last time\nDo you like the red room",
+    "script_jp_list": [
+      "赤い部屋」をご存知ですか？",
+      "真夜中に現れる呪いのポップアップ",
+      "小さなグリッチウィンドウから始まる",
+      "赤い部屋は好きかと尋ねる声",
+      "ウィンドウを閉じようとすると、ウィンドウが大きくなる。",
+      "ウイルスのように画面に広がる",
+      "すべてが深紅に染まるまで",
+      "カーソルが勝手に動くようになった",
+      "静寂から冷たい手が伸びる",
+      "あなたの現実はコードに上書きされている",
+      "壁が赤くなっている",
+      "では、最後にもう一度質問に答えてください。",
+      "赤い部屋はお好きですか？"
+    ],
+    "mj_prompts_list": [
+      "Cinematic close-up of a dusty 2000s CRT computer monitor in a dark room, eerie blue light reflecting on a desk, grainy film, 35mm lens, photorealistic, 8k --ar 9:16",
+      "A low-angle shot of a computer screen showing an old Windows 95 desktop, a mysterious small pop-up window in the center, glitch art, dark atmosphere, moody lighting --ar 9:16",
+      "Extreme close-up of a pixelated pop-up window, digital noise, flickering screen, creepy atmosphere, macro photography, high contrast --ar 9:16",
+      "Red text on a white digital window, blurry background of a dark bedroom, distorted perspective, haunting, VHS aesthetic --ar 9:16",
+      "A pale hand reaching for a computer mouse, many red windows layered over each other on the screen, frantic movement, cinematic lighting, suspenseful --ar 9:16",
+      "The computer monitor screen bleeding red light into a dark room, liquid-like red patterns on the glass, abstract horror, high resolution, 8k --ar 9:16",
+      "A room entirely illuminated by an intense crimson glow from a monitor, long shadows, liminal space, eerie and silent, grainy film texture --ar 9:16",
+      "Close-up of a computer mouse moving by itself on a mousepad, red glow from the side, mysterious and supernatural, hyper-realistic --ar 9:16",
+      "Pale ghostly fingers emerging from a glitching monitor screen, digital void, dark smoke, horror cinematography, high contrast --ar 9:16",
+      "A silhouette of a person sitting in front of a monitor, digital code reflecting on their face, screen turning red, surreal horror, 35mm lens --ar 9:16",
+      "A bedroom wall slowly changing color to deep red, shadows of hands creeping up the wall, atmospheric horror, cinematic lighting --ar 9:16",
+      "Extreme macro shot of a human eye, a red window reflected in the pupil, terror expression, high detail, photorealistic, 8k --ar 9:16",
+      "A dark figure standing directly behind the viewer's chair in a red-lit room, jumpscare framing, terrifying atmosphere, grainy film, cinematic --ar 9:16"
+    ]
+  }
+}
