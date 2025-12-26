@@ -1,0 +1,51 @@
+{
+  "id": "c6c12adf-51c0-4a6a-98df-188b7219e752",
+  "draft_name": "[自動保存] 牛の首 (Gozu - Cow Head) - 2025-12-27 01:42",
+  "created_at": "2025-12-27T01:42:26.061294",
+  "updated_at": "2025-12-27T01:42:26.061294",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "牛の首 (Gozu - Cow Head)",
+    "selected_metadata": {
+      "overview": "『あまりに恐ろしすぎて誰も内容を知らない、あるいは話すと死ぬ』というメタ・ホラー。動画ではあえて内容は語らず、その話を聞いた人々の異常な反応と、最後に見える『牛の頭を持った影』の断片のみを見せる。",
+      "horror_point": "『禁じられた知識（Forbidden Knowledge）』という、インターネット・ロア（都市伝説）で最もバズる要素。詳細を隠すことで視聴者の想像力を最大化させる。"
+    },
+    "title_en": "WARNING: The Story Too Scary To Exist #Shorts",
+    "title_jp": "【閲覧注意】この話を聞くと死ぬ「牛の首」の正体",
+    "description": "Have you ever heard of Gozu? In the realm of Japanese urban legends, the Cow Head is the ultimate taboo. It is said that the story is so terrifying that anyone who hears it will die of shock within three days. In this video, we explore the chilling accounts of those who encountered the fragment of this forbidden knowledge. Why did a whole class of students collapse in a bus? Why does the transcript not exist in any library? This is the secret Japan tried to bury. Watch until the end if you dare, but remember: curiosity killed the cat. What do you think is the real content of the story? Let us know in the comments if you've heard whispers of the Cow Head. Japanese Horror, Urban Legend, Creepy, Supernatural, Mystery, Paranormal Activity.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #ScaryStories #JapaneseFolklore #CreepyPasta",
+    "editorial_notes": "Viral Architectによるタイトル提案：1. The Horror Story That Kills You: Gozu, 2. NEVER Hear This Story: The Cow Head Legend, 3. WARNING: The Story Too Scary To Exist。選定理由：案3は冒頭にWARNINGを配置し、禁じられた知識への渇望を刺激するモバイル最適化タイトルです。The Whispererによる演出：1970年代のバス事件を核に、あらすじを語らず『異常な反応』に焦点を当て、恐怖を増幅させました。The Visionaryによる映像設計：全体を1970年代の質感と現代の解像度をミックスしたVHS調の不気味なトーンで統一しています。",
+    "vrew_script": "There is a story you must never hear\nA legend known as the Cow Head\nThose who listen lose their minds forever\nIn the 1970s a teacher told it on a bus\nStudents started screaming and shaking in terror\nThe bus driver lost control of the wheel\nWhen they woke up no one remembered the plot\nOnly a lingering scent of rotting meat remained\nLook closely at the shadows behind you\nSomething with a human body and a cow head\nIt is standing right there in the corner\nDo not turn around or it will speak",
+    "script_jp_list": [
+      "決して聞いてはいけない話がある",
+      "牛頭として知られる伝説",
+      "聞く者は永遠に心を失う",
+      "1970年代、ある教師がバスの中で語った。",
+      "生徒たちは悲鳴を上げ、恐怖に震え始めた",
+      "バスの運転手がハンドルコントロールを失った",
+      "目覚めたとき、誰もその筋書きを覚えていなかった。",
+      "腐った肉の残り香だけが残った",
+      "後ろの影をよく見る",
+      "人間の体と牛の頭を持つ何か",
+      "その角に立っている",
+      "振り向かないでください。"
+    ],
+    "mj_prompts_list": [
+      "Cinematic shot of a dusty ancient manuscript in a dark room, 35mm lens, grainy film, high contrast, moody lighting, photorealistic --ar 9:16",
+      "Extreme close up of human lips whispering in a dark void, eerie atmosphere, photorealistic, 8k, grainy texture, creepy lighting --ar 9:16",
+      "A distorted silhouette of a person trembling in a dark hallway, 1970s Japanese aesthetic, cinematic lighting, moody --ar 9:16",
+      "Interior of a vintage 1970s Japanese bus, dim flickering lights, heavy fog outside windows, grainy film style --ar 9:16",
+      "Close up of a terrified student's eyes wide with fear, reflection of something monstrous in the pupil, 35mm lens, high contrast --ar 9:16",
+      "A bus swerving on a mountain road at night, motion blur, dramatic shadows, cinematic photography, grainy film --ar 9:16",
+      "A hospital ward with pale patients staring into nothingness, VHS quality, washed out colors, eerie medical equipment --ar 9:16",
+      "Close up of a dark wooden floor corner with a faint outline of raw meat, cinematic lighting, 8k, photorealistic --ar 9:16",
+      "A modern Japanese bedroom at night, heavy pitch black shadows in the corner, 35mm lens, grainy --ar 9:16",
+      "A tall shadow on a shoji screen with the distinct horns of a cow head, traditional Japanese house, moody lighting --ar 9:16",
+      "Glitchy distorted silhouette of a creature with a human body and a cow head, dark atmosphere, terrifying --ar 9:16",
+      "A single bloodshot human eye staring from pure darkness, extreme close up, cinematic lighting, photorealistic, 8k --ar 9:16"
+    ]
+  }
+}

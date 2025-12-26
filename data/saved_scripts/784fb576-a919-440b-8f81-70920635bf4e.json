@@ -1,0 +1,49 @@
+{
+  "id": "784fb576-a919-440b-8f81-70920635bf4e",
+  "draft_name": "[自動保存] 隙間女 (The Girl in the Gap) - 2025-12-27 01:07",
+  "created_at": "2025-12-27T01:07:53.453488",
+  "updated_at": "2025-12-27T01:07:53.453488",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "隙間女 (The Girl in the Gap)",
+    "selected_metadata": {
+      "overview": "自室でくつろぐ日常風景。ふと壁とタンスの『わずか1cmの隙間』にカメラが寄ると、そこにはあり得ない角度でこちらを凝視する女の眼球がある。視聴者が瞬きした瞬間に、隙間が広がる音と共に画面が暗転する。",
+      "horror_point": "家という安全なはずの場所にある『隙間』を恐怖の対象に変える。ミニマルな視覚演出だけで最大の不気味さを演出できる。"
+    },
+    "title_en": "NEVER Check the Gap in Your Room #JHorror",
+    "title_jp": "【隙間女】部屋のわずかな隙間、覗いたら最後。 #Jホラー",
+    "description": "Have you ever felt a strange presence in your own bedroom? The Japanese urban legend of 'The Girl in the Gap' or Sukima-onna warns us that no space is too small for a spirit to hide. In this J-horror short, we explore the terrifying reality of the 1cm gap between your wall and your furniture. What happens when you look back at the eye staring from the darkness? This supernatural horror experience is designed to make you question the safety of your own home. Do you have a gap in your room that you're afraid to look into? Comment your experience below if you've seen her. If you enjoy Japanese horror, urban legends, and creepy stories, subscribe for more daily chills. Stay safe tonight because she might be watching you right now through the smallest crack in the wall. Don't look behind your bookshelf tonight.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #ScaryStory #SukimaOnna",
+    "editorial_notes": "【協議内容】Viral Architectにより、視聴者の不安を煽る『NEVER Check the Gap in Your Room』をタイトルに採用。これは「禁止」のフックにより高いCTRが期待できます。The Whispererは日常が侵食される恐怖を短いセンテンスで構成し、Vrewの読み上げリズムを最適化しました。The Visionaryは、1cmの隙間に潜む違和感を強調するため、マクロレンズ設定とGrainyな質感を指定し、心理的圧迫感を視覚化しています。演出指示：中盤の『A pale eye is staring back』の瞬間に音量を下げ、ラストの暗転で最大の衝撃音を配置することを推奨します。",
+    "vrew_script": "Your room is your only sanctuary\nA place where you feel safe\nLook closely at the narrow shadows\nDo you see that tiny opening\nOne centimeter between the dark wood\nSomething is shifting inside the void\nA pale eye is staring back\nParalyzed by a gaze from nowhere\nDo not blink or she moves\nThe gap is slowly getting wider\nShe is coming out for you",
+    "script_jp_list": [
+      "あなたの部屋は唯一の聖域",
+      "安心できる場所",
+      "細い影をよく見る",
+      "小さな隙間が見えるだろうか",
+      "暗い木の間1センチ",
+      "虚空の中で何かが動いている",
+      "青白い瞳が見つめ返している",
+      "どこからの視線にも麻痺",
+      "まばたきをしてはいけない。",
+      "格差は徐々に広がっている",
+      "彼女はあなたのために出てくる"
+    ],
+    "mj_prompts_list": [
+      "Cinematic shot of a cozy dimly lit bedroom at night, soft lamp light, photorealistic, 35mm lens, grainy film texture, 8k --ar 9:16 --v 6.0",
+      "Close up of a wooden wardrobe against a white wall, moody lighting, high contrast, realistic shadows, architectural photography style --ar 9:16 --v 6.0",
+      "Detailed shot of the dark 1cm vertical gap between furniture and wall, dust particles in a sliver of light, eerie atmosphere --ar 9:16 --v 6.0",
+      "Extreme macro photography focusing on the dark abyss of the wall gap, sharp focus on the edge of the wood, unsettling depth --ar 9:16 --v 6.0",
+      "Macro lens view into the darkness of the crack, hint of something white hidden inside, high contrast, grainy horror aesthetic --ar 9:16 --v 6.0",
+      "A distorted pale shape moving slightly within the narrow dark gap, subtle motion blur, terrifying atmosphere, 35mm --ar 9:16 --v 6.0",
+      "Extreme close up of a single wide open bloodshot human eye staring from the 1cm gap, pale skin, hyper-realistic, horrifying, 8k --ar 9:16 --v 6.0",
+      "POV shot from the bed looking at the gap, blurred foreground, the staring eye in sharp focus in the distance, dramatic lighting --ar 9:16 --v 6.0",
+      "Flickering lights in the room, the gap looks slightly larger, unsettling perspective, grainy 90s horror film style --ar 9:16 --v 6.0",
+      "The wardrobe moving away from the wall by itself, the dark gap opening wide, shadows stretching, high tension, cinematic --ar 9:16 --v 6.0",
+      "A pale distorted female face emerging from the darkness of the wall, long black hair, unnaturally thin, horror masterpiece, 8k --ar 9:16 --v 6.0"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "530e4ca4-5179-4db6-833f-02b1a8afb166",
+  "draft_name": "[自動保存] きさらぎ駅 (Kisaragi Station) - 2025-12-27 01:01",
+  "created_at": "2025-12-27T01:01:49.803548",
+  "updated_at": "2025-12-27T01:01:49.803548",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "きさらぎ駅 (Kisaragi Station)",
+    "selected_metadata": {
+      "overview": "存在しないはずの駅に迷い込んだ投稿者の実況形式。深夜の無人駅、奇妙な音、そして近づいてくる片足の老人。異界に繋がる『リミナルスペース』の恐怖を描く。",
+      "horror_point": "海外でも人気の『Backrooms』に近い、現実と非現実の境界が崩れる感覚が、ショート動画の没入感と非常に相性が良いため。"
+    },
+    "title_en": "NEVER Exit the Train at This Station #Shorts",
+    "title_jp": "【都市伝説】きさらぎ駅。絶対に降りてはいけない。 #Shorts",
+    "description": "Have you ever stepped off a train and realized you weren't in your world anymore? Kisaragi Station is Japan's most terrifying urban legend about a place that doesn't exist on any map. In this video, we explore the chilling account of a passenger who vanished into a liminal space where the laws of physics break down. Is it a portal to another dimension or a glitch in reality? Watch until the end to see the one-legged man who haunts the tracks. Tell us in the comments: if the doors opened to an empty, nameless station, would you get off? Experience the eerie silence of Japanese Horror and explore the deep lore of Urban Legends that inspired the Backrooms movement. Don't forget to subscribe for more Creepy Supernatural stories from the shadows.",
+    "hashtags": "#Shorts #KisaragiStation #JapaneseHorror #UrbanLegend #Creepy #Backrooms #LiminalSpace #JHorror",
+    "editorial_notes": "【プロフェッショナル協議記録】\n1. Viral Architect: タイトル案として「I'm trapped at Kisaragi Station」「The Forbidden Station」「NEVER Exit the Train at This Station」を提案。最も強い警告を含み、視聴者の生存本能に訴えかける『NEVER Exit the Train at This Station』を採択。冒頭1秒で『降りてはいけない』というルールを提示し、視聴維持率を最大化します。\n2. The Whisperer: 『リミナルスペース』特有の、静寂が物理的な重圧を持つ感覚を重視。日本的な湿り気を『breathes』『ancient rot』といった表現で英語台本に落とし込みました。\n3. The Visionary: Midjourneyのプロンプトには、日本の古い駅特有の『緑がかった蛍光灯』や『湿ったコンクリート』の質感を指定。アナログホラー（VHS風）の粒子感を加えることで、現実味のある恐怖を演出します。",
+    "vrew_script": "Midnight train stops at a station with no name\nThe doors open to a silence that breathes\nMy phone says there is no track here\nA single platform illuminated by flickering cold lights\nThe signs are written in a script I cannot read\nDistant bells ring from the dark forest edge\nAn old man limps closer with only one leg\nHis eyes reflect a sky that should not exist\nThe air smells of ozone and ancient rot\nIf you see Kisaragi Station do not step out\nBecause once you arrive you can never go back",
+    "script_jp_list": [
+      "名もない駅に停車する深夜列車",
+      "扉を開けると、息づく静寂",
+      "私の携帯電話は、ここにトラックはないと言っている",
+      "明滅する冷灯に照らされた1つのプラットフォーム",
+      "看板は私には読めない文字で書かれている。",
+      "暗い森の端から遠くの鐘が鳴り響く",
+      "片足を引きずりながら近づいてくる老人",
+      "彼の目は、存在しないはずの空を映している",
+      "空気はオゾンと古代の腐敗の匂い",
+      "きさらぎ駅が見えたら、一歩も外に出るな",
+      "なぜなら、一度到着したら二度と戻れないからだ"
+    ],
+    "mj_prompts_list": [
+      "Inside a lonely midnight subway car in Japan, dim fluorescent lighting with eerie green tint, realistic, cinematic, 35mm lens, grainy film --ar 9:16",
+      "POV looking out from open train doors onto a foggy empty concrete platform at night, liminal space, abandoned, photorealistic --ar 9:16",
+      "Close up of a hand holding a smartphone showing a glitchy map with no tracks, no signal, dark background, 8k, high contrast --ar 9:16",
+      "A long empty rural train platform at midnight, flickering overhead yellow lights, long shadows, moody atmosphere, industrial horror --ar 9:16",
+      "Close up of a rusted Japanese station sign with distorted unreadable characters, mossy texture, weathered, realistic, macro shot --ar 9:16",
+      "A dark dense forest surrounding a lonely station, thick white mist, silhouettes of tall trees, haunting atmosphere, cinematic lighting --ar 9:16",
+      "Silhouette of a hunched old man with only one leg walking slowly on a dark foggy platform, long shadow, terrifying, grainy film --ar 9:16",
+      "Extreme close up of a milky pale eye reflecting a purple swirling cosmic sky, surreal horror, hyper-detailed, unsettling --ar 9:16",
+      "Low angle of wet concrete station floor, rising vapor, industrial rust, harsh shadows, dirty aesthetic, 8k resolution --ar 9:16",
+      "POV standing at the edge of a train door looking at a pitch black void outside, heavy atmosphere, dread, hyper-realistic --ar 9:16",
+      "A train moving away into a deep black tunnel, red tail lights glowing, vanishing into darkness, analog horror style --ar 9:16"
+    ]
+  }
+}
