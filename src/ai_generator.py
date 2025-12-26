@@ -2,6 +2,7 @@ import google.generativeai as genai
 from src.config import Config
 import json
 import re
+from src.deepl_translator import DeepLTranslator
 
 class AIGenerator:
     def __init__(self):
@@ -208,6 +209,16 @@ class AIGenerator:
                         p += " --ar 9:16 --v 6.0"
                     prompt_list.append(p)
 
+            # --- 日本語翻訳の追加 ---
+            script_jp_list = []
+            try:
+                translator = DeepLTranslator()
+                for line in data.get('vrew_script', []):
+                    script_jp_list.append(translator.translate(line))
+            except Exception as e:
+                print(f"Translation integration error: {e}")
+                script_jp_list = ["" for _ in data.get('vrew_script', [])]
+
             return {
                 "title_en": data.get('title_en', ''),
                 "title_jp": data.get('title_jp', ''),
@@ -215,6 +226,7 @@ class AIGenerator:
                 "hashtags": ' '.join(data.get('hashtags', [])),
                 "editorial_notes": data.get('editorial_notes', ''),
                 "vrew_script": "\n".join(data.get('vrew_script', [])),
+                "script_jp_list": script_jp_list, # シーンごとの翻訳リスト
                 "mj_prompts_list": prompt_list,  # シーンごとのリスト
                 "full_text": full_display_text  # 従来の表示用（後方互換性）
             }

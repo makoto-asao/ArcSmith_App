@@ -1,0 +1,55 @@
+{
+  "id": "4404f93f-a5c1-4dc1-aadc-2ec601eadd3c",
+  "draft_name": "[自動保存] メリーさんの電話 (Mary-san's Phone Call) - 2025-12-26 08:28",
+  "created_at": "2025-12-26T08:28:40.522959",
+  "updated_at": "2025-12-26T08:28:40.522959",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "メリーさんの電話 (Mary-san's Phone Call)",
+    "selected_metadata": {
+      "overview": "引っ越しの際に捨てたはずの人形「メリーさん」から電話がかかってくる。「私、メリーさん。今、あなたの家の前にいるの」。その後も何度か電話があり、毎回「今、あなたの家の近くにいる」「今、あなたの家の階段を上っている」と、物理的な距離が縮まっていることを示唆され、最終的に……。",
+      "horror_point": "自宅という最も安全な場所が侵される恐怖、執拗な追跡者、そして電話という日常的なツールから迫りくる不気味さが、じわじわと視聴者の不安を煽る。"
+    },
+    "title_en": "Never Answer This Call: Mary-san's Deadly Game 😱",
+    "title_jp": "電話には絶対出ないで：メリーさんの死のゲーム 😱",
+    "description": "Have you ever received a call that sends shivers down your spine? In this chilling Japanese urban legend, a discarded doll named Mary-san begins calling, each time getting closer and closer to her victim's home. What starts as an eerie phone call quickly escalates into a terrifying invasion of the safest place you know. Can you imagine the horror of being hunted within your own walls, the unseen presence drawing nearer with every ring? This tale of relentless pursuit and psychological dread explores the fear of having your sanctuary violated. Dive into the world of Japanese horror, where the supernatural lurks in the most mundane objects and the line between reality and nightmare blur. Would you answer a call from the unknown, or let it go straight to voicemail? #JapaneseHorror #UrbanLegend #Creepy #Supernatural #PsychologicalThriller #Haunted",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #PsychologicalThriller #Haunted #Marysan #DollHorror",
+    "editorial_notes": "### 統括AIによる制作レビューとエキスパート協議\n\n本プロジェクトでは、YouTubeショート特化の「Jホラー動画制作スタジオ」として、テーマ「メリーさんの電話」に基づき、3人のエキスパートが連携し最高品質の台本と映像プランを策定しました。\n\n#### 1. Viral Architectによるタイトル選定\nViral Architectは、モバイル表示での引きの強さとクリック率（CTR）を最大化するため、以下の3つのタイトル案を提案しました。\n- 提案1: 「Never Answer This Call: Mary-san's Deadly Game 😱」\n- 提案2: 「The Cursed Doll's Call: She's Getting Closer Home」\n- 提案3: 「WARNING: Mary-san Knows Your Address Now ☎️」\n\n協議の結果、提案1「Never Answer This Call: Mary-san's Deadly Game 😱」が最も強力なフックを持つと判断されました。「Never Answer This Call」という禁止表現は、視聴者の好奇心を強く刺激し、都市伝説の不気味さを端的に伝えます。「Deadly Game」という言葉が背後の危険性を示唆し、絵文字が視覚的なインパクトを与え、特にモバイル環境でのCTR向上が期待されます。主要なキーワードが最初の40文字以内に収まっており、視認性も抜群です。\n\n#### 2. The Whispererによる台本執筆\nThe Whispererは、選定されたタイトルに合わせて、日本特有の「湿り気のある恐怖」を英語の短い台本に昇華させました。自宅という最も安全な場所が侵食される心理的な恐怖と、電話という日常的なツールから迫る不気味さを、抑制された言葉遣いで表現。メリーさんの声の不気味な接近を段階的に描写することで、じわじわと視聴者の不安を煽る構成となっています。句読点を含めないことで、Vrewでの自然な読み上げと、映像とのリズム感を重視しています。\n\n#### 3. The Visionaryによる映像プロンプト設計\nThe Visionaryは、The Whispererの台本の各行（シーン）に対し、Midjourneyを駆使するための詳細なプロンプトを設計しました。Jホラー特有の薄暗く湿度の高い雰囲気、閉鎖感、そして心理的な圧迫感を視覚的に表現するため、「high contrast」「moody lighting」「grainy film」「35mm lens」「photorealistic」「8k」といった技術的指定を一貫して採用。人形の不気味さ、電話の着信音、そして最終的な侵入に至るまでの恐怖の段階的なエスカレーションを、光の当たり方やレンズ設定で巧みに表現しています。\n\n#### 4. 最終調整と品質チェック\n3人のエキスパートによる綿密な連携の結果、タイトル、台本、映像プロンプトの全てが一貫したJホラーの世界観を構築し、YouTubeショートのフォーマットに最適化された高品質なコンテンツが完成しました。特に冒頭1秒での引き込み、視聴維持率への配慮、そして海外の視聴者にも伝わる普遍的な恐怖の表現に成功しています。",
+    "vrew_script": "A dusty old doll\nDiscarded in a forgotten box\nThen the phone rang a shrill sound\nI am Mary-san I am near your house\nMy blood ran cold a creeping fear\nMinutes later it rang again\nI am Mary-san I am at your gate now\nThe air grew heavy my heart pounded\nA third call a whispered threat\nI am Mary-san I am climbing your stairs\nFootsteps echoed from above\nSilence fell then a soft knock\nOn my bedroom door just a whisper\nI am Mary-san I am right here with you",
+    "script_jp_list": [
+      "ほこりまみれの古い人形",
+      "忘れられた箱に入れられた",
+      "その時、電話がけたたましく鳴った。",
+      "メリーさんです。",
+      "忍び寄る恐怖に血の気が引いた。",
+      "数分後、また鳴った。",
+      "私はメアリーさんです。",
+      "空気が重くなり、心臓がドキドキした。",
+      "ささやかな脅しの電話",
+      "私はメリーさんです。",
+      "足音が上から響く",
+      "静寂が訪れ、そして柔らかいノックの音がした。",
+      "寝室のドアに、ささやくように",
+      "私はメリーさん、あなたとここにいます。"
+    ],
+    "mj_prompts_list": [
+      "A discarded, dust-covered vintage porcelain doll, half-hidden in shadows of a dark, forgotten attic, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A hand gently dropping an old, slightly broken porcelain doll into a cardboard box, dim light filtering through dust, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "An antique rotary phone ringing shrilly in a dimly lit, empty room, unsettling vibrations, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A close-up of a vintage rotary phone receiver being held by a trembling hand, eerie shadow of a doll in the background, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A person's face reflecting terror in the dark, eyes wide with creeping fear, soft focus on the background showing blurred home interior, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "The rotary phone ringing again, silhouetted against a slightly more illuminated window, creating an increasing sense of dread, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A POV shot from inside a dark house looking out through a slightly ajar gate, shadowy figure of a small vintage doll visible just outside, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "An extreme close-up of a person's chest, heart pounding visibly through clothes, shallow depth of field, focused on rising anxiety, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "The phone's shadow growing long and distorted across a hallway wall, an almost imperceptible sinister presence in the air, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A low-angle shot of old wooden stairs, a tiny, almost invisible shadow moving upwards, creaking sounds implied visually, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A dark hallway in a home, the sound of footsteps implied by subtle light shifts or dust particles disturbed, growing tension, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A dimly lit bedroom door, an old-fashioned doorknob slowly turning from the outside, deep shadows, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "An extreme close-up of a wooden bedroom door with faint scratch marks, a single drop of water slowly dripping down, implying dampness and decay, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0",
+      "A terrifying close-up of a vintage porcelain doll's face with unnervingly dark, empty eyes, partially obscured by shadow, right next to the camera, high contrast, moody lighting, grainy film, photorealistic, 8k, 35mm lens, cinematic --ar 9:16 --v 6.0"
+    ]
+  }
+}

@@ -7,6 +7,7 @@ from src.config import Config
 from src.draft_manager import DraftManager
 import os
 import pyperclip
+import time
 
 st.set_page_config(
     page_title="ArcSmith | Production Console",
@@ -380,7 +381,7 @@ if st.session_state.current_page == "Production Console":
                     "new_ideas", "all_ideas_data", "ideation_full", "trigger_forge_anim",
                     "selected_title", "selected_metadata", "title_en", "title_jp",
                     "description", "hashtags", "editorial_notes", "current_script",
-                    "mj_prompts_list", "auto_script"
+                    "script_jp_list", "mj_prompts_list", "auto_script"
                 ]
                 for key in keys_to_reset:
                     if key in st.session_state:
@@ -411,6 +412,7 @@ if st.session_state.current_page == "Production Console":
                         st.session_state.hashtags = res.get("hashtags", "")
                         st.session_state.editorial_notes = res.get("editorial_notes", "")
                         st.session_state.current_script = res.get("vrew_script", "")
+                        st.session_state.script_jp_list = res.get("script_jp_list", [])
                         st.session_state.mj_prompts_list = res.get("mj_prompts_list", [])
                         st.session_state.auto_script = False # 実行完了
 
@@ -427,6 +429,7 @@ if st.session_state.current_page == "Production Console":
                                     "hashtags": st.session_state.get("hashtags", ""),
                                     "editorial_notes": st.session_state.get("editorial_notes", ""),
                                     "vrew_script": st.session_state.get("current_script", ""),
+                                    "script_jp_list": st.session_state.get("script_jp_list", []),
                                     "mj_prompts_list": st.session_state.get("mj_prompts_list", [])
                                 }
                                 from datetime import datetime
@@ -448,7 +451,7 @@ if st.session_state.current_page == "Production Console":
         pass
 
         # JavaScriptベースのコピーボタンを表示するヘルパー関数
-        def display_with_copy(label, content, height=100, key_suffix="", help_text=""):
+        def display_with_copy(label, content, height=100, key_suffix="", help_text="", mid_content=""):
             import streamlit.components.v1 as components
             
             # テキストエリアを表示
@@ -463,6 +466,10 @@ if st.session_state.current_page == "Production Console":
             # 日本語説明がある場合は表示
             if help_text:
                 st.caption(help_text)
+
+            # 中間に表示するコンテンツ（翻訳など）があれば表示
+            if mid_content:
+                st.markdown(mid_content, unsafe_allow_html=True)
             
             # JavaScriptによるコピー機能（リロードが発生しない）
             # content内のバックスラッシュやバッククォートをエスケープ
@@ -586,15 +593,52 @@ if st.session_state.current_page == "Production Console":
             st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">各シーンのMidjourneyプロンプトを編集できます。</p>', unsafe_allow_html=True)
             
             mj_list = st.session_state.get("mj_prompts_list", [])
+            script_jp_list = st.session_state.get("script_jp_list", [])
+            vrew_script = st.session_state.get("current_script", "").split("\n") if st.session_state.get("current_script") else []
+            
+            # --- オンデマンド翻訳ロジック ---
+            # シーン数に対して翻訳が足りない場合の補完
+            if vrew_script and len(script_jp_list) < len(vrew_script):
+                with st.spinner("未翻訳のシーンをDeepLで翻訳中..."):
+                    try:
+                        from src.deepl_translator import DeepLTranslator
+                        translator = DeepLTranslator()
+                        # 足りない分だけ翻訳
+                        for i in range(len(script_jp_list), len(vrew_script)):
+                            line = vrew_script[i].strip()
+                            if line:
+                                script_jp_list.append(translator.translate(line))
+                            else:
+                                script_jp_list.append("")
+                        st.session_state.script_jp_list = script_jp_list
+                    except Exception as e:
+                        st.error(f"オンデマンド翻訳エラー: {e}")
+
             if mj_list:
                 for i, prompt in enumerate(mj_list, 1):
+                    # 翻訳と原文のコンテンツを作成
+                    mid_html = ""
+                    if i <= len(script_jp_list):
+                        ja_text = script_jp_list[i-1]
+                        en_text = vrew_script[i-1] if i <= len(vrew_script) else ""
+                        mid_html = f"""
+                        <div style='margin-bottom: 0.8rem; font-size: 0.9rem;'>
+                            <strong>シーン{i}の翻訳:</strong><br>
+                            <span style='color: #0f172a;'>{ja_text}</span><br>
+                            <span style='color: #64748b; font-style: italic;'>{en_text}</span>
+                        </div>
+                        """
+
                     updated_prompt = display_with_copy(
                         f"Scene {i}", 
                         prompt, 
                         height=120,
                         key_suffix=f"mj_scene_{i}",
-                        help_text=f"シーン{i}の画像生成プロンプト - Midjourneyで使用されます"
+                        help_text=f"シーン{i}の画像生成プロンプト - Midjourneyで使用されます",
+                        mid_content=mid_html
                     )
+                    st.markdown("<br>", unsafe_allow_html=True)
+                    
                     # 更新された値をリストに反映
                     mj_list[i-1] = updated_prompt
                 st.session_state.mj_prompts_list = mj_list
@@ -632,6 +676,7 @@ if st.session_state.current_page == "Production Console":
                             "hashtags": st.session_state.get("hashtags", ""),
                             "editorial_notes": st.session_state.get("editorial_notes", ""),
                             "vrew_script": st.session_state.get("current_script", ""),
+                            "script_jp_list": st.session_state.get("script_jp_list", []),
                             "mj_prompts_list": st.session_state.get("mj_prompts_list", [])
                         }
                         
@@ -712,51 +757,182 @@ if st.session_state.current_page == "Production Console":
     # Mode C: Asset Production
     # ---------------------------------------------------------
     elif st.session_state.active_tab == 2:
-        st.markdown('### 📽️ Mode C: Asset Production')
-        
-        if st.session_state.get("production_ready"):
-            st.success(f"Ready for: **{st.session_state.prod_title}**")
-            
-            with st.expander("📖 Operation Guide"):
-                st.markdown("""
-                1. **Launch** ボタンを押すとブラウザが2つ起動します。
-                2. **Midjourney**: プロンプトが入力されています。Enterで生成を開始。
-                3. **Vrew**: 台本がペーストされています。AIボイスなどを設定して書き出し。
-                4. 完了後、**Mark as Complete** ボタンを押してください。
-                """)
+        col_c_header1, col_c_header2 = st.columns([3, 1])
+        with col_c_header1:
+            st.markdown('### 📽️ Mode C: Asset Production')
+        with col_c_header2:
+            if st.button("🔄 企画立案に戻る", key="reset_from_c", use_container_width=True, help="制作を中止して、最初から企画を立て直します"):
+                keys_to_reset = [
+                    "new_ideas", "all_ideas_data", "ideation_full", "trigger_forge_anim",
+                    "selected_title", "selected_metadata", "title_en", "title_jp",
+                    "description", "hashtags", "editorial_notes", "current_script",
+                    "script_jp_list", "mj_prompts_list", "auto_script",
+                    "production_ready", "prod_title", "prod_script", "prod_prompt", "prod_row", "production_status", "launch_log"
+                ]
+                for key in keys_to_reset:
+                    if key in st.session_state:
+                        del st.session_state[key]
+                st.session_state.active_tab = 0
+                st.rerun()
 
-            if st.button("Launch Production Engines", use_container_width=True):
+        # 認証管理セクション
+        with st.expander("🔐 Authentication & Session Management", expanded=False):
+            st.info("初回またはログインが切れた場合は、以下のボタンからログインしてブラウザを閉じてください。セッションが保存されます。")
+            c_auth1, c_auth2 = st.columns(2)
+            from src.auth_manager import AuthManager
+            
+            with c_auth1:
+                if st.button("🔑 Login to Midjourney", use_container_width=True):
+                    with st.spinner("Launching login browser..."):
+                        AuthManager.save_session("https://www.midjourney.com/explore")
+                    st.success("Midjourney session update process finished.")
+            
+            with c_auth2:
+                if st.button("🔑 Login to Vrew", use_container_width=True):
+                    with st.spinner("Launching login browser..."):
+                        AuthManager.save_session("https://vrew.voyagerx.com/ja/")
+                    st.success("Vrew session update process finished.")
+        
+        st.divider()
+        if st.session_state.get("production_ready"):
+            st.success(f"🔥 Currently Producing: **{st.session_state.prod_title}**")
+            
+            col1, col2 = st.columns([2, 1])
+            with col1:
+                with st.expander("📖 Operation Guide", expanded=True):
+                    st.markdown("""
+                    <div style="font-size: 0.9rem; color: #1e293b; background: #f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                        1. <b>Launch Production Engines</b> ボタンを押すと <b>Midjourney</b> と <b>Vrew</b> が並列で起動します。<br>
+                        2. <b>Midjourney</b>: プロンプトが入力されています。Enterで生成を開始。<br>
+                        3. <b>Vrew</b>: 台本がインポートされています。AIボイス・BGMを設定して書き出し。<br>
+                        4. 完了後、<b>Finish & Mark as Complete</b> を押してシートに記録します。
+                    </div>
+                    """, unsafe_allow_html=True)
+            
+            with col2:
+                # 制作状況パネル
+                st.markdown('<div class="section-header">Live Status</div>', unsafe_allow_html=True)
+                if "production_status" not in st.session_state:
+                    st.session_state.production_status = "Waiting to Launch"
+                
+                status_color = "#3b82f6" if st.session_state.production_status != "Completed" else "#10b981"
+                st.markdown(f"""
+                <div style="padding: 1rem; background: #f1f5f9; border-radius: 12px; border-left: 5px solid {status_color};">
+                    <span style="font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase;">Current State</span><br>
+                    <span style="font-size: 1.1rem; font-weight: 700; color: #0f172a;">{st.session_state.production_status}</span>
+                </div>
+                """, unsafe_allow_html=True)
+
+            st.divider()
+
+            # 制作エンジン設定
+            st.markdown('<div class="section-header">Engine Settings</div>', unsafe_allow_html=True)
+            c_set1, c_set2 = st.columns(2)
+            with c_set1:
+                vrew_style = st.text_input("🎨 Vrew Video Style", value="情報の伝達", help="Vrewのスタイル選択画面に表示される名前を入力してください。")
+            with c_set2:
+                vrew_ratio = st.selectbox("📐 Aspect Ratio", ["16:9", "9:16", "1:1", "4:5"], index=0)
+
+            # 起動ステータスの管理
+            if "launch_log" not in st.session_state:
+                st.session_state.launch_log = []
+
+            if st.button("🚀 Launch Production Engines", use_container_width=True, type="primary"):
                 try:
-                    helper_path = os.path.join("src", "automation_helper.py")
                     import subprocess
                     import sys
-                    with st.spinner("Kicking off Midjourney & Vrew..."):
-                        subprocess.run([sys.executable, helper_path, "mj", st.session_state.prod_prompt], check=True)
-                        subprocess.run([sys.executable, helper_path, "vrew", st.session_state.prod_script], check=True)
-                    st.success("Engines started.")
-                except Exception as e:
-                    st.error(f"Automation Error: {e}")
-
-            if st.button("Mark as Complete & Finish Project", key="mark_final", use_container_width=True):
-                handler = SheetsHandler()
-                handler.mark_as_completed(st.session_state.prod_row)
-                st.snow()
-                del st.session_state.production_ready
-                st.rerun()
-        else:
-            # 既存キューからの読み込みも一応サポート
-            if st.button("Load Next from Sheets Queue", use_container_width=True):
-                handler = SheetsHandler()
-                row_idx, row_data = handler.get_unprocessed_row()
-                if row_idx and len(row_data) >= 3:
-                    st.session_state.production_ready = True
-                    st.session_state.prod_title = row_data[0]
-                    st.session_state.prod_script = row_data[1]
-                    st.session_state.prod_prompt = row_data[2]
-                    st.session_state.prod_row = row_idx
+                    import os
+                    
+                    root_dir = os.path.abspath(os.getcwd())
+                    helper_path = os.path.join(root_dir, "src", "automation_helper.py")
+                    temp_dir = os.path.join(root_dir, "data", "temp_exec")
+                    os.makedirs(temp_dir, exist_ok=True)
+                    
+                    st.session_state.launch_log = ["🕒 起動プロセスを開始しました..."]
+                    
+                    # 一時ファイル書き出し
+                    prompt_path = os.path.join(temp_dir, "prompt.txt")
+                    script_path = os.path.join(temp_dir, "script.txt")
+                    with open(prompt_path, "w", encoding="utf-8") as f:
+                        f.write(st.session_state.prod_prompt)
+                    with open(script_path, "w", encoding="utf-8") as f:
+                        f.write(st.session_state.prod_script)
+                    
+                    env = os.environ.copy()
+                    env["PYTHONPATH"] = root_dir + os.pathsep + env.get("PYTHONPATH", "")
+                    cflags = subprocess.CREATE_NEW_CONSOLE if os.name == 'nt' else 0
+                    
+                    # 起動実行
+                    st.session_state.launch_log.append("🎬 Midjourney エンジンを起動中...")
+                    subprocess.Popen([sys.executable, helper_path, "mj", prompt_path], env=env, cwd=root_dir, creationflags=cflags)
+                    
+                    st.session_state.launch_log.append(f"🎬 Vrew エンジンを起動中... (Style: {vrew_style}, Ratio: {vrew_ratio})")
+                    subprocess.Popen([sys.executable, helper_path, "vrew", script_path, vrew_style, vrew_ratio], env=env, cwd=root_dir, creationflags=cflags)
+                    
+                    st.session_state.production_status = "Engines Running (Active)"
+                    st.session_state.launch_log.append("✅ すべてのエンジンを起動しました。")
+                    st.toast("Production engines launched!", icon="🚀")
                     st.rerun()
-                else:
-                    st.warning("No scripted content found in queue.")
+
+                except Exception as e:
+                    st.error(f"Launch Error: {e}")
+                    st.session_state.launch_log.append(f"🚨 エラー: {e}")
+
+            # 実行ログと手動コマンド (トラブル時に備えて保持)
+            if st.session_state.launch_log:
+                with st.expander("🛠️ View Execution Details / Manual Command", expanded=False):
+                    for log_item in st.session_state.launch_log:
+                        st.write(log_item)
+                    
+                    st.markdown("---")
+                    st.caption("Manual Override (PowerShell):")
+                    root_dir = os.path.abspath(os.getcwd())
+                    vrew_cmd = f"& '{sys.executable}' '{os.path.join(root_dir, 'src', 'automation_helper.py')}' vrew '{os.path.join(root_dir, 'data', 'temp_exec', 'script.txt')}' '{vrew_style}' '{vrew_ratio}'"
+                    st.code(f"& '{sys.executable}' '{os.path.join(root_dir, 'src', 'automation_helper.py')}' mj '{os.path.join(root_dir, 'data', 'temp_exec', 'prompt.txt')}'")
+                    st.code(vrew_cmd)
+            # --------------------------------------------------------
+
+            if st.button("✅ Finish & Mark as Complete", key="mark_final", use_container_width=True):
+                with st.spinner("シートを更新中..."):
+                    try:
+                        handler = SheetsHandler()
+                        handler.mark_as_completed(st.session_state.prod_row)
+                        st.snow()
+                        st.toast(f"Completed: {st.session_state.prod_title}", icon="🎊")
+                        
+                        # 制作データのクリア
+                        del st.session_state.production_ready
+                        if "production_status" in st.session_state:
+                            del st.session_state.production_status
+                        
+                        # キューが空になった場合を想定し、タブを戻さずそのままにするか、最初に戻す
+                        st.success("Project marked as complete!")
+                        time.sleep(1)
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Sheets Update Error: {e}")
+
+        else:
+            # 制作対象がない場合
+            st.info("制作キューが空です。Googleスプレッドシートから未処理の台本を読み込みます。")
+            
+            if st.button("📥 Load Next from Sheets Queue", use_container_width=True):
+                with st.spinner("Fetching data from Google Sheets..."):
+                    try:
+                        handler = SheetsHandler()
+                        row_idx, row_data = handler.get_unprocessed_row()
+                        if row_idx and len(row_data) >= 3:
+                            st.session_state.production_ready = True
+                            st.session_state.prod_title = row_data[0]
+                            st.session_state.prod_script = row_data[1]
+                            st.session_state.prod_prompt = row_data[2]
+                            st.session_state.prod_row = row_idx
+                            st.session_state.production_status = "Ready to Launch"
+                            st.rerun()
+                        else:
+                            st.warning("シートに未処理の台本が見つかりませんでした。")
+                    except Exception as e:
+                        st.error(f"Queue Loading Error: {e}")
 
 
 elif st.session_state.current_page == "📋 Draft List":

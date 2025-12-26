@@ -1,0 +1,39 @@
+{
+  "id": "3d14af0d-192b-443a-b6f8-0d3512c55cb0",
+  "draft_name": "[自動保存] 人面犬 (Jinmenken - The Human-Faced Dog) - 2025-12-24 22:40",
+  "created_at": "2025-12-24T22:40:49.478967",
+  "updated_at": "2025-12-24T22:40:49.478967",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "人面犬 (Jinmenken - The Human-Faced Dog)",
+    "selected_metadata": {
+      "overview": "夜の街を徘徊する犬のような姿だが、顔は人間の男性。最初は普通の犬かと思い近づくと、人間の声で話しかけてきたり、異様な表情を見せたりする都市伝説。",
+      "horror_point": "動物と人間の顔という異形の組み合わせが生む生理的嫌悪感と不気味さ。シュールでありながらも、突然現れる異常な存在との遭遇体験は、海外のクリーチャー好きや都市伝説ファンに刺さる。"
+    },
+    "title_en": "⚠️ You Won't Believe What This Dog Said #Jinmenken",
+    "title_jp": "⚠️ この犬が言ったことにあなたは驚愕する #人面犬",
+    "description": "Have you ever walked alone at night and felt eyes on you? This chilling Japanese urban legend about the Jinmenken, the human-faced dog, will make you question every shadow. Witness a terrifying encounter with a creature straight out of your darkest nightmares: a dog with the face of a man. Its whispered words will haunt you long after the video ends. What would YOU do if you met it on a deserted street? The Jinmenken embodies a unique blend of animal and human horror, a surreal and unsettling presence that preys on our deepest fears of the unnatural. This isn't just another spooky story; it's a physiological dread, a creature feature rooted deep in Japanese folklore that resonates with fans of creepy legends and supernatural encounters worldwide. Share your thoughts in the comments!",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #Jinmenken #HumanFacedDog #HorrorStory #Mystery #Paranormal #Cryptid",
+    "editorial_notes": "### 統括AIによる制作会議議事録\n\n**1. タイトル案の提示と選定（Viral Architect）**\n*   **提案1:** 「⚠️ You Won't Believe What This Dog Said #Jinmenken」\n    *   選定理由：絵文字による視覚的な引きが強く、冒頭のパワーワード「You Won't Believe What This Dog Said」が好奇心を最大限に刺激し、クリック率を最大化すると判断。#Jinmenkenでテーマも明確。モバイルでの表示を考慮し、重要情報が40文字以内に収まっている点も評価。\n*   **提案2:** 「The Human-Faced Dog: Japan's Creepiest Legend Untold」\n    *   コメント：SEOには強いが、Shortsでの瞬発力に欠ける可能性。\n*   **提案3:** 「SHOCKING: Encounter with Japan's Jinmenken Horror」\n    *   コメント：パワーワードは良いが、提案1の方が具体的な好奇心を煽ると判断。\n\n**選定タイトル:** 「⚠️ You Won't Believe What This Dog Said #Jinmenken」\n\n**2. 台本とストーリー展開の執筆（The Whisperer）**\n*   選定されたタイトルに基づき、日本特有の「湿り気のある恐怖」と生理的嫌悪感を短い英語台本に昇華。\n*   **ストーリーアーク:**\n    *   **導入:** 静かで不穏な夜の街の描写から、不気味な雰囲気を作り出す。\n    *   **遭遇:** 一見普通の野良犬かと思わせるミスリード。\n    *   **核心:** 犬が頭を振り向くと、そこに現れる人間の顔。その異形と、人間のような声で発せられる短い言葉による衝撃。\n    *   **心理的恐怖:** 主人公の血が凍るような恐怖と、その場から逃げ出すも、言葉の残響が精神を蝕む描写。\n*   短尺の中で最大限の不気味さと心理的衝撃を与えるよう、言葉選びに注意した。\n\n**3. 映像プロンプトの設計（The Visionary）**\n*   The Whispererの台本に沿って、各シーンの視覚的恐怖を最大化するMidjourneyプロンプトを設計。\n*   **共通の視覚的テーマ:**\n    *   **ムード:** 「Moody lighting」「high contrast」「grainy film」で湿ったような不気味さを強調。\n    *   **レンズ:** 「35mm lens」で映画的な質感と臨場感を出す。\n    *   **解像度:** 「photorealistic, 8k」でクリーチャーの異形さを際立たせる。\n*   **特記事項:** 人面犬の顔のアップシーン（シーン7）では、人間の顔と犬の体の境目をリアルかつ生理的な嫌悪感を伴うように指定。主人公の恐怖（シーン10）と逃走（シーン11, 12）はPOVやブレのある映像で表現し、没入感を高める。\n\n**4. 最終調整と品質チェック（全員）**\n*   各要素がYouTube Shortsの要件と品質基準を満たしているかを確認。\n*   Vrewスクリプトの句読点なし、音響効果指示なしの厳守。\n*   MidjourneyプロンプトとVrewスクリプトの行数の一致確認。\n*   Descriptionの文字数と冒頭フックの確認。\n*   全体として、短時間で強烈な印象を残し、海外のクリーチャー・都市伝説ファンに刺さるJホラーコンテンツとして完成度が高いと判断。",
+    "vrew_script": "A night walk in the city's quiet hum\nShadows stretch long and unnerving\nThen I saw it a stray in the dim light\nIts eyes reflecting the street's glow\nI thought it was just a dog lost\nBut as I drew near it turned its head\nA man's face stared back cold and old\nIts lips moved a whisper in the air\nDon't look at me it simply said\nA voice too human too close for comfort\nMy blood ran cold a primal dread\nI fled fast the sound chasing me\nThe echo of that voice still remains\nHaunting my sleep haunting my days",
+    "mj_prompts_list": [
+      "A lone figure walking down a dark, narrow alleyway in a Japanese city at night, the air thick with an eerie, quiet hum. Streetlights cast long, distorted shadows. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "Extreme close-up of elongated, distorted shadows stretching across wet pavement, illuminated by a single, flickering streetlight. The atmosphere is unsettling and mysterious. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "POV shot. A medium shot of a dark, shaggy dog-like creature partially obscured by deep shadows at the end of a deserted alley. Only its silhouette and a glint of its eyes are visible. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "Close-up of large, dark canine eyes, reflecting the blurred, distant glow of city lights, creating an unsettling, watchful gaze. The background is pitch black. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "A slightly wider shot of the dog-like creature, still partially in shadow, appearing somewhat normal at first glance but with an unnatural stillness. The viewer's perspective suggests a cautious approach. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "POV shot. The dog-like creature slowly turns its head towards the viewer. The movement is deliberate and unsettling. The shadows start to recede slightly. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "Shocking close-up of the creature's face: a realistic, gaunt, middle-aged Japanese man's face fused onto the dog's head, with piercing, emotionless eyes. The texture of fur meets human skin. Extreme detail on the face. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "Very close-up on the man-faced dog's lips, slightly parted, showing a hint of teeth. The expression is unsettlingly calm. The background is blurred, focusing on the lips. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "A medium shot of the Jinmenken, its human face slightly tilted, mouth slightly open as if speaking. The eyes are fixed directly on the viewer, a look of profound weariness and subtle menace. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "Close-up on the horrified, wide-eyed face of the unseen protagonist, showing extreme shock and disbelief. The lighting emphasizes the fear etched on the face. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "A distorted, shaky POV shot as the protagonist stumbles backward, the Jinmenken remaining still but its eyes still fixed. The scene is slightly blurred, conveying panic. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "A blurry, low-angle shot of legs running wildly down the dark alley, the perspective suggesting desperate flight. The streetlights streak past. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "An empty, dark alleyway, identical to the first shot, but now imbued with a chilling sense of presence. A subtle, misty haze drifts through. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0",
+      "A dreamlike, unsettling image of the Jinmenken's human face appearing briefly in the darkness, then fading into swirling shadows, leaving a lingering sense of terror. Moody lighting, cinematic, photorealistic, 8k, 35mm lens, grainy film, high contrast. --ar 9:16 --v 6.0"
+    ]
+  }
+}

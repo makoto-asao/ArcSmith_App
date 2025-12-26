@@ -8,6 +8,7 @@ class Config:
     SPREADSHEET_ID = os.getenv("SPREADSHEET_ID")
     GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
     AUTH_STATE_PATH = os.getenv("AUTH_STATE_PATH", "auth/state.json")
+    DEEPL_API_KEY = os.getenv("DEEPL_API_KEY")
 
     @classmethod
     def validate(cls):
@@ -18,6 +19,8 @@ class Config:
             missing.append("SPREADSHEET_ID")
         if not cls.GOOGLE_APPLICATION_CREDENTIALS:
             missing.append("GOOGLE_APPLICATION_CREDENTIALS")
+        if not cls.DEEPL_API_KEY:
+            missing.append("DEEPL_API_KEY")
         
         if missing:
             raise ValueError(f"Missing environment variables: {', '.join(missing)}")

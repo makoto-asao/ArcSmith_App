@@ -1,0 +1,57 @@
+{
+  "id": "8f1f367b-26ff-4b5d-91f7-5208a60d5852",
+  "draft_name": "[自動保存] 合わせ鏡 (Awase Kagami - Facing Mirrors) - 2025-12-25 23:59",
+  "created_at": "2025-12-25T23:59:44.643630",
+  "updated_at": "2025-12-25T23:59:44.643630",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "合わせ鏡 (Awase Kagami - Facing Mirrors)",
+    "selected_metadata": {
+      "overview": "2枚の鏡を向かい合わせに置き、その間に立つと、無限に続く自分の姿が見える。その無限の像の中に、本来いるはずのない「別の何か」が映り込んだり、自分の顔が徐々に歪んでいったりする恐怖。",
+      "horror_point": "Visual distortion and existential dread. The fear of seeing something unnatural in one's own reflection, or the 'self' being corrupted/replaced by an unknown entity in an infinite loop."
+    },
+    "title_en": "WARNING: Never Face Infinite Mirrors Alone #JHorror",
+    "title_jp": "警告：無限合わせ鏡に一人で挑むな #Jホラー",
+    "description": "Have you ever dared to stand between two facing mirrors in the dark? This ancient Japanese urban legend, known as Awase Kagami, promises an infinite reflection but often reveals something far more terrifying. What begins as a simple experiment quickly descends into a chilling encounter with the unknown. Watch as the boundaries of your own reflection blur, showing not just endless versions of yourself, but subtle distortions, a glimpse of something unnatural, or even a different entity entirely. This video explores the existential dread and visual horror of seeing your 'self' corrupted in an infinite loop. Many believe the mirrors act as portals, trapping lost spirits or revealing hidden dimensions. Are you brave enough to stare into the abyss of your own reflection, or will you find a horrifying secret staring back? What do you think truly appears in the infinite reflections? Let us know in the comments if you've ever tried this ritual or heard similar tales. #JHorror #UrbanLegend #Creepy #Supernatural #JapaneseCulture #HorrorStory #Paranormal #Reflection",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #AwaseKagami #JapaneseCulture #HorrorStory #Paranormal #Reflection",
+    "editorial_notes": "「合わせ鏡」のテーマに基づき、3人のエキスパートが協力してYouTubeショート動画の台本を作成しました。\n\n**1. Viral Architect (YouTube Shortsマーケター) によるタイトル案と選定:**\n- **提案1:** \"Awase Kagami: The Mirror's Endless Nightmare Unveiled\"\n- **提案2:** \"WARNING: Never Face Infinite Mirrors Alone #JHorror\"\n- **提案3:** \"This Ancient J-Horror Ritual Reveals Your Darkest Self\"\n\n**選定理由:** 提案2「WARNING: Never Face Infinite Mirrors Alone #JHorror」を最優秀案として選定しました。理由としては、「WARNING」というパワーワードが冒頭にあり、視聴者の注意を一瞬で掴む力が非常に強い点です。また、「Never Face Infinite Mirrors Alone」という具体的な行動への警告と、「#JHorror」というジャンルが明確に伝わり、モバイル環境での視認性とクリック率（CTR）が高いと判断しました。簡潔かつインパクトがあり、海外視聴者にも直感的に恐怖が伝わるフックです。\n\n**2. The Whisperer (ホラー作家) による台本とストーリー展開:**\n選定されたタイトルに基づき、日本特有の「合わせ鏡」の都市伝説が持つ心理的な恐怖と存在論的な不安に焦点を当てた台本を作成しました。鏡の中の無限の像が徐々に歪み、最終的には自分ではない「何か」が映り込むという、視覚的な歪みと自己の喪失感を短い尺で表現することを目指しています。言葉遣いは簡潔ながらも、その背後に潜む不気味さを暗示するよう工夫しました。\n\n**3. The Visionary (映像監督) によるMidjourneyプロンプト設計:**\n各シーンの台本に対応する形で、視覚的な恐怖を最大限に引き出すプロンプトを設計しました。全体を通して「暗く湿った日本のホラー」の雰囲気を保ちつつ、光の当たり方（Low-key, Backlight）、レンズ設定（35mm, wide-angle）、質感（Grainy, Film noise）を細かく指定しています。特に、鏡の中の像が歪んだり、異質なものが映り込んだりする様を強調するためのディストーションやグリッチ効果を盛り込み、視覚的なショックを狙っています。登場人物はあくまで被写体であり、恐怖の中心は鏡とそこに映る「不確かな自己」です。\n\n**4. 最終調整と品質チェック:**\n3名のエキスパートが共同で内容を確認し、各要件（文字数、Vrewスクリプトのフォーマット、Midjourneyプロンプトの対応）が満たされていることを確認しました。特にVrewスクリプトの句点なし、音響効果指示なしのルールは厳守されています。",
+    "vrew_script": "They say facing mirrors open a portal\nAn infinite corridor stretching forever\nYour reflection multiplies into the void\nEach copy slightly less like you\nA subtle shift a creeping unease\nThen a flicker in the distant depth\nIs that truly your own face staring back\nOr something new something wrong\nThe mirror whispers your name backward\nIts surface ripples with unseen eyes\nThe faces distort twisting beyond recognition\nOne reflection does not belong\nIt smiles a cold knowing grin\nYou are trapped within your own nightmare\nInfinite reflections infinite dread",
+    "script_jp_list": [
+      "鏡に向かえば扉が開く",
+      "どこまでも続く無限の回廊",
+      "あなたの反射が虚空に増殖する",
+      "各コピーはあなたより少し少ない",
+      "微妙な変化......忍び寄る不安",
+      "そのとき、遠くの奥にちらりと見えた",
+      "それは本当にあなた自身の顔なのか？",
+      "あるいは、新しい何かが間違っている",
+      "鏡が後ろ向きにあなたの名前をささやく",
+      "その表面は見えない目で波打つ",
+      "顔が歪み、見分けがつかなくなる",
+      "ある反射は属さない",
+      "冷たい笑みを浮かべている。",
+      "自分の悪夢に囚われている",
+      "無限の反射 無限の恐怖"
+    ],
+    "mj_prompts_list": [
+      "Dark room, two antique ornate mirrors facing each other, creating an infinite tunnel effect. A lone, faint candle flickers in the foreground. Japanese traditional house elements in the background, low-key lighting, moody atmosphere, photorealistic, 8k, 35mm lens, grainy film, cinematic, high contrast --ar 9:16 --v 6.0",
+      "POV shot looking into the infinite mirror tunnel. The reflections stretch into darkness, slightly blurry at the farthest point. The light is dim, creating long shadows. Eerie, mysterious, photorealistic, 8k, 35mm lens, grainy film, cinematic, high contrast, subtle lens flare --ar 9:16 --v 6.0",
+      "A young Japanese woman's back as she stands between the mirrors, her silhouette casting long shadows. Her reflections extend into infinity. The atmosphere is tense. Backlight, low-key lighting, photorealistic, 8k, 35mm lens, grainy film, cinematic, high contrast, shallow depth of field --ar 9:16 --v 6.0",
+      "Close-up of a reflection in the mirror, slightly distorted, with a subtle shift in the face's expression – a hint of confusion or fear. The surrounding reflections are still infinite but slightly less defined. Dark, moody, photorealistic, 8k, 50mm lens, grainy film, cinematic, high contrast --ar 9:16 --v 6.0",
+      "The woman's hand tentatively reaching towards her reflection, her face partially obscured but showing growing unease. The reflections behind her are starting to show minor visual noise. Low angle, dark, photorealistic, 8k, 35mm lens, grainy film, cinematic, high contrast, unsettling --ar 9:16 --v 6.0",
+      "A quick, almost subliminal flicker in one of the far-off reflections. It's too quick to identify but hints at something unnatural. The foreground reflection remains normal. Glitch effect, momentary visual distortion, very dark, photorealistic, 8k, 85mm lens, grainy film, cinematic, high contrast --ar 9:16 --v 6.0",
+      "Close-up of the woman's eyes in her direct reflection, wide with fear and confusion. Her pupils dilated, searching for something. The reflections around her are beginning to show more pronounced digital artifacting or faint shadowy figures. Intense, photorealistic, 8k, 100mm lens, grainy film, cinematic, high contrast --ar 9:16 --v 6.0",
+      "A reflection shows the woman's face, but with a subtle, uncanny valley distortion – eyes slightly too far apart, mouth unnaturally wide, barely perceptible. The other reflections are also subtly off. Disquieting, disturbing, photorealistic, 8k, 50mm lens, grainy film, cinematic, high contrast, slight fisheye distortion --ar 9:16 --v 6.0",
+      "The mirror's surface itself seems to ripple and warp, as if a liquid, obscuring the reflections momentarily. The sound of distant, indistinguishable whispers seems to emanate from the glass. Ethereal, wavy distortion, photorealistic, 8k, 35mm lens, grainy film, cinematic, high contrast, surreal --ar 9:16 --v 6.0",
+      "The woman's direct reflection, now visibly distressed, mouth slightly agape in a silent scream. But the reflections further down the tunnel show shadowy, indistinct faces pressing against the glass. Panicked, claustrophobic, photorealistic, 8k, 28mm wide-angle lens, grainy film, cinematic, high contrast, ominous --ar 9:16 --v 6.0",
+      "Extreme close-up on a distorted reflection of the woman's eye, with subtle veins visible and a hint of a different, non-human pupil or iris shape. The image is pixelated or glitched around the edges. Intense, grotesque, photorealistic, 8k, macro lens, grainy film, cinematic, high contrast, digital distortion --ar 9:16 --v 6.0",
+      "One specific reflection, not the woman's immediate one, clearly shows a different, grotesque face – gaunt, pale, long dark hair, staring directly out of the mirror with malevolent intent. The other reflections remain distorted versions of the woman. Shocking, terrifying, photorealistic, 8k, 85mm lens, grainy film, cinematic, high contrast, extreme horror --ar 9:16 --v 6.0",
+      "Close-up on the grotesque reflection's face, a wide, unnatural smile spreading slowly, eyes devoid of humanity, staring directly at the viewer. The background is a swirling void of darkness. Malicious, chilling, photorealistic, 8k, 100mm lens, grainy film, cinematic, high contrast, pure evil --ar 9:16 --v 6.0",
+      "The woman's immediate reflection is now replaced by the grotesque entity, mimicking her exact pose, but with a chilling, knowing smirk. The entity in the mirror is reaching out a pale, long-fingered hand towards the viewer. Overpowering dread, photorealistic, 8k, 35mm lens, grainy film, cinematic, high contrast, jump scare potential --ar 9:16 --v 6.0",
+      "A final shot of the infinite mirror tunnel, but now all reflections are of the grotesque entity, its countless faces smiling, filling the void. The light is almost completely gone, consumed by darkness. Absolute horror, existential dread, photorealistic, 8k, 24mm ultra-wide lens, grainy film, cinematic, high contrast, pure black void --ar 9:16 --v 6.0"
+    ]
+  }
+}
