@@ -1,0 +1,47 @@
+{
+  "id": "24b1169b-7c1c-428c-99d5-d6fbaade628f",
+  "draft_name": "[自動保存] 両面宿儺の呪い箱 (Ryomen-sukuna: The Two-Faced Mummy) - 2025-12-29 18:45",
+  "created_at": "2025-12-29T18:45:47.897350",
+  "updated_at": "2025-12-29T18:45:47.897350",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "両面宿儺の呪い箱 (Ryomen-sukuna: The Two-Faced Mummy)",
+    "selected_metadata": {
+      "overview": "古い寺の解体現場で見つかった、二つの顔と四つの腕を持つ奇形のミイラ。それを目撃した者には、物理的な「部位の欠損」や「発狂」が連鎖する。Jホラー特有の『呪いの感染』を描く。",
+      "horror_point": "人気アニメ等の影響で名前の認知度が高い一方、元ネタのクリーチャーとしての禍々しさを強調。開けてはいけない箱（Forbidden Box）というプロットは、視聴者の好奇心と恐怖を同時に刺激する。"
+    },
+    "title_en": "Cursed Mummy Found: 2 Faces, 4 Arms, 0 Survivors",
+    "title_jp": "【閲覧注意】実在した両面宿儺。解体現場で見つかった呪いの箱",
+    "description": "What happens when you find a box that should have remained buried forever? In the ruins of an ancient Japanese temple, workers discovered a terrifying secret: a mummified creature with two faces and four arms. This isn't just a story; it is the dark reality of the Ryomen-sukuna curse. Legend says that anyone who looks upon the mummy will face a slow, agonizing decay of their body and mind. Have you ever felt like you were being watched from the shadows after hearing a ghost story? Tell us in the comments if you believe in ancient curses. Experience the true terror of Japanese Horror and the supernatural mystery of the Forbidden Box. Stay tuned for more creepy stories and urban legends from Japan. Japanese Horror, Urban Legend, Creepy, Ryomen Sukuna, Forbidden Box.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #RyomenSukuna #ScaryStories #JapaneseGhostStory #Creepy",
+    "editorial_notes": "Viral Architectによるタイトル提案：1. 'The Real Sukuna: Forbidden Box Found', 2. 'Cursed Mummy Found: 2 Faces, 4 Arms, 0 Survivors', 3. 'Warning: Do Not Watch the Sukuna Ritual'。クリック率と視覚的フックを考慮し、身体的特徴と脅威を強調した案2を採用。The Whispererは物理的損壊と精神崩壊のプロセスを英語のナレーションに落とし込み、湿り気のある恐怖を演出。The Visionaryは、Jホラー特有の薄暗さと質感（Grainy, Cinematic）を重視したプロンプトを設計しました。",
+    "vrew_script": "Deep in the temple ruins it waited\nA box bound with rusted chains and blood\nInside lies the forbidden two faced mummy\nFour arms reaching from the darkness of death\nLegend says those who look will lose a limb\nFirst your fingers will begin to rot away\nThen your mind will shatter like glass\nCan you hear the scratching from inside the wood\nRyomen sukuna is hungry for your soul\nNever look into the box of the double face",
+    "script_jp_list": [
+      "神殿跡の奥深くで、それは待っていた",
+      "錆びた鎖と血で縛られた箱",
+      "その中には、禁断の2つの顔を持つミイラがいる。",
+      "死の闇から伸びる4本の腕",
+      "見る者は手足を失うという伝説",
+      "まず指が腐り始める",
+      "そのとき、あなたの心はガラスのように砕け散るだろう",
+      "木の内部から引っ掻く音が聞こえるか？",
+      "良縁スクナはあなたの魂に飢えている",
+      "ダブルフェイスの箱を覗いてはいけない"
+    ],
+    "mj_prompts_list": [
+      "Cinematic shot of abandoned Japanese temple ruins, overgrown with moss, foggy atmosphere, moody lighting, 35mm lens, photorealistic, 8k --ar 9:16",
+      "Close up of an ancient wooden box wrapped in rusty iron chains, dark basement background, dust particles in light, high contrast, grainy film texture --ar 9:16",
+      "Grotesque mummified head with two distinct distorted faces, ancient wrappings, dark shadows, macabre aesthetic, hyper-detailed, 8k --ar 9:16",
+      "Four desiccated mummified arms reaching out from a dark wooden crate, long claws, eerie atmosphere, low angle shot --ar 9:16",
+      "A terrified person's face reflecting in a dark mirror, shadow over eyes, Japanese horror aesthetic, cold color palette --ar 9:16",
+      "Macro shot of human fingers turning black and decaying, skin peeling, body horror, dramatic lighting, sharp focus --ar 9:16",
+      "A distorted silhouette of a person in a dark hallway, shattered glass overlay effect, psychological horror, grainy film --ar 9:16",
+      "Extreme close up of scratch marks appearing on old wood from the inside, splinters flying, dark and gritty, high speed photography --ar 9:16",
+      "Large demonic shadow with multiple arms and two faces looming over a victim, glowing red eyes in the dark, supernatural horror --ar 9:16",
+      "The cursed wooden box slowly closing in a pitch black room, single flickering candle light, eerie ending, cinematic horror --ar 9:16"
+    ]
+  }
+}

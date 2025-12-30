@@ -1,0 +1,53 @@
+{
+  "id": "6eda0aa7-8589-46f5-a911-89a1fbe5bebf",
+  "draft_name": "[自動保存] くねくね (Kunekune - The Wiggling White Shadow) - 2025-12-28 21:21",
+  "created_at": "2025-12-28T21:21:40.510607",
+  "updated_at": "2025-12-28T21:21:40.510607",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "くねくね (Kunekune - The Wiggling White Shadow)",
+    "selected_metadata": {
+      "overview": "田舎の田んぼの真ん中で白く奇妙に揺れる人影。それの正体を理解した瞬間、精神に異常をきたすという都市伝説。映像ではあえて遠景で「正体不明の動き」を見せ、視聴者の好奇心を煽る。",
+      "horror_point": "『見てはいけないものを見てしまう』という普遍的なタブーと、生理的な不快感を与える独特の動きが、言語の壁を超えて本能的な恐怖を呼び起こす。"
+    },
+    "title_en": "⚠️ WARNING: If you see this WIGGLING shadow, it's too late #Shorts",
+    "title_jp": "【閲覧注意】田んぼに現れる正体不明の「くねくね」を見てはいけない… #Shorts",
+    "description": "Have you ever heard of the Kunekune? This Japanese urban legend tells of a mysterious white figure that wiggles in the middle of rural rice fields during the hottest days of summer. It looks like a person, or perhaps a strip of cloth, but its movement is completely inhuman. The most terrifying part is the rule: you can look at it from afar, but the moment you see it clearly or understand what it is, your mind will shatter instantly. This 'forbidden knowledge' is a staple of Japanese horror. Have you ever seen something you couldn't explain in the countryside? Let us know in the comments below. Stay safe, and never look too closely at the white shadows. Japanese Horror, Urban Legend, Creepy, Supernatural, Folklore, J-Horror.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepypasta #ScaryStories #JapaneseHorror #Kunekune",
+    "editorial_notes": "【エキスパート協議】Viral Architectが提案した3つのタイトル案：1.「Don't LOOK at the White Thing in the Rice Field」、2.「The Forbidden Shadow of Rural Japan」、3.「⚠️ WARNING: If you see this WIGGLING shadow, it's too late」。最もクリック率が高いと予想される3番を採用。冒頭で『警告』と『具体的な視覚特徴（Wiggling）』を提示し、海外視聴者の好奇心を刺激します。The Whispererは、くねくねの「正体を知ると狂う」という概念を、直接的な描写を避けつつ湿り気のある英語で表現。The Visionaryは、日本の夏の田舎特有の「明るすぎるがゆえの不気味さ」を35mmフィルム風の質感で指定しました。演出として、音声は非常に静かな環境音から徐々に不協和音を強める構成を想定しています。",
+    "vrew_script": "Do you see it in the distance\nA white shape dancing in the summer heat\nWiggling unnaturally amidst the green rice fields\nThere is no wind blowing today\nYet it moves like paper in a storm\nNever use your binoculars to see it closer\nCuriosity in this village leads to madness\nThe more you understand the less you remain\nTo perceive its true form is to break your soul\nIt is neither human nor a simple ghost\nThis is the legend of the Kunekune\nIf you see it wiggling just look away\nBefore the wiggling shadow notices you too",
+    "script_jp_list": [
+      "遠くに見える",
+      "夏の暑さの中で踊る白い形",
+      "緑の田んぼの中で不自然にくねくねと動く",
+      "今日は風が吹いていない",
+      "しかし、それは嵐の中の紙のように動く",
+      "決して双眼鏡を使って近くを見ようとしないでください。",
+      "この村の好奇心は狂気につながる",
+      "理解すれば理解するほど、自分の中に残るものは少なくなる",
+      "その真の姿を知覚することは、魂を砕くことだ",
+      "人間でもなければ、単なる幽霊でもない",
+      "これがクネクネの伝説である。",
+      "くねくねしているのが見えたら、目をそらしてください",
+      "くねくね動く影に気づかれる前に"
+    ],
+    "mj_prompts_list": [
+      "Wide shot of a bright Japanese rice field, summer afternoon, shimmering heat haze, 35mm film, grainy, high contrast, photorealistic 8k --ar 9:16 --v 6.0",
+      "A tiny white vertical shape in the far distance of a vast green field, overexposed sunlight, eerie atmosphere, cinematic lighting --ar 9:16 --v 6.0",
+      "Focus on green rice stalks in foreground, a blurry white figure wiggling unnaturally in the background, distorted motion, 35mm lens --ar 9:16 --v 6.0",
+      "Extreme wide shot of landscape under a cloudless harsh blue sky, static air, oppressive heat, cinematic photography --ar 9:16 --v 6.0",
+      "Mid-shot of a white thin entity, fluid-like movement, inhuman skeletal structure wiggling, VHS aesthetic, glitchy texture --ar 9:16 --v 6.0",
+      "POV shot of someone holding binoculars with trembling hands, cinematic depth of field, moody lighting, dark vignette --ar 9:16 --v 6.0",
+      "Rural Japanese village road, abandoned houses, long shadows, psychological horror atmosphere, grainy film style --ar 9:16 --v 6.0",
+      "Distorted POV vision, vertigo effect, high contrast black and white with a hint of green, surreal imagery --ar 9:16 --v 6.0",
+      "Extreme close up of a human eye wide with terror, reflection of a white wiggling shape in the pupil, hyper-detailed, photorealistic --ar 9:16 --v 6.0",
+      "Abstract representation of a shattered mind, glass breaking into dark patterns, eerie white light, 8k resolution --ar 9:16 --v 6.0",
+      "The white figure standing tall in the center of the field, glowing unnaturally, uncanny valley, cinematic masterpiece --ar 9:16 --v 6.0",
+      "A person quickly turning their head away, motion blur, terrified expression partially hidden by shadows, grainy texture --ar 9:16 --v 6.0",
+      "Close up of the Kunekune figure wiggling aggressively, bright white silhouette against the setting sun, terrifying presence, 35mm film --ar 9:16 --v 6.0"
+    ]
+  }
+}

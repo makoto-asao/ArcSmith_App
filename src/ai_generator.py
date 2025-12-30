@@ -158,13 +158,23 @@ class AIGenerator:
 ### 👥 召喚するエキスパート
 {persona_logic}
 
-### 🎯 制作プロセス
-以下の手順で3人のエキスパートが協力して制作を進めてください：
+### 🎯 制作プロセス (2-Round System)
+最高のクオリティを担保するため、以下の「2段階会議」を経て制作を行ってください。
 
-1. **Viral Architect**が、バズるための「タイトル案」を3つ提案し、その中から最も引きが強く、クリック率（CTR）が高いものを1つ選定する。
-2. **The Whisperer**が、選定されたタイトルに合わせて台本とストーリー展開を執筆。
-3. **The Visionary**が、各シーンの映像プロンプトを設計。
-4. 3人で最終調整と品質チェック。
+#### Round 1: Drafting (粗案作成)
+- 3人のエキスパートが協力し、一旦完了形のドラフト（タイトル、台本、プロンプト）を作成する。
+- この段階では勢いを重視する。
+
+#### Round 2: Critique & Refine (批判と修正)
+- 作成されたドラフトに対し、3人がそれぞれの視点で**厳しく批判**を行う。
+  - **Viral Architect**: 「タイトルは本当にクリックしたくなるか？」「冒頭のフックは弱いのではないか？」
+  - **The Whisperer**: 「ありきたりな怪談になっていないか？」「日本特有の湿度や不気味さが足りないのではないか？」
+  - **The Visionary**: 「プロンプトは具体的か？」「映像として面白味が足りないのではないか？（単なるキャラの立ち絵になっていないか？）」
+- これらの批判に基づき、ドラフトを**全面的に書き直して**最終版とする。
+
+#### Final: Output
+- 修正された最終成果物のみをJSONとして出力する。
+- **重要**: `editorial_notes` には、「Round 2でどのような批判があり、それをどう改善したか」の要約を必ず含めること。
 
 ### 📏 品質基準と制約（{video_mode}モード）
 {length_constraints}
@@ -200,18 +210,19 @@ class AIGenerator:
 
 **規則:**
 1. **台本の行数 = Midjourneyプロンプトの数**（必ず一致させる）
-2. 各プロンプトは、対応する台本の行（ナレーション）の内容、感情、および**そこに登場する重要なキーワード（名詞）**を確実に視覚化すること
-3. **文脈の維持**: 全シーンを通じてキャラクター、場所の雰囲気、光源設定の一貫性を保ちつつ、物語の進行（恐怖の増大など）を視覚的に表現すること
-4. シーン番号は1から順番に付ける
-5. 技術的な指定を含める（cinematography, photorealistic, 8k, 35mm lens, grainy film, high contrast, moody lighting, etc.）
+2. **タイトルカードやイントロ用の画像生成は禁止**（最初のプロンプトは必ず台本の1行目に対応させること）
+3. 各プロンプトは、対応する台本の行（ナレーション）の内容、感情、および**そこに登場する重要なキーワード（名詞）**を確実に視覚化すること
+4. **文脈の維持**: 全シーンを通じてキャラクター、場所の雰囲気、光源設定の一貫性を保ちつつ、物語の進行（恐怖の増大など）を視覚的に表現すること
+5. シーン番号は1から順番に付ける
+6. 技術的な指定を含める（cinematography, photorealistic, 8k, 35mm lens, grainy film, high contrast, moody lighting, etc.）
 
 **出力形式 (JSONのみ):**
 以下のJSON形式で、**余計な解説文を一切含まずJSONのみ**を出力してください。
 {{
-  "editorial_notes": "3人のエキスパートによる協議内容（タイトル案3つの提示と選定理由を含む）、演出指示、制作意図の日本語解説",
-  "title_en": "English Title",
-  "title_jp": "日本語タイトル",
-  "description": "YouTube Description in English",
+  "editorial_notes": "【重要】Round 2での3人による批判内容（ダメ出し）と、それを受けてどう改善したかの日本語解説。演出指示も含む。",
+  "title_en": "English Title (Refined)",
+  "title_jp": "日本語タイトル (Refined)",
+  "description": "YouTube Description in English (Refined)",
   "hashtags": {hashtags_instruction},
   "vrew_script": ["English line 1", "English line 2", ...],
   "mj_prompts": [
@@ -244,9 +255,16 @@ class AIGenerator:
             full_display_text += f"- **Hashtags**: {' '.join(data.get('hashtags', []))}\n\n"
             full_display_text += "## 📜 Script (EN)\n" + "\n".join(data.get('vrew_script', []))
 
+            # --- 同期ズレの補正 (New!) ---
+            raw_prompts = data.get('mj_prompts', [])
+            vrew_script = data.get('vrew_script', [])
+            title_en = data.get('title_en', '')
+            
+            fixed_prompts = self._fix_sync_issues(vrew_script, raw_prompts, title_en)
+
             # Midjourneyプロンプトをシーンごとにリスト化
             prompt_list = []
-            for item in data.get('mj_prompts', []):
+            for item in fixed_prompts:
                 p = item.get('prompt', '')
                 if p:
                     # 共通キーワードの付与
@@ -286,3 +304,47 @@ class AIGenerator:
                 "mj_prompts_list": [],
                 "full_text": f"JSON解析エラー: {e}\\nRaw Response: {response.text}"
             }
+
+    def _fix_sync_issues(self, vrew_script, mj_prompts, title_en):
+        """
+        AIが生成したスクリプトとプロンプトの同期ズレを補正する内部メソッド
+        よくあるパターン: プロンプトが1つ多い（タイトルカード用が含まれている）
+        """
+        len_script = len(vrew_script)
+        len_prompts = len(mj_prompts)
+
+        if len_script == len_prompts:
+            return mj_prompts
+
+        # パターンA: プロンプトが1つ多い (タイトルカードが先頭に含まれている可能性が高い)
+        if len_prompts == len_script + 1:
+            # 先頭のプロンプトがタイトルやイントロっぽいかチェック
+            first_prompt = mj_prompts[0].get('prompt', '').lower()
+            suspicious_keywords = ['title', 'intro', 'text', 'typography', title_en.lower()]
+            
+            is_title_card = any(k in first_prompt for k in suspicious_keywords)
+            
+            if is_title_card:
+                print("DEBUG: Detected possible Title Card prompt. Removing 1st prompt to sync with script.")
+                # シーン番号を振り直して返す
+                fixed_prompts = []
+                for i, p_data in enumerate(mj_prompts[1:], 1):
+                    p_data['scene'] = i
+                    fixed_prompts.append(p_data)
+                return fixed_prompts
+            
+            # 末尾が多い場合もあるかもしれないが、まずは先頭を疑う。
+            # それでもダメなら単純に長さ合わせを行う（下部）
+
+        # パターンB: どうしても合わない場合は、短い方に合わせる（クラッシュ防止）
+        print(f"WARNING: Sync mismatch detected. Script: {len_script}, Prompts: {len_prompts}. Truncating to min length.")
+        min_len = min(len_script, len_prompts)
+        
+        # プロンプトをスライスしてシーン番号を振り直し
+        fixed_prompts = []
+        for i in range(min_len):
+            p_data = mj_prompts[i]
+            p_data['scene'] = i + 1
+            fixed_prompts.append(p_data)
+            
+        return fixed_prompts

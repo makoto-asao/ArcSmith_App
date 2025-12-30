@@ -1,0 +1,49 @@
+{
+  "id": "83367c87-e43b-453f-b725-50b16c6be64d",
+  "draft_name": "[自動保存] だるまさんが転んだ (The Bath Ritual: Daruma-san) - 2025-12-29 21:22",
+  "created_at": "2025-12-29T21:22:18.194961",
+  "updated_at": "2025-12-29T21:22:18.194961",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "だるまさんが転んだ (The Bath Ritual: Daruma-san)",
+    "selected_metadata": {
+      "overview": "お風呂場で目をつぶりながら特定の呪文を唱えると、背後に片目の潰れた女が現れるという都市伝説。ショート動画では、鏡に映る『いないはずの何か』との距離が、振り向くたびに縮まっていく恐怖を演出。",
+      "horror_point": "『だるまさんが転んだ』というゲーム性は海外でも認識されており、ルールを破ると死ぬというシンプルさと、湿度の高い浴室という閉鎖空間の恐怖が視覚的に伝わりやすいため。"
+    },
+    "title_en": "WARNING: Don't Turn Around During This Bath Ritual #Shorts",
+    "title_jp": "風呂で絶対に後ろを向いてはいけない理由：だるまさんが転んだの呪い",
+    "description": "Have you ever felt a presence while washing your hair in the dark? In Japan, the ritual of 'Daruma-san' is more than just a game. It is a portal to a nightmare that begins in your own bathtub. If you follow the steps, a woman with a missing eye will appear. The rules are simple: don't open your eyes, and whatever you do, do not turn around. But as the steam rises and the temperature drops, can you resist the urge to look? This urban legend has terrified generations. Tell us in the comments: have you ever seen something in the mirror that shouldn't be there? Watch until the end to see how the ritual concludes. Subscribe for more spine-chilling Japanese horror stories and urban legends from the dark side of Tokyo. Japanese Horror is closer than you think.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Scary #DarumaSan #JapaneseHorror #Creepy #HorrorStories",
+    "editorial_notes": "Viral Architectは以下の3つのタイトルを提案：1. 'The Bath Ritual You Should NEVER Try', 2. 'The One-Eyed Woman in Your Mirror', 3. 'WARNING: Don't Turn Around During This Bath Ritual'。海外のショート動画視聴者は『警告』と『禁止行為』に強く反応するため、3番を採用。The Whispererは湿度の高い日本の浴室での視覚と聴覚の違和感を強調し、Vrewの読み上げ速度に合わせたリズムを構築。The Visionaryは、映像の一貫性を保つため、古いタイル張りの浴室と、青白い肌のコントラストを強調するライティングを全プロンプトに共通させた。振り向くたびに距離が縮まる恐怖を視覚的な『寄り』で表現している。",
+    "vrew_script": "Do not close your eyes in a Japanese bathtub\nLegend says if you chant Daruma san fell down\nA woman with one eye crawls from the water\nHer hair is matted and skin cold as ice\nLook closely into the steam on the mirror\nShe is standing right behind your shoulder\nDo not blink and never turn your head\nShe gets closer every time you look away\nOne step two steps until she reaches you\nCan you hear her breath against your neck\nThe ritual has started and you cannot stop",
+    "script_jp_list": [
+      "日本の浴槽で目を閉じてはいけない",
+      "だるまさんが転んだの伝説",
+      "片目の女性が水から這い上がる",
+      "髪はぼさぼさ、肌は氷のように冷たい。",
+      "鏡の湯気をよく見る",
+      "彼女はあなたの肩のすぐ後ろに立っている",
+      "まばたきをせず、決して振り向かないこと",
+      "目をそらすたびに、彼女は近づいてくる",
+      "一歩、二歩、彼女があなたにたどり着くまで",
+      "首筋に彼女の吐息が聞こえるか",
+      "儀式は始まり、止めることはできない"
+    ],
+    "mj_prompts_list": [
+      "POV shot of a person sitting in a dark old Japanese bathtub steam rising cinematic lighting 35mm lens grainy film --ar 9:16",
+      "Close up of lips whispering in the shadows damp atmosphere dark teal and orange lighting photorealistic 8k --ar 9:16",
+      "A pale terrifying woman with one eye missing emerging slowly from dark bath water long black hair horror aesthetic high contrast --ar 9:16",
+      "Macro shot of wet matted black hair and pale blue skin water droplets eerie texture hyper-realistic 35mm --ar 9:16",
+      "A foggy bathroom mirror reflecting a dimly lit room hand print on the glass mystery atmosphere 8k cinematic --ar 9:16",
+      "A blurry silhouette of a woman standing directly behind a person's shoulder seen through a steamed mirror terrifying low light --ar 9:16",
+      "Extreme close up of a wide-open human eye reflection of a ghost in the pupil fear hyper-detailed grainy film --ar 9:16",
+      "The ghostly woman moving closer in the background flickering lights claustrophobic Japanese bathroom horror movie style --ar 9:16",
+      "A pale hand reaching out from the shadows towards the camera long dirty fingernails high tension dramatic shadows --ar 9:16",
+      "Close up of a person's neck a pale mouth whispering into their ear cold breath visible as mist terrifying 35mm --ar 9:16",
+      "The woman's face suddenly jumping into frame one eye socket empty and bleeding glitch effect extreme horror 8k --ar 9:16"
+    ]
+  }
+}

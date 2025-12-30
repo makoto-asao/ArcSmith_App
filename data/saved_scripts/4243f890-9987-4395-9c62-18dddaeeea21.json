@@ -1,0 +1,51 @@
+{
+  "id": "4243f890-9987-4395-9c62-18dddaeeea21",
+  "draft_name": "[自動保存] 能面の変化 (The Living Noh Mask) - 2025-12-28 21:26",
+  "created_at": "2025-12-28T21:26:13.134825",
+  "updated_at": "2025-12-28T21:26:13.134825",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "能面の変化 (The Living Noh Mask)",
+    "selected_metadata": {
+      "overview": "一見普通の人間が、角度によって表情を変える能面のような顔に変化していく。地下鉄や夜のコンビニなど、日常的なシチュエーションで発生する異変を描く。",
+      "horror_point": "海外で人気の高い『Uncanny Valley（不気味な谷）』を直撃する。日本の伝統的な不気味さと、現代のLiminal Space的な無機質さが融合し、視聴維持率を跳ね上げる。"
+    },
+    "title_en": "NEVER Stare at Strangers in Japan #Shorts",
+    "title_jp": "【警告】日本の地下鉄で他人の顔を凝視してはいけない理由",
+    "description": "Have you ever noticed someone whose face looks a little too smooth? In the dead of night on a Tokyo subway, you might encounter the Living Noh Mask. This is not a costume or a prank. It is a modern urban legend where a human face transforms based on the angle of light, shifting from joy to deep sorrow in a heartbeat. The Uncanny Valley is real, and it is sitting right across from you. Do you think this is just a story or have you seen a face like this before? Tell us your scariest commute stories in the comments below. Explore the dark side of Japanese urban legends and supernatural encounters in this spine-chilling J-Horror short.",
+    "hashtags": "Shorts JHorror UrbanLegend UncannyValley CreepyPasta JapaneseHorror SubwayHorror ScaryStories",
+    "editorial_notes": "Viral Architectは、視聴者が「自分も遭遇するかもしれない」という恐怖を煽る『NEVER Stare at Strangers in Japan #Shorts』を選定。The Whispererは、能面の「照らす（喜）」「曇る（悲）」の性質を、地下鉄の揺れによる角度変化に落とし込み、現代的な恐怖へ変換。The Visionaryは、Midjourney 6.0を想定し、日本の地下鉄の無機質な照明と、能面の不気味な質感を対比させるライティングを指定。Vrewの読み上げをスムーズにするため、全ての句読点を排除し、リズム感を重視した。映像全体を通して『不気味な谷』の極限を追求している。",
+    "vrew_script": "Late night on the empty Tokyo subway\nJust another tired salaryman sitting across from you\nBut something about his face is deeply wrong\nHis skin looks like polished white wood\nA frozen expression from an ancient stage play\nHe does not blink or breathe for a long time\nWhen the train sways his face slowly shifts\nA joyful smile turns into a look of deep sorrow\nThis is not a mask he is wearing\nIt is his real skin growing cold and hard\nThe uncanny valley is breathing right next to you\nWhatever you do never look him in the eyes",
+    "script_jp_list": [
+      "深夜の誰もいない東京の地下鉄",
+      "あなたの向かいに座っている、ただの疲れたサラリーマン",
+      "しかし、彼の顔の何かが深く間違っている",
+      "磨かれた白木のような肌",
+      "古代の舞台劇の凍りついた表情",
+      "長い間、瞬きも呼吸もしない。",
+      "列車が揺れると、彼の顔がゆっくりと動く。",
+      "楽しげな笑顔が深い悲しみに変わる",
+      "これは彼がかぶっている仮面ではない",
+      "それは、冷たく硬くなっていく彼の本当の肌だ",
+      "不気味の谷はあなたの隣で息をしている",
+      "何をするにしても、彼の目を見てはいけない"
+    ],
+    "mj_prompts_list": [
+      "Interior of a dimly lit Japanese subway car at night, fluorescent flickering lights, empty seats, cinematic atmosphere, 35mm lens, grainy film texture, 8k --ar 9:16 --v 6.0",
+      "Medium shot of a Japanese salaryman in a dark suit sitting alone, head slightly tilted, shadows over eyes, photorealistic, high contrast, moody lighting --ar 9:16 --v 6.0",
+      "Extreme close up of a human face with unnaturally smooth skin texture, resembling white porcelain, eerie and lifeless, high detail, sharp focus --ar 9:16 --v 6.0",
+      "Macro shot of skin that looks like polished white cypress wood, subtle wood grain visible under the surface, cinematic lighting, 8k resolution --ar 9:16 --v 6.0",
+      "A human face blending with a Ko-omote Noh mask, frozen features, traditional Japanese aesthetic, uncanny valley, photorealistic, eerie shadows --ar 9:16 --v 6.0",
+      "Close up of eyes that are glassy and unmoving, dark pupils, no eyelids moving, terrifying stillness, high detail, 35mm lens --ar 9:16 --v 6.0",
+      "Motion blur of a subway interior, the man's head tilting with the train's movement, dramatic lighting changes, cinematic horror --ar 9:16 --v 6.0",
+      "Split screen or transition showing the same porcelain face smiling then looking sad based on shadows, dramatic chiaroscuro, Noh mask lighting technique --ar 9:16 --v 6.0",
+      "Macro shot of the jawline where skin meets wood, hyper-realistic, skin texture transforming into hard lacquer, body horror elements, high contrast --ar 9:16 --v 6.0",
+      "A pale white face staring blankly, cold blue moonlight through a train window, haunting atmosphere, cinematic film grain, 8k --ar 9:16 --v 6.0",
+      "A figure sitting in a liminal space subway, the face is perfectly smooth and inhuman, terrifyingly realistic, hyper-detailed, unsettling --ar 9:16 --v 6.0",
+      "The man slowly raising his head to look directly into the camera, empty black eyes, extreme horror, dramatic lighting, photorealistic, 8k --ar 9:16 --v 6.0"
+    ]
+  }
+}

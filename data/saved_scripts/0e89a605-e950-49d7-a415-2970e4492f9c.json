@@ -1,0 +1,53 @@
+{
+  "id": "0e89a605-e950-49d7-a415-2970e4492f9c",
+  "draft_name": "[自動保存] さとるくん (Satoru-kun: The Answerer) - 2025-12-30 21:11",
+  "created_at": "2025-12-30T21:11:12.270605",
+  "updated_at": "2025-12-30T21:11:12.270605",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "さとるくん (Satoru-kun: The Answerer)",
+    "selected_metadata": {
+      "overview": "公衆電話から自分のスマホに電話をかけ、特定の呪文を唱えると『さとるくん』が背後に迫る儀式。一歩ずつ近づく恐怖をリアルタイム形式で描く。",
+      "horror_point": "『スマホ』という日常デバイスと『背後に何かが近づく』という物理的距離の恐怖は、言語を問わず視聴者の本能的な警戒心を刺激するため。"
+    },
+    "title_en": "WARNING: 10cm Away... The Satoru-kun Ritual",
+    "title_jp": "【閲覧注意】後ろに誰かいる…さとるくんの呪い",
+    "description": "What would you do if a ghost was tracking your location in real-time? Satoru-kun is one of Japan's most terrifying urban legends. This ritual involves calling your own phone from a public booth. He will call you back, getting closer with every sentence until he is right behind you. Would you dare to ask him a question, or would you run? Japanese Horror and Supernatural urban legends often use everyday technology like smartphones to bridge the gap between our world and the spirit realm. This creepy story explores the physical distance of fear. Do you believe in urban legends? Tell us your scariest experience in the comments below! This is a legendary J-Horror tale that reminds us: never call your own number at night.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Scary #Satoru-kun #JapaneseHorror #GhostStory",
+    "editorial_notes": "Viral Architectによるタイトル案：1. NEVER Answer This Call: Satoru-kun, 2. WARNING: 10cm Away... The Satoru-kun Ritual, 3. The Secret Phone Ritual of Japan. 協議の結果、物理的な距離（10cm）を強調し視聴者の本能的な恐怖を煽る案2を選定。The Whispererは『距離が縮まる恐怖』をナレーションに込め、文末の句点を排除してVrewの読み上げ精度を最適化。The Visionaryは90年代Jホラーの質感を再現するため、Grainy filmと35mmレンズの設定を全プロンプトに共通採用し、一貫した不気味さを演出しました。",
+    "vrew_script": "Have you heard of the boy who knows everything\nFind a public phone at the edge of town\nDrop a coin and call your own number\nSatoru-kun Satoru-kun please come to me\nThe phone rings but no one is there\nThen your pocket vibrates with a cold chill\nI am at the station he whispers\nEvery second the voice gets closer\nI am at your front door now\nI am right behind you he breathes\nAsk your question but do not turn around\nIf you look back he will drag you away\nCan you feel his breath on your neck",
+    "script_jp_list": [
+      "何でも知っている少年をご存知ですか？",
+      "町のはずれで公衆電話を探す",
+      "コインを落として自分の番号に電話をかける",
+      "サトルくん サトルくん、僕のところに来てください",
+      "電話が鳴るが誰もいない",
+      "そのとき、ポケットが冷たい冷たさで振動する。",
+      "私は駅にいる。",
+      "刻一刻と声が近づいてくる",
+      "私は今、あなたの家の玄関にいる",
+      "私はあなたのすぐ後ろにいる",
+      "質問をするが、振り向かないこと",
+      "振り返れば、彼はあなたを引きずり去るだろう",
+      "首筋に彼の息を感じることができるか"
+    ],
+    "mj_prompts_list": [
+      "Cinematic close-up of a weathered Japanese public phone booth at night, eerie neon green glow, rain drops on glass, 35mm lens, grainy film style, 8k --ar 9:16 --v 6.0",
+      "A desolate street corner in a Japanese suburb at midnight, misty atmosphere, dim streetlights, cinematic, photorealistic, 8k, grainy texture --ar 9:16 --v 6.0",
+      "Extreme close-up of a pale hand dropping a 10 yen coin into a public phone, high contrast shadows, moody lighting, 35mm, realistic --ar 9:16 --v 6.0",
+      "Close-up of a terrified young man's face reflecting on the phone booth glass, mouth moving in a whisper, blue moonlight, cinematic lighting --ar 9:16 --v 6.0",
+      "Wide shot of the phone booth from across the street, empty and silent, flickering light, dark silhouettes in the background, horror movie aesthetic --ar 9:16 --v 6.0",
+      "Close-up of a smartphone screen glowing inside a dark pocket, the light piercing through the fabric, cold atmosphere, sharp focus, 8k --ar 9:16 --v 6.0",
+      "POV looking down a dark, empty train station platform at night, heavy fog, a faint small shadow at the far end, cinematic, 35mm --ar 9:16 --v 6.0",
+      "A dark hallway in an apartment building, flickering overhead lights, a sense of something invisible approaching fast, motion blur, grainy film --ar 9:16 --v 6.0",
+      "View from inside a house looking at the front door, a blurry child-like shadow visible through the frosted glass, terrifying atmosphere, 8k --ar 9:16 --v 6.0",
+      "Extreme close-up of a boy's ear, a dark pale hand with long fingers looming just behind him in the shadows, hyper-realistic, high contrast --ar 9:16 --v 6.0",
+      "The boy frozen in fear, holding a phone to his ear, dark room, a menacing presence felt behind him, moody lighting, 35mm lens --ar 9:16 --v 6.0",
+      "A pair of ghastly white hands reaching out from total darkness towards the viewer, jagged fingernails, grainy VHS horror style, 8k --ar 9:16 --v 6.0",
+      "Extreme close-up of the back of a neck, goosebumps rising, a faint mist like cold breath touching the skin, cinematic macro photography, dark --ar 9:16 --v 6.0"
+    ]
+  }
+}

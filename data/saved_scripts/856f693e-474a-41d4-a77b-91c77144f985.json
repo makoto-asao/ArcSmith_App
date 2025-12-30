@@ -1,0 +1,55 @@
+{
+  "id": "856f693e-474a-41d4-a77b-91c77144f985",
+  "draft_name": "[自動保存] 件 -クダン- (Kudan: The Human-Faced Prophetic Beast) - 2025-12-30 21:16",
+  "created_at": "2025-12-30T21:16:58.146708",
+  "updated_at": "2025-12-30T21:16:58.146708",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "件 -クダン- (Kudan: The Human-Faced Prophetic Beast)",
+    "selected_metadata": {
+      "overview": "牛の体に人間の頭を持つ異形の怪異。生まれてすぐに数日後の災厄（パンデミックや大災害）を予言して死ぬ。その予言は100%的中する。",
+      "horror_point": "人面犬よりもさらに異形な『人間と獣の融合』という不気味の谷（Uncanny Valley）を突くビジュアルが、YouTube Shortsのサムネイルと冒頭1秒で圧倒的な引きを作る。"
+    },
+    "title_en": "WARNING: Do Not Look at the Human-Faced Cow #Shorts",
+    "title_jp": "【警告】予言する異形の怪異「件 -クダン-」 #Shorts",
+    "description": "Have you ever heard of the Kudan? This terrifying Japanese urban legend features a creature with the body of a cow and a human face. Born in the darkest corners of rural barns, it lives only for a few days—just long enough to deliver a single, 100% accurate prophecy of a coming disaster. Whether it is a pandemic, a war, or a great earthquake, the Kudan sees it all. Its gaze is said to bridge the gap between our world and the inevitable future. Would you dare to listen to its final words if it meant knowing the date of your own end? Japanese horror often dwells in the 'Uncanny Valley' where the human and the beast merge into something nightmarish. Explore the dark mythology of the Kudan and discover why this prophetic beast still haunts the nightmares of many. What would you do if a creature with a human face spoke your future to you today? Comment your thoughts below if you enjoy Japanese Urban Legends and Creepy Supernatural stories.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Kudan #Scary #JapaneseMythology #Creepy #Supernatural",
+    "editorial_notes": "Viral Architectによるタイトル選定：1. The Beast Who Predicts Your Death (王道)、2. WARNING: Do Not Look at the Human-Faced Cow (警告系/クリック誘発)、3. Shocking Prophecy: The Kudan Returns (ニュース風)。議論の結果、視聴者の生理的嫌悪感と好奇心を最も刺激する案2を選定しました。The Whispererは『言葉の少なさ』で恐怖を演出し、The Visionaryは『不気味の谷』を極限まで強調するため、35mmレンズとGrainyな質感で生々しさをプロンプトに組み込んでいます。演出指示として、Vrew読み上げは低めの落ち着いたトーンを推奨。背景音は心音と湿った牛の鳴き声を重ねることで没入感を高めます。",
+    "vrew_script": "A birth that chills the very soul\nDeep within the shadows of a rural barn\nA creature that should not exist arrives\nIt has the body of a young calf\nBut the face is disturbingly human\nWide eyes that see far beyond our world\nThe Kudan speaks only once in its life\nA prophecy of fire and ruin for all\nEvery word it utters is an absolute truth\nWithin three days the beast will perish\nBut the nightmare it promised begins now\nLook closely into those pale human eyes\nCan you hear the countdown to the end\nThe prophecy has already been written",
+    "script_jp_list": [
+      "魂を凍らせる誕生",
+      "田舎の納屋の影の奥深く",
+      "存在してはならない生き物がやってくる",
+      "若い子牛の体をしている",
+      "しかし、その顔は不穏なまでに人間的である。",
+      "私たちの世界のはるか向こう側を見る大きな目",
+      "九段は一生に一度しかしゃべらない",
+      "炎と破滅の予言",
+      "その言葉はすべて絶対的な真実である",
+      "3日以内に獣は滅びる",
+      "しかし、約束された悪夢が今始まる",
+      "その青白い人間の目をよく見よ",
+      "終わりへのカウントダウンが聞こえるか",
+      "予言はすでに書かれている"
+    ],
+    "mj_prompts_list": [
+      "Low angle shot of a dark traditional Japanese barn, eerie moonlight filtering through wooden cracks, grainy film texture, 35mm lens, atmospheric fog, photorealistic, 8k --ar 9:16 --v 6.0",
+      "Close up of wet hay on a weathered wooden floor, faint blood stains, dramatic cinematic lighting, photorealistic, 8k, dark moody color grading --ar 9:16 --v 6.0",
+      "Silhouette of a strange four-legged beast emerging from heavy shadows, uncanny proportions, high contrast, volumetric lighting, mystery horror aesthetic --ar 9:16 --v 6.0",
+      "Medium shot of a calf's body with coarse black fur, shivering in the cold air, hyper-realistic fur texture, 8k resolution, 35mm lens --ar 9:16 --v 6.0",
+      "Extreme close up of a human face seamlessly fused onto a cow's head, pale wrinkled skin blending into black fur, unsettling realism, uncanny valley, 8k --ar 9:16 --v 6.0",
+      "Macro shot of dilated human-like pupils inside a beastly eye socket, reflection of a burning village in the eye, surreal horror, high detail, sharp focus --ar 9:16 --v 6.0",
+      "A creature's human-like mouth opening to speak, wet lips, steam rising from the mouth in the cold barn, cinematic close up, masterpiece quality, grainy --ar 9:16 --v 6.0",
+      "Cinematic vision of a city engulfed in flames and smoke, silhouettes of people fleeing, apocalyptic orange glow, vintage grainy film look, high contrast --ar 9:16 --v 6.0",
+      "Old Japanese scroll falling into the mud, ancient calligraphy glowing with a faint cursed light, ominous atmosphere, macro photography, 35mm lens --ar 9:16 --v 6.0",
+      "The Kudan beast lying weak on the barn floor, life fading from its human eyes, long shadows, melancholy horror, dramatic lighting, photorealistic --ar 9:16 --v 6.0",
+      "A traditional Japanese clock tower, hands spinning uncontrollably, stormy dark sky background, impending doom aesthetic, 8k, photorealistic --ar 9:16 --v 6.0",
+      "Extreme close up of the Kudan looking directly into the camera lens, breaking the fourth wall, terrifyingly realistic human features on beast, high contrast --ar 9:16 --v 6.0",
+      "A trembling hand holding an old cracked pocket watch, glass shards falling, eerie blue light, 35mm lens, moody cinematography, depth of field --ar 9:16 --v 6.0",
+      "Wide shot of a deserted rural road at twilight leading into a dark forest, heavy fog, sense of cosmic dread, grainy film grain, Japanese horror aesthetic --ar 9:16 --v 6.0"
+    ]
+  }
+}

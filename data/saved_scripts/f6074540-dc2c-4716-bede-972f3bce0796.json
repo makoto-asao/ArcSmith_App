@@ -1,0 +1,55 @@
+{
+  "id": "f6074540-dc2c-4716-bede-972f3bce0796",
+  "draft_name": "[自動保存] お菊人形 (The Okiku Doll: The Hair-Growing Vessel) - 2025-12-28 18:20",
+  "created_at": "2025-12-28T18:20:37.796461",
+  "updated_at": "2025-12-28T18:20:37.796461",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "お菊人形 (The Okiku Doll: The Hair-Growing Vessel)",
+    "selected_metadata": {
+      "overview": "供養されているにもかかわらず、髪の毛が伸び続ける実在の人形。マクロ撮影で髪の毛の質感や瞳の湿り気を強調。科学で解明できない『実話系ホラー』として構成し、最後には人形で遊んでいた持ち主の末路を囁く。",
+      "horror_point": "Annabelle（アナベル）のような『呪いの人形』は世界共通の恐怖。それが日本で現在進行形で『生きている』という実話の重みが、最強のフックになるため。"
+    },
+    "title_en": "This Japanese Doll's Hair NEVER Stops Growing #Shorts",
+    "title_jp": "【閲覧注意】髪が伸び続ける実在の人形「お菊人形」の正体",
+    "description": "The Okiku Doll is not just a legend—it is a terrifying reality kept in a Japanese temple. Scientific tests once revealed something impossible: the hair growing from this doll is human. In this video, we dive into the chilling history of a toy that became a vessel for a soul. Why does her hair keep growing after 100 years? What happened to the child who first loved her? Explore the dark world of Japanese Urban Legends and J-Horror with us. Do you believe a doll can have a soul? Let us know your thoughts in the comments if you dare to watch until the end. #JapaneseHorror #UrbanLegend #Creepy #Supernatural #OkikuDoll",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #OkikuDoll #Haunted #Paranormal",
+    "editorial_notes": "【Viral Architect】タイトル案：1. Science CANNOT Explain This Doll, 2. This Japanese Doll's Hair NEVER Stops Growing, 3. The Living Doll of Hokkaido. 選定理由：2番を採用。視聴者が一目で異常事態を把握でき、視覚的インパクト（髪が伸びる）を直接訴求できるため。【The Whisperer】実話の重みを出すため、序盤は淡々と事実を語り、後半にかけて「人間性（DNA）」や「執着」を感じさせる湿り気のある表現にシフト。Vrewの仕様に合わせ句読点を排除しました。【The Visionary】マクロ撮影の質感にこだわり、35mmレンズやgrainy film指定で不気味なリアリティを演出。人形の『瞳の湿り気』を各プロンプトの核としています。",
+    "vrew_script": "Meet Okiku a doll that breathes\nFound in Japan her hair keeps growing\nScience tried to explain it away\nBut the DNA results were human\nLook closely at those glass eyes\nDo you see the moisture within\nOnce she was a gift for a child\nNow she sits in a sacred temple\nWaiting for someone to play again\nHer hair grows every single year\nFeeding on the grief of her owner\nIf you hear a giggle tonight\nDon't look under your bed\nShe might be looking for you",
+    "script_jp_list": [
+      "呼吸する人形、お菊を紹介しよう",
+      "日本で発見された彼女の髪は伸び続けている",
+      "科学はそれを説明しようとした",
+      "しかし、DNAの結果は人間だった",
+      "ガラスの目をよく見て",
+      "水蒸気が見えるか？",
+      "かつて彼女は子供への贈り物だった",
+      "今、彼女は神聖な寺院に座っている",
+      "またプレーしてくれる人を待っている",
+      "彼女の髪は毎年伸びる",
+      "飼い主の悲しみを糧に",
+      "今夜、くすくす笑いが聞こえたら",
+      "ベッドの下は見るな",
+      "彼女はあなたを探しているかもしれない"
+    ],
+    "mj_prompts_list": [
+      "Extreme macro photography of an antique Japanese doll face, pale skin, eerie realistic expression, cinematic lighting, 8k, 35mm lens --ar 9:16",
+      "Traditional Japanese doll with long black hair flowing down, temple background with incense smoke, grainy film texture, high contrast --ar 9:16",
+      "Cinematic shot of a laboratory setting, a magnifying glass hovering over doll hair, cold blue lighting, photorealistic --ar 9:16",
+      "Microscopic view of black human hair follicles, glowing unnaturally, dark background, surreal horror aesthetic --ar 9:16",
+      "Extreme close up of doll glass eyes, reflecting a dark room, wet texture, hyper-detailed, moody lighting --ar 9:16",
+      "Macro shot of a doll's eye showing a tiny tear-like moisture droplet, cinematic shadows, haunting atmosphere --ar 9:16",
+      "Vintage grainy film footage, a young girl in a kimono holding a doll, faded colors, nostalgic yet creepy --ar 9:16",
+      "Dark interior of a Japanese temple, a wooden altar with a doll placed in the center, flickering candlelight --ar 9:16",
+      "Low angle shot of a doll sitting alone in a dark room, long shadows stretching across the floor, 35mm lens --ar 9:16",
+      "Side profile of a doll with floor-length black hair, hair strands looking like silk, dramatic chiaroscuro lighting --ar 9:16",
+      "A ghostly silhouette of a child standing behind a doll, misty atmosphere, emotional horror, deep blacks --ar 9:16",
+      "Pitch black room with only the faint outline of a doll's head visible, grainy texture, psychological horror --ar 9:16",
+      "Point of view shot from under a bed looking into a dark bedroom, dusty floor, eerie silence visualized --ar 9:16",
+      "The doll face suddenly filling the entire frame, wide open eyes, cracked porcelain skin, terrifying realism, 8k --ar 9:16"
+    ]
+  }
+}

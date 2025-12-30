@@ -1,0 +1,49 @@
+{
+  "id": "461acc52-c889-49fd-9288-b86b8ef34516",
+  "draft_name": "[自動保存] 事故物件の『隠し間』 (The Hidden Gap in the Stigmatized Property) - 2025-12-30 23:59",
+  "created_at": "2025-12-30T23:59:53.695664",
+  "updated_at": "2025-12-30T23:59:53.695664",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "事故物件の『隠し間』 (The Hidden Gap in the Stigmatized Property)",
+    "selected_metadata": {
+      "overview": "格安物件に入居した若者が、壁の不自然な厚みに気づく。壁紙を剥がすと、そこにはお札で埋め尽くされた小さな隙間があり、無数の目が見つめていた。 ",
+      "horror_point": "日本の『Jiko Bukken（事故物件）』文化は海外でも人気が高く、閉所恐怖症と未知の視線の組み合わせが強力なフックになる。"
+    },
+    "title_en": "Secret Hidden Room in a Cheap Japanese Apartment #Shorts",
+    "title_jp": "【事故物件】格安アパートの壁の裏に隠された秘密",
+    "description": "I thought I found the perfect deal in Tokyo. But the wall felt unnaturally thick. What I found behind the wallpaper will haunt your dreams forever. Have you ever felt like your room was smaller than it should be? This Japanese Urban Legend (Jiko Bukken) is a warning to everyone looking for cheap rent. Experience the chilling reality of stigmatized properties. Don't forget to like and subscribe for more terrifying J-horror stories from the shadows of Japan. What would you do if you found this? Tell us in the comments below! This story explores the psychological fear of enclosed spaces and the supernatural history of Japan. Keywords: Japanese Horror, Urban Legend, Creepy, Supernatural, Stigmatized Property, Jiko Bukken, Haunted Apartment, Tokyo Ghost Stories.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Scary #Japan #HorrorStories #Paranormal",
+    "editorial_notes": "【3人のエキスパートによる協議】\n1. Viral Architect（マーケター）: タイトル案として「Why My Tokyo Rent is So Cheap」「Never Peel the Wallpaper in a Cheap Room」「Secret Hidden Room in a Cheap Japanese Apartment」の3つを提示。海外でバズりやすい『Japanese Apartment』と好奇心を刺激する『Secret Hidden Room』を組み合わせた3枚目を選定。冒頭1秒で壁に手をかけるシーンから入り、視聴者の離脱を防ぎます。\n2. The Whisperer（ホラー作家）: 『湿り気のある恐怖』を強調するため、視覚だけでなく嗅覚や温度（rot, cold breath）に触れる言葉を選定。文末のピリオドを排除し、Vrewでのスムーズな読み上げを実現しました。\n3. The Visionary（監督）: Midjourney V6を想定し、35mmレンズの質感と、日本の古びたアパート特有の不気味なライティングを指定。お札（Ofuda）のビジュアルを強調し、後半に向けて視覚的な密度を上げました。",
+    "vrew_script": "The rent was way too low for Tokyo\nBut this wall feels unnaturally thick\nA small tear in the old wallpaper\nCuriosity is a dangerous thing in Japan\nBehind the paper lies a hidden gap\nThousands of cursed talismans sealing the void\nThe air smells of old dust and rot\nSomething is shifting inside the darkness\nUncountable eyes are blinking back at me\nThey have been watching me sleep every night\nNever peel the wallpaper in a cheap room",
+    "script_jp_list": [
+      "東京にしては家賃が安すぎる",
+      "しかし、この壁は不自然に厚く感じる",
+      "古い壁紙の小さな破れ",
+      "日本では好奇心は危険なもの",
+      "紙の裏には隠された隙間がある",
+      "虚空を封印する何千もの呪われたお守り",
+      "空気は古い埃と腐敗の匂い",
+      "闇の中で何かが動いている",
+      "無数の目が瞬きを返してくる",
+      "彼らは毎晩、私の寝顔を見ている",
+      "安い部屋の壁紙は絶対に剥がさない"
+    ],
+    "mj_prompts_list": [
+      "Cinematic POV of a small dimly lit Japanese studio apartment, messy, atmospheric, 35mm lens, grainy film texture, 8k, realistic --ar 9:16 --v 6.0",
+      "Close up of a hand pressing against a stained white wallpaper wall, high contrast shadows, moody lighting, photorealistic, 8k --ar 9:16 --v 6.0",
+      "Extreme close up of a tattered edge of wallpaper peeling off a wall, textures of paper and glue, cinematic lighting, high detail --ar 9:16 --v 6.0",
+      "A dark narrow vertical gap revealed behind torn wallpaper, deep shadows, mysterious atmosphere, photorealistic, 35mm lens --ar 9:16 --v 6.0",
+      "Inside a wall cavity filled with thousands of weathered yellow Japanese paper charms with red kanji, claustrophobic, horror aesthetic --ar 9:16 --v 6.0",
+      "Visible cold breath mist in a dark room, blue lighting, eerie atmosphere, 35mm lens, grainy film texture, 8k --ar 9:16 --v 6.0",
+      "Subtle movement in a pitch black narrow slit, motion blur, unsettling, cinematic horror aesthetic, high contrast --ar 9:16 --v 6.0",
+      "Dozens of realistic human eyes peering through a narrow dark gap between walls, terrifying, high detail, 8k, photorealistic --ar 9:16 --v 6.0",
+      "A wide human eye reflecting a terrified person, extreme close up, macro photography, cinematic lighting, 35mm lens --ar 9:16 --v 6.0",
+      "Wide shot of a person sleeping in bed with the dark gap in the background wall, ominous, horror film style, grainy --ar 9:16 --v 6.0",
+      "Fade to black with the silhouette of a torn wall and paper charms, creepy, high contrast, cinematic grainy texture --ar 9:16 --v 6.0"
+    ]
+  }
+}

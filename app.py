@@ -466,56 +466,6 @@ if st.session_state.current_page == "Production Console":
             
             st.markdown("---")
             
-            # タイトルセクション
-            st.markdown("### 📝 タイトル")
-            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画のタイトルを英語と日本語で編集できます。</p>', unsafe_allow_html=True)
-            
-            st.session_state.title_en = display_with_copy(
-                "Title (EN)", 
-                st.session_state.get("title_en", ""), 
-                height=80,
-                key_suffix="title_en",
-                help_text="英語タイトル - YouTubeのタイトルとして使用されます"
-            )
-            
-            st.session_state.title_jp = display_with_copy(
-                "Title (JP)", 
-                st.session_state.get("title_jp", ""), 
-                height=80,
-                key_suffix="title_jp",
-                help_text="日本語タイトル - サムネイルや補足情報として使用されます"
-            )
-            
-            st.markdown("---")
-            
-            # 説明文セクション
-            st.markdown("### 📄 YouTube Description")
-            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画の説明文を編集できます。</p>', unsafe_allow_html=True)
-            
-            st.session_state.description = display_with_copy(
-                "Description", 
-                st.session_state.get("description", ""), 
-                height=150,
-                key_suffix="description",
-                help_text="動画説明文 - YouTubeの概要欄に表示されます"
-            )
-            
-            st.markdown("---")
-            
-            # ハッシュタグセクション
-            st.markdown("### #️⃣ Hashtags")
-            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画に付けるハッシュタグを編集できます。</p>', unsafe_allow_html=True)
-            
-            st.session_state.hashtags = display_with_copy(
-                "Hashtags", 
-                st.session_state.get("hashtags", ""), 
-                height=60,
-                key_suffix="hashtags",
-                help_text="ハッシュタグ - 動画の発見性を高めるために使用されます"
-            )
-            
-            st.markdown("---")
-            
             # 台本セクション
             st.markdown("### 📜 Vrew Script")
             st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">Vrewで使用する台本を編集できます。</p>', unsafe_allow_html=True)
@@ -586,6 +536,56 @@ if st.session_state.current_page == "Production Console":
                 st.session_state.mj_prompts_list = mj_list
             else:
                 st.info("Midjourneyプロンプトが生成されていません。")
+            
+            st.markdown("---")
+
+            # タイトルセクション
+            st.markdown("### 📝 タイトル")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画のタイトルを英語と日本語で編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.title_en = display_with_copy(
+                "Title (EN)", 
+                st.session_state.get("title_en", ""), 
+                height=80,
+                key_suffix="title_en",
+                help_text="英語タイトル - YouTubeのタイトルとして使用されます"
+            )
+            
+            st.session_state.title_jp = display_with_copy(
+                "Title (JP)", 
+                st.session_state.get("title_jp", ""), 
+                height=80,
+                key_suffix="title_jp",
+                help_text="日本語タイトル - サムネイルや補足情報として使用されます"
+            )
+            
+            st.markdown("---")
+            
+            # 説明文セクション
+            st.markdown("### 📄 YouTube Description")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画の説明文を編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.description = display_with_copy(
+                "Description", 
+                st.session_state.get("description", ""), 
+                height=150,
+                key_suffix="description",
+                help_text="動画説明文 - YouTubeの概要欄に表示されます"
+            )
+            
+            st.markdown("---")
+            
+            # ハッシュタグセクション
+            st.markdown("### #️⃣ Hashtags")
+            st.markdown('<p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">動画に付けるハッシュタグを編集できます。</p>', unsafe_allow_html=True)
+            
+            st.session_state.hashtags = display_with_copy(
+                "Hashtags", 
+                st.session_state.get("hashtags", ""), 
+                height=60,
+                key_suffix="hashtags",
+                help_text="ハッシュタグ - 動画の発見性を高めるために使用されます"
+            )
             
             st.markdown("---")
             

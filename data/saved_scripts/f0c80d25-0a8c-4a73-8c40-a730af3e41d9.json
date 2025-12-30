@@ -1,0 +1,51 @@
+{
+  "id": "f0c80d25-0a8c-4a73-8c40-a730af3e41d9",
+  "draft_name": "[自動保存] 猿夢 (Monkey Dream) - 2025-12-29 01:04",
+  "created_at": "2025-12-29T01:04:08.952704",
+  "updated_at": "2025-12-29T01:04:08.952704",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "猿夢 (Monkey Dream)",
+    "selected_metadata": {
+      "overview": "『次は、三枚おろし……』。夢の中で奇妙な電車に乗らされ、残酷な方法で殺され続ける。一度見始めると、現実の睡眠が死へのカウントダウンに変わる連作短編的ホラー。",
+      "horror_point": "『夢の中』という回避不能なシチュエーションと、Backrooms的なリミナルスペースの不気味さが海外のDreamcore/Weirdcoreトレンドと合致するため。"
+    },
+    "title_en": "The Monkey Dream: Why You Can’t Wake Up #Shorts",
+    "title_jp": "【閲覧注意】一度見たら終わりの悪夢「猿夢」 #Shorts",
+    "description": "Have you ever had a dream that felt too real? The Monkey Dream (Sarumume) is one of Japan's most terrifying urban legends. Once you board this spectral train, there is no escape. You will be sliced, minced, and carved night after night. Each time you sleep, the dream picks up where it left off. What happens when the 'Three-Piece Slice' is finally completed? If you see a monkey on your commute tonight, pray you don't fall asleep. This video explores the depths of Dreamcore and Japanese Horror. Tell us in the comments: what is your most recurring nightmare? Japanese Horror is known for its psychological lingering fear. Don't forget to like and subscribe for more Urban Legends and Creepy stories from Japan.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepy #Supernatural #Dreamcore #JapaneseHorror #MonkeyDream",
+    "editorial_notes": "Viral Architectが提案した3つのタイトル案（1. WARNING: Never Enter This Dream Train、2. The Monkey Dream: Why You Can’t Wake Up、3. 3 Stages of Death in the Monkey Dream）の中から、視聴者の個人的な恐怖心と好奇心を刺激する2番を選定しました。The Whispererは、逃げ場のない『夢の連鎖』を冷徹なリズムで表現し、海外のDreamcore/Weirdcore愛好家にも刺さるリミナルスペース的な不気味さを強調。The Visionaryは、90年代の日本の電車という日常風景が徐々に解体・変容していく様子を、35mmフィルム風の質感とコントラストの強いライティングでプロンプト化しました。Vrew用台本からは句読点を排除し、テンポの良いショート動画向け構成に仕上げています。",
+    "vrew_script": "Have you ever boarded a train in your sleep\nA voice echoes through the empty metal car\nNext is the mincing machine\nScreams of those who came before you linger\nYou try to run but the doors stay shut\nNext is the slicing machine\nThe rhythmic sound of iron grinding bone\nYou wake up just before the end\nBut tomorrow night the dream starts again\nNext is the three piece slice\nDon't look at the monkey sitting behind you\nOnce you start you can never get off",
+    "script_jp_list": [
+      "寝ながら電車に乗ったことがある？",
+      "誰もいない金属製の車内に声が響く",
+      "次はミンチ機だ。",
+      "先人たちの叫びが残る",
+      "逃げようとしてもドアは閉まったまま",
+      "次はスライサーだ。",
+      "鉄が骨を削るリズミカルな音",
+      "目が覚めたのは終了の直前だった",
+      "しかし、明日の夜、夢は再び始まる",
+      "次はスリーピーススライス",
+      "後ろに座っている猿を見るな",
+      "一度始めたら、決して降りられない"
+    ],
+    "mj_prompts_list": [
+      "1990s Japanese train interior at night, liminal space, empty seats, flickering fluorescent lights, grainy film texture, 35mm lens, photorealistic --ar 9:16 --v 6.0",
+      "Close up of an old rusted public address speaker on a train ceiling, dust motes dancing in dim light, cinematic lighting, eerie atmosphere --ar 9:16 --v 6.0",
+      "Abstract industrial machinery in a dark room, sharp metal edges, red emergency lighting, oppressive atmosphere, horror aesthetic --ar 9:16 --v 6.0",
+      "Distorted shadows of people reflected on a dirty train window, dark tunnel outside, motion blur, moody and scary --ar 9:16 --v 6.0",
+      "POV looking at closed heavy metal train doors, scratch marks on the surface, low angle, high contrast, cinematic shadows --ar 9:16 --v 6.0",
+      "Large sharp blades rotating in the dark, cold blue lighting, industrial horror, hyper-realistic textures, 8k resolution --ar 9:16 --v 6.0",
+      "Close up of iron gears grinding together, sparks flying, dark and gritty, macabre atmosphere, grainy film --ar 9:16 --v 6.0",
+      "A terrified person suddenly waking up in a dark bedroom, cold sweat, pale moonlight from window, extreme close up, photorealistic --ar 9:16 --v 6.0",
+      "The silhouette of a train moving through a dark bedroom wall, double exposure effect, surreal dreamcore style, eerie --ar 9:16 --v 6.0",
+      "A shadowy grotesque figure of a monkey sitting on a train seat, glowing eyes, dark cinematic lighting, horror character design --ar 9:16 --v 6.0",
+      "POV looking back over a shoulder at a dark seat, a pair of eyes watching from the dark, shallow depth of field, 35mm --ar 9:16 --v 6.0",
+      "The train vanishing into an infinite black void, weirdcore aesthetic, glitched reality, psychological horror, high contrast --ar 9:16 --v 6.0"
+    ]
+  }
+}

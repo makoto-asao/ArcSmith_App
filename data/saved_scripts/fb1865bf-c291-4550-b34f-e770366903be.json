@@ -1,0 +1,49 @@
+{
+  "id": "fb1865bf-c291-4550-b34f-e770366903be",
+  "draft_name": "[自動保存] ひとりかくれんぼ (One-Man Hide and Seek) - 2025-12-27 21:26",
+  "created_at": "2025-12-27T21:26:52.088861",
+  "updated_at": "2025-12-27T21:26:52.088861",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "ひとりかくれんぼ (One-Man Hide and Seek)",
+    "selected_metadata": {
+      "overview": "ぬいぐるみを使った降霊術の儀式。深夜、風呂場、テレビの砂嵐。ルールを破った瞬間に画面が歪み、背後に『それ』が現れるまでをPOV（一人称視点）で描く。",
+      "horror_point": "『自分の家』という安全圏が、簡単な儀式で呪いの場に変貌するという没入感。海外の『Creepypasta』ファンにも通じる儀式型ホラーの様式美。"
+    },
+    "title_en": "WARNING: The Forbidden Ritual of Hitori Kakurenbo",
+    "title_jp": "【閲覧注意】ひとりかくれんぼ：絶対にやってはいけない禁忌の儀式",
+    "description": "Have you ever heard of the Japanese urban legend Hitori Kakurenbo? This ritual is not a game. It is a way to invite a wandering spirit into a doll. Many have tried, and many have disappeared. The rules are simple but breaking them leads to a fate worse than death. Do you believe in the supernatural? Tell us your scariest experience in the comments below. This Japanese Horror experience explores the dark side of urban legends and creepy rituals. Experience the terror of the forbidden ceremony right in your own home through this POV journey. Keywords: Japanese Horror, Urban Legend, Creepy, Supernatural, Hitori Kakurenbo, Ritual.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #Creepypasta #Scary #Paranormal #JapaneseHorror",
+    "editorial_notes": "3人のエキスパートによるプロトコル：\n1. Viral Architectのタイトル案: \n   A) NEVER Play Hide and Seek Alone: The Warning\n   B) WARNING: The Forbidden Ritual of Hitori Kakurenbo\n   C) I Summoned Something in My Bathroom #Shorts\n選定理由: 案Bを採用。冒頭に強烈な『WARNING』を配置し、世界的に有名な『Hitori Kakurenbo』の名を入れることで、検索流入とスクロール停止率（Hook Rate）を最大化します。\n\n2. 演出指示: POV（一人称視点）を徹底。Vrew台本は句読点を排除し、不気味なリズム感を重視。映像はMidjourneyで「35mm」「grainy film」を指定し、90年代Jホラーの湿った質感を再現します。後半にかけてTVの砂嵐の光と闇のコントラストを強め、心理的圧迫感を高めます。",
+    "vrew_script": "Three AM is the hour of the dead\nReplace the stuffing with rice and fingernails\nGive the doll a name but never your own\nStabbing it means the game has officially begun\nHide in the bathtub and turn off every light\nThe static on the TV is your only friend\nListen for the sound of dragging footsteps\nIf you hear it whisper your name do not move\nIt is holding the knife you left behind\nNever let the salt water spill from your mouth\nBecause if it finds you the ritual never ends",
+    "script_jp_list": [
+      "午前3時は死者の時間",
+      "詰め物を米と爪に置き換える。",
+      "人形に名前をつける。",
+      "それを刺すことは、ゲームが正式に始まったことを意味する",
+      "バスタブに隠れ、すべての電気を消す。",
+      "テレビの雑音が唯一の味方",
+      "引きずる足音に耳を澄ます",
+      "もしそれがあなたの名前をささやくのを聞いても、動くな。",
+      "あなたが残したナイフを持っている",
+      "塩水を口からこぼさない",
+      "儀式は終わらない"
+    ],
+    "mj_prompts_list": [
+      "POV shot, dark hallway at 3:00 AM, digital clock glowing red 3:00, grainy film, 35mm lens, hyper-realistic, 8k, cinematic lighting --ar 9:16 --v 6.0",
+      "Close up of a tattered stuffed bear on a wooden floor, rice grains and organic matter spilling out, eerie lighting, high contrast, photorealistic --ar 9:16 --v 6.0",
+      "A pale hand sewing a doll with thick red thread, dark cinematic mood, soft focus background, gritty texture, J-horror style --ar 9:16 --v 6.0",
+      "A sharp kitchen knife piercing a stuffed toy in a dark bathroom sink, water splashing, intense shadows, horror movie aesthetic, 35mm --ar 9:16 --v 6.0",
+      "POV inside a dark bathtub, old bathroom tiles reflecting dim moonlight, damp atmosphere, claustrophobic framing, grainy film --ar 9:16 --v 6.0",
+      "Old CRT TV screen with heavy static noise in a pitch black room, flickering blue light on the wall, eerie atmosphere, photorealistic, 8k --ar 9:16 --v 6.0",
+      "Low angle shot of a dark hallway, a small blurred shadow moving at the corner, motion blur, unsettling atmosphere, high contrast --ar 9:16 --v 6.0",
+      "Extreme close up of a human ear in the dark, blurry dark figure standing right behind, suspenseful lighting, 35mm lens, grainy --ar 9:16 --v 6.0",
+      "A small stuffed doll's hand holding a sharp kitchen knife, glinting in the dark, cinematic shadows, gritty horror texture, close up --ar 9:16 --v 6.0",
+      "Close up of a person's mouth holding water, trembling lips, sweat beads on skin, high tension, grainy film, flickering TV light --ar 9:16 --v 6.0",
+      "POV seeing a distorted ghostly face appearing from the darkness behind the bathtub, terrifying eyes, jump scare framing, hyper-realistic, 8k --ar 9:16 --v 6.0"
+    ]
+  }
+}

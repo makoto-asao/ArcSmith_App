@@ -1,0 +1,53 @@
+{
+  "id": "59b1579f-f4d3-4dc3-adc7-8acb584f8613",
+  "draft_name": "[自動保存] コックリさん (Kokkuri-san: The Japanese Ouija) - 2025-12-30 02:12",
+  "created_at": "2025-12-30T02:12:01.622138",
+  "updated_at": "2025-12-30T02:12:01.622138",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "コックリさん (Kokkuri-san: The Japanese Ouija)",
+    "selected_metadata": {
+      "overview": "日本の学校で最も有名な降霊術。十円玉が動く様子をPOV（一人称視点）で描き、タブーを破った際の代償を短尺で表現する。コインが画面を突き破って視聴者に向かってくる演出をフックにする。",
+      "horror_point": "西洋のOuija Boardとの共通点がありつつ、キツネ（動物霊）に憑依されるという日本特有の野生的な恐怖が、海外視聴者には新鮮かつ視覚的に分かりやすい。"
+    },
+    "title_en": "NEVER PLAY THIS: Japan's Deadliest School Ritual #Shorts",
+    "title_jp": "【閲覧注意】絶対にやってはいけない「コックリさん」の代償",
+    "description": "What happens when the spirit refuses to leave? Kokkuri-san is Japan's most famous and dangerous urban legend, a ritual where a fox spirit answers your questions via a moving coin. In this Japanese Horror story, a simple game turns into a nightmare as the coin takes on a life of its own. Many believe this supernatural game opens a door to the other side that can never be closed. Have you ever felt a presence in an empty room? Tell us your scary school stories in the comments. This J-Horror short explores the chilling reality of Japanese urban legends and supernatural encounters. Keywords: Japanese Horror, Urban Legend, Creepy, Supernatural, Kokkuri-san, Haunted Schools.",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #ScaryStories #Creepy #JapaneseHorror #KokkuriSan",
+    "editorial_notes": "Viral Architectによる協議の結果、最も高いCTRが見込める『NEVER PLAY THIS: Japan's Deadliest School Ritual』をタイトルに採用しました。冒頭で『絶対にやってはいけない』という禁止の欲求（カリギュラ効果）を刺激し、視聴者を釘付けにします。The Whispererは、Vrewの読み上げを考慮し、句読点を排除しながらも、恐怖が徐々に高まっていくリズムを構築しました。The Visionaryは、POV視点を中心に、35mmレンズの質感と、最終的にコインが画面（視聴者）に向かってくるインパクトのある視覚効果をプロンプトに凝縮しました。演出指示として、中盤の『NO』でBGMを一時停止させ、最後の飛んでくるコインで大音量の効果音を入れることを推奨します。",
+    "vrew_script": "Two trembling fingers resting on a copper coin\nIn the dead of night the ritual begins\nKokkuri san please come to us now\nThe coin slides slowly across the paper\nA cold wind sweeps through the empty classroom\nIt answers every secret you ever hid\nBut there is one question you must never ask\nWill you ever leave this room\nThe coin stops dead on the word NO\nShadows twist into the shape of a fox\nYellow eyes burn through the pitch black darkness\nThe coin shatters the glass and flies at you\nSome doors should never be opened",
+    "script_jp_list": [
+      "震える2本の指が銅貨の上に置かれている",
+      "真夜中に儀式が始まる",
+      "こっくりさん、今すぐ来てください",
+      "コインは紙の上をゆっくりと滑る",
+      "誰もいない教室に冷たい風が吹き抜ける",
+      "それは、あなたが隠してきたすべての秘密に答えてくれる",
+      "しかし、決して聞いてはならない質問がある。",
+      "この部屋から出ることはないのか",
+      "コインは「NO」で止まった",
+      "影が狐の形にねじれる",
+      "漆黒の闇に黄色い瞳が燃える",
+      "コインがガラスを割って飛んでくる",
+      "開けてはいけないドアもある"
+    ],
+    "mj_prompts_list": [
+      "POV shot, extreme close up of two high school girls' fingers on a worn 10-yen copper coin, paper with Japanese hiragana characters, dim candlelight, cinematic 8k, 35mm lens, grainy film texture --ar 9:16",
+      "Interior of a dark Japanese classroom at night, moonlight through tall windows, eerie long shadows, photorealistic, moody lighting, 8k --ar 9:16",
+      "Close up of the ritual paper, the coin suddenly twitching under the fingers, shaky cam, motion blur, spooky atmosphere --ar 9:16",
+      "The copper coin sliding smoothly across hand-drawn Japanese characters, supernatural movement, high contrast, eerie glowing aura --ar 9:16",
+      "Wide shot of the classroom, old wooden desks and chairs, blue mist rolling on the floor, cinematic lighting, haunted school aesthetic --ar 9:16",
+      "Close up of a girl's face in the dark, pupils dilated with fear, sweat on forehead, pale skin, dramatic shadows --ar 9:16",
+      "The word NO written in thick red ink on yellowed paper, the 10-yen coin vibrating on top of it, horror style --ar 9:16",
+      "Low angle shot of the students, a massive spectral fox silhouette rising behind them, wispy smoke, terrifying presence --ar 9:16",
+      "Extreme close up of the coin spinning violently on the desk, sparks flying from the copper, high shutter speed, cinematic --ar 9:16",
+      "The shadow of a fox with multiple tails stretching across the classroom wall, distorted shapes, nightmare fuel --ar 9:16",
+      "Two glowing yellow animal eyes appearing in the absolute darkness, feline slit pupils, menacing glare, high detail --ar 9:16",
+      "POV shot, the copper coin flying directly at the camera lens, cracked glass texture overlay, debris, explosive motion --ar 9:16",
+      "Faded image of an empty dark hallway in a Japanese school, single flickering light, grainy VHS aesthetic, psychological horror --ar 9:16"
+    ]
+  }
+}

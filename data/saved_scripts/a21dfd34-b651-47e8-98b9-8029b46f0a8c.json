@@ -1,0 +1,57 @@
+{
+  "id": "a21dfd34-b651-47e8-98b9-8029b46f0a8c",
+  "draft_name": "[自動保存] トイレの花子さん (Hanako-san of the Toilet) - 2025-12-27 22:48",
+  "created_at": "2025-12-27T22:48:22.769585",
+  "updated_at": "2025-12-27T22:48:22.769585",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "トイレの花子さん (Hanako-san of the Toilet)",
+    "selected_metadata": {
+      "overview": "誰もいないはずの学校のトイレ。3番目の個室をノックすると、中から冷たい子供の声で返事があり、ドアの隙間から青白い手が伸びてくる。最新のシネマティックなライティングで描く現代版花子さん。",
+      "horror_point": "『閉鎖空間』という普遍的な恐怖。Jホラー特有の狭い空間から迫りくる演出は、スマホ画面の縦長構図と相性が抜群です。"
+    },
+    "title_en": "WARNING: NEVER Knock the 3rd Stall at 3 AM #Shorts",
+    "title_jp": "【警告】深夜3時の学校で、3番目の個室をノックしてはいけない理由",
+    "description": "The legend of Hanako-san is Japan's most terrifying urban legend. Have you ever wondered what happens if you knock on the third stall of an empty school restroom? This modern cinematic reimagining brings the damp, claustrophobic fear of J-horror to your screen. In the dead of night, the silence of the school is broken only by three knocks. Will she answer? Her pale hand is waiting to drag you into the darkness. Witness the supernatural horror that has haunted Japanese students for generations. Tell us in the comments: would you dare to knock? Experience the ultimate jump scare and atmospheric terror. Don't forget to like and subscribe for more Japanese urban legends and creepy paranormal encounters. This is the truth about Hanako-san of the toilet.",
+    "hashtags": "Shorts JHorror UrbanLegend Creepy HanakoSan JapaneseHorror Paranormal Scary",
+    "editorial_notes": "Viral Architectは視聴者の警戒心を煽る「WARNING: NEVER Knock the 3rd Stall at 3 AM #Shorts」をメインタイトルに選定。深夜3時という具体的な時間設定がクリック率を跳ね上げます。The Whispererは湿った静寂から一転、物理的な接触を予感させる恐怖をライティングに落とし込みました。The Visionaryは、Jホラー特有の『青白い肌』と『汚れたタイルの質感』を35mmレンズの設定で再現し、スマホ画面越しの没入感を最大化しています。",
+    "vrew_script": "An empty school hallway at midnight\nCold air clings to the peeling walls\nDo not enter the girls restroom alone\nWalk past the first two stalls\nStop before the third door from the end\nKnock three times on the weathered wood\nHanako are you there\nA heavy silence fills the tiny room\nThen a childs voice whispers yes\nThe lock clicks open by itself\nA pale hand reaches from the shadows\nBlue skin and long sharp fingernails\nHer cold grip will never let go\nNever play hide and seek with her\nShe is waiting for you right now",
+    "script_jp_list": [
+      "真夜中の誰もいない学校の廊下",
+      "剥がれた壁にまとわりつく冷気",
+      "女子トイレには一人で入らないこと",
+      "最初の2つの屋台を通り過ぎる",
+      "端から3番目のドアの手前で止まる",
+      "風化した木を3回ノックする",
+      "花子さん、いますか？",
+      "重苦しい沈黙が小さな部屋を満たす",
+      "そして、子供の声が「イエス」とささやく。",
+      "ロックは自分でカチッと開く",
+      "青白い手が影から伸びる",
+      "青い肌と長く鋭い爪",
+      "彼女の冷たいグリップは決して離さない",
+      "彼女とかくれんぼはしない",
+      "彼女は今、あなたを待っている"
+    ],
+    "mj_prompts_list": [
+      "Cinematic shot of a dark empty Japanese school hallway at midnight, flickering fluorescent lights, eerie atmosphere, 35mm lens, photorealistic, 8k, --ar 9:16",
+      "Close up of peeling green paint on a concrete wall, damp texture, condensation dripping, moody lighting, grainy film, --ar 9:16",
+      "The entrance to a girls school restroom, dim yellow light, heavy shadows, ominous vibe, J-horror style, --ar 9:16",
+      "Floor level view of old wooden toilet stall doors, rows of shadows, dusty floor tiles, low angle, --ar 9:16",
+      "Focus on the third toilet stall door, old weathered wood, dark metallic hinges, high contrast, creepy, --ar 9:16",
+      "Close up of a pale hand knocking on an old wooden door, motion blur, cinematic lighting, suspenseful, --ar 9:16",
+      "Shot of the door frame with dust motes dancing in a single beam of light, quiet horror, atmospheric, --ar 9:16",
+      "Dark interior of a small toilet stall, pitch black shadows, claustrophobic, 35mm lens, grainy, --ar 9:16",
+      "A faint silhouette of a young girl with a bob cut standing inside a dark stall, glowing eyes, terrifying, --ar 9:16",
+      "Extreme close up of a rusty metal door lock turning slowly by itself, cinematic, high detail, 8k, --ar 9:16",
+      "A pale blue hand reaching out from the darkness of a door gap, ghostly light, J-horror aesthetic, --ar 9:16",
+      "Extreme close up of long sharp fingernails and blue translucent skin, horror texture, hyper-realistic, --ar 9:16",
+      "A ghost hand grabbing towards the camera in a dark restroom, dramatic shadows, jump scare vibe, --ar 9:16",
+      "Distorted face of a Japanese ghost girl partially visible in the shadows, glitch effect, terrifying, --ar 9:16",
+      "POV from inside a dark toilet stall looking out at a closing door, pitch black, final horror shot, --ar 9:16"
+    ]
+  }
+}

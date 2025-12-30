@@ -1,0 +1,51 @@
+{
+  "id": "a189991a-8dc4-42a5-8a7d-0384a31d6579",
+  "draft_name": "[自動保存] ひきこさん (Hikiko-san: The Dragging Girl) - 2025-12-29 01:08",
+  "created_at": "2025-12-29T01:08:44.130099",
+  "updated_at": "2025-12-29T01:08:44.130099",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "ひきこさん (Hikiko-san: The Dragging Girl)",
+    "selected_metadata": {
+      "overview": "いじめの末に無惨な姿となった少女の霊。彼女は雨の日に子供を引きずり回して肉塊に変える。アスファルトに爪が立てられる音が近づいてくる。",
+      "horror_point": "『何かが引きずられる音』というASMR的な聴覚の恐怖と、長身でボロボロの衣服を纏ったビジュアルのインパクトが強烈。"
+    },
+    "title_en": "NEVER WALK ALONE IN THE RAIN... Hikiko-san Is Coming",
+    "title_jp": "雨の日は後ろを見るな…日本で最も恐ろしい『ひきこさん』の呪い",
+    "description": "Have you ever heard a scratching sound behind you on a rainy day? This is the tragic and gruesome story of Hikiko-san, Japan's most terrifying urban legend. A girl bullied until she became a vengeful spirit, she now drags her victims across the cold asphalt until they are unrecognizable. \n\nIn this video, we dive into the chilling details of The Dragging Girl. Why does she target children? The atmospheric horror of Japanese urban legends comes to life in this short. Stay tuned to understand the psychological dread of J-horror. Do you think you could survive her grasp? Tell us in the comments if you've heard this legend before. Japanese Horror, Urban Legend, Creepy, Supernatural, Hikiko-san story.",
+    "hashtags": "Shorts JHorror UrbanLegend Creepy ScaryStory JapaneseHorror HikikoSan Supernatural",
+    "editorial_notes": "【エキスパート協議結果】\n1. Viral Architect: タイトル案として以下3案を提示。\n   A: NEVER WALK ALONE IN THE RAIN... Hikiko-san Is Coming\n   B: SHOCKING: The Girl Who Drags Children to Hell\n   C: 100% CREEPY: Japan's Most Terrifying Urban Legend #Shorts\n   選定理由: Aを採用。視聴者に「雨の日」という具体的なシチュエーションで恐怖を自分事化させ、クリックを促す警告型のフックが最も強力だと判断。\n2. The Whisperer: 「引きずる音」という聴覚的恐怖を「金属的な爪の音」として強調。絶望的なビジュアル（長身、ボロボロの白衣）を短いフレーズで畳み掛ける構成にしました。\n3. The Visionary: 雨の質感を「Grainy」で表現し、35mmレンズの設定で実写のような生々しさを演出。ひきこさんの異常な長身を強調する構図を各プロンプトに組み込みました。\n演出指示: Vrewでの読み上げは、雨の音のSEに合わせて少し間を空け、後半に向けてスピードを上げることで焦燥感を煽ってください。",
+    "vrew_script": "Listen closely to the rhythm of the rain\nSomething is scraping against the wet asphalt\nA sound like metal claws on cold stone\nDo you see her in the grey mist\nShe stands seven feet tall in tattered white\nHer hair is a tangled web of shadows\nBehind her she drags a heavy burden\nOnce it was a child now it is flesh\nShe was bullied until she became a monster\nNow she hunts those who are alone\nDon't look back even if you hear her\nBecause Hikiko-san is right behind you",
+    "script_jp_list": [
+      "雨のリズムに耳を澄ます",
+      "濡れたアスファルトに何かが擦れている。",
+      "冷たい石に金属の爪が当たるような音",
+      "灰色の霧の中に彼女が見えるか",
+      "彼女はボロボロの白い服を着て、身長1メートルもある。",
+      "彼女の髪はもつれた影の網の目",
+      "彼女の後ろには重い荷物がある。",
+      "かつては子供だった。",
+      "モンスターになるまでいじめられた",
+      "今、彼女は孤独な者を狩る",
+      "彼女の声が聞こえても振り返るな",
+      "ヒキコさんがすぐ後ろにいるから"
+    ],
+    "mj_prompts_list": [
+      "Cinematic close-up of heavy raindrops hitting a dark Tokyo street at night, neon reflections, 35mm lens, grainy film, high contrast, moody lighting, 8k --ar 9:16",
+      "Extreme close-up of long pale fingers with sharp nails scratching wet asphalt, water splashing, dark atmosphere, hyper-realistic, 8k --ar 9:16",
+      "Low angle shot of dark pavement with deep scratch marks, flickering street lights, eerie atmosphere, cinematic cinematography, 8k --ar 9:16",
+      "A tall terrifying female silhouette standing in thick grey mist of a rainy narrow alleyway, ethereal, volumetric lighting, 8k --ar 9:16",
+      "Full body shot of a 7-foot tall woman in a torn dirty white kimono, height distorted, long black messy hair, rainy background, 8k --ar 9:16",
+      "Close up of tangled wet black hair dripping with rain and dark liquid, pale skin peeking through, horror aesthetic, high contrast, 8k --ar 9:16",
+      "Wide shot of the tall woman walking slowly dragging a heavy dark object on the ground, trail of blood on wet street, 35mm, 8k --ar 9:16",
+      "Macabre visual of a distorted shape being dragged across the asphalt, blurred motion, terrifying urban legend style, dark and gritty, 8k --ar 9:16",
+      "Flashback style, grainy black and white film, a lonely girl sitting in a dark classroom shadows looming overhead, psychological horror, 8k --ar 9:16",
+      "POV shot walking down a narrow rainy street, the tall silhouette appearing suddenly at the corner, high tension, cinematic, 8k --ar 9:16",
+      "Close up of a human eye wide with terror reflecting a dark tall figure in the pupil, raindrops on skin, intense fear, 8k --ar 9:16",
+      "The tall woman face suddenly appearing inches from the camera lens, distorted features, hollow eyes, jump scare lighting, 35mm, 8k --ar 9:16"
+    ]
+  }
+}
