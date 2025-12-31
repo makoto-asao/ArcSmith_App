@@ -1,0 +1,53 @@
+{
+  "id": "5092dd4d-718f-4948-92d5-47ae234f9d6c",
+  "draft_name": "[自動保存] 丑の刻参りの監視カメラ (CCTV: The Iron Crown Ritual) - 2025-12-31 12:09",
+  "created_at": "2025-12-31T12:09:29.735311",
+  "updated_at": "2025-12-31T12:09:29.735311",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "丑の刻参りの監視カメラ (CCTV: The Iron Crown Ritual)",
+    "selected_metadata": {
+      "overview": "現代の深夜の神社。防犯カメラに映るのは、頭にロウソクを立て、藁人形を打ち込む女。カメラのレンズ越しに、その女がこちらの視線に気づき、不敵な笑みを浮かべて近づいてくる。",
+      "horror_point": "『Analog Horror / Found Footage』のスタイル。古い儀式と現代のテクノロジーが交差する瞬間の恐怖は、海外のホラーファンに最も刺さる演出。"
+    },
+    "title_en": "WARNING: Forbidden CCTV Ritual Caught on Camera #Shorts",
+    "title_jp": "【閲覧注意】深夜の神社、防犯カメラが捉えた「丑の刻参り」の全貌",
+    "description": "What happens when an ancient curse meets modern technology? This leaked CCTV footage from a rural Japanese shrine at 2:00 AM reveals the terrifying 'Iron Crown' ritual. They say if you witness the hammering of the straw doll through a screen, the curse transfers to you. Have you ever felt a presence watching you back? Watch until the end to see why you should never look into her eyes. Japanese urban legends are more real than you think. Is someone standing behind you right now? Share your thoughts in the comments if you survive this footage. #JapaneseHorror #UrbanLegend #Scary #CCTV #FoundFootage",
+    "hashtags": "#Shorts #JHorror #CCTV #UrbanLegend #ScaryVideo #FoundFootage #JapaneseCulture",
+    "editorial_notes": "【Round 2 批判と修正の要約】Viral Architectより「冒頭のCCTVログの提示だけでは弱い。視聴者が『呪いが自分に及ぶ』という当事者意識を持たせるフックが必要」との指摘を受け、台本に視聴者の視線を意識させるフレーズを追加。The Whispererからは「単なる怪談ではなく、金属が木を打つ冷たい音やロウソクの熱といった感覚的描写を強めるべき」との提案があり、ナレーションの質感を向上。The Visionaryからは「単調なCCTV映像にならないよう、魚眼レンズやデジタルグリッチ、赤外線暗視風の指示を加え、映像のバリエーションを強化せよ」との要求があり、Midjourneyプロンプトに具体的な光学的歪みと質感を反映させた。演出指示：BGMは環境音のみの静寂から始まり、釘を打つ音（カン、カン）を徐々に大きくし、最後は耳障りなノイズで締めること。",
+    "vrew_script": "Accessing encrypted security archives\nTwo AM at the silent shrine\nA flickering light where none should be\nThe iron crown burns with vengeance\nThree candles for a dying soul\nCold steel striking ancient wood\nEach hammer blow seals a fate\nThe ritual is almost complete\nWait she stopped moving\nShe is sensing your gaze\nThe lens is no longer a barrier\nShe is coming to collect your eyes\nDo not look behind you",
+    "script_jp_list": [
+      "暗号化されたセキュリティ・アーカイブへのアクセス",
+      "静寂の神社で午前2時",
+      "何もないはずの場所に明滅する光",
+      "鉄の王冠は復讐に燃える",
+      "死にゆく魂に3本のキャンドルを",
+      "古木を打つ冷たい鋼",
+      "ハンマーの一撃が運命を封じる",
+      "儀式はほぼ完了",
+      "待って、彼女は動きを止めた",
+      "彼女はあなたの視線を感じている",
+      "レンズはもはや障壁ではない",
+      "彼女はあなたの目を回収しに来る",
+      "後ろを見るな"
+    ],
+    "mj_prompts_list": [
+      "CCTV surveillance screen monitor, digital timestamp 02:00:15, grainy night vision, static noise, flickering scanlines, 1990s aesthetic, 4:3 aspect ratio --ar 9:16",
+      "Wide shot of a dark Japanese shrine at night, deep shadows, dense mist, eerie atmosphere, found footage style, distorted wide angle lens --ar 9:16",
+      "A mysterious figure in white robes standing under a sacred tree, long black hair, infrared CCTV look, faint orange glow --ar 9:16",
+      "Close up of an iron crown with three lit candles on a woman's head, hot wax dripping, flickering flames against pitch black background, high contrast --ar 9:16",
+      "The woman's face partially lit by candlelight, vengeful and hollow eyes, grainy film texture, Japanese horror aesthetic --ar 9:16",
+      "Low angle shot of a straw doll wara ningyo being nailed to a cedar tree, hammer in mid-air, splinters of wood, cinematic lighting --ar 9:16",
+      "Extreme close up of a rusted long nail piercing the heart of a straw doll, dark moody lighting, hyper-realistic macro photography --ar 9:16",
+      "The woman suddenly freezing her movement, back to the camera, heavy digital glitches, distorted silhouettes --ar 9:16",
+      "A slow creepy head turn of the woman towards the camera lens, hair covering her face, unnerving smile appearing, VHS tracking errors --ar 9:16",
+      "The woman staring directly into the CCTV camera, eyes wide and bloodshot, digital artifacts, chromatic aberration, terrifying expression --ar 9:16",
+      "A pale thin hand reaching out to touch the camera lens, distorted perspective, fish-eye lens effect, blurred background --ar 9:16",
+      "The woman's distorted face filling the entire frame, terrifying wide grin, hyper-detail, glitch art, found footage nightmare --ar 9:16",
+      "Black screen with heavy white noise and digital static, a faint ghostly face hidden in the grain, haunting final shot --ar 9:16"
+    ]
+  }
+}

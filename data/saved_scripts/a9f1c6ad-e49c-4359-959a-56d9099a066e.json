@@ -1,0 +1,53 @@
+{
+  "id": "a9f1c6ad-e49c-4359-959a-56d9099a066e",
+  "draft_name": "[自動保存] エレベーターの儀式 (The Elevator Ritual to Another World) - 2025-12-31 01:37",
+  "created_at": "2025-12-31T01:37:44.697308",
+  "updated_at": "2025-12-31T01:37:44.697308",
+  "tags": [
+    "自動保存"
+  ],
+  "memo": "生成完了時に自動保存されました",
+  "data": {
+    "selected_title": "エレベーターの儀式 (The Elevator Ritual to Another World)",
+    "selected_metadata": {
+      "overview": "特定の階数を特定の順序で押すと異世界へ行けるという都市伝説。5階で乗り込んでくる『人間ではない女』と目を合わせてはいけないというルールを守りながら進行する一人称視点のスリラー。",
+      "horror_point": "「Backrooms」系コンテンツを好む海外層に刺さる『リミナルスペース』の恐怖。スマホの自撮り風映像にノイズを混ぜることで、実録映像のようなリアリティを演出する。"
+    },
+    "title_en": "WARNING: Never Look at the Woman on Floor 5 #Shorts",
+    "title_jp": "【禁忌】エレベーターの儀式。5階の女と目を合わせたら最後 #Shorts",
+    "description": "Have you ever heard of the Elevator Ritual? They say if you press the buttons in a specific order, you'll reach another world. But there is one rule you must never break: on the 5th floor, a woman will enter. No matter what she does, NEVER look at her. In this video, I recorded my attempt to reach the 'Other Side'. The air changed, the light flickered, and then... she arrived. Japanese urban legends are real. Would you dare to try this? Tell us in the comments if you’ve experienced something strange in an elevator. #JapaneseHorror #UrbanLegend #LiminalSpace #CreepyPasta",
+    "hashtags": "#Shorts #JHorror #UrbanLegend #LiminalSpace #ElevatorRitual #FoundFootage #Backrooms",
+    "editorial_notes": "【Round 2 批判と修正要約】1. Viral Architectの批判：冒頭が説明的すぎたため、視聴者が即座に『恐怖のルール』を理解できるよう『5階で入ってくる女』の警告を最優先に配置。2. The Whispererの批判：単なる儀式の手順説明になっていたため、エレベーター内の『湿った空気』や『沈黙の重圧』といった身体的な恐怖描写を強化。3. The Visionaryの批判：映像が単調になる懸念があったため、Midjourneyプロンプトに『Handheld smartphone POV』や『CCTV distortion』『Liminal space aesthetic』を加え、低予算の実録ホラー風の質感を徹底した。",
+    "vrew_script": "I decided to try the elevator ritual\nThe sequence is four two six two ten\nThe air grows heavy and smells of rust\nNow I have reached the fifth floor\nThe doors slide open with a slow metallic screech\nShe steps in with a cold suffocating silence\nDo not look up stay focused on the floor\nI can feel her staring at my neck\nHer breathing sounds like wet paper tearing\nThe elevator ascends to a floor that should not exist\nThe lights flicker and the metal begins to bleed\nThe doors open to a world of endless hallways\nI think I made a terrible mistake",
+    "script_jp_list": [
+      "エレベーターの儀式を試してみることにした",
+      "順番は4 2 6 2 10",
+      "空気が重くなり、錆の匂いがする。",
+      "5階に到着",
+      "ドアはゆっくりとした金属音とともにスライドして開く。",
+      "彼女は冷たい息苦しい沈黙とともに足を踏み入れる。",
+      "上を見てはいけない。",
+      "彼女が私の首筋を見つめているのを感じる",
+      "彼女の呼吸は、濡れた紙が破れるように聞こえる",
+      "エレベーターが存在しないはずの階まで昇る",
+      "照明が明滅し、金属が出血し始める。",
+      "扉を開けると、果てしなく続く廊下の世界。",
+      "私はとんでもない間違いを犯したと思う"
+    ],
+    "mj_prompts_list": [
+      "Handheld smartphone POV, inside a dimly lit Japanese elevator, grainy security camera footage, cinematic lighting, 8k, realistic texture --ar 9:16",
+      "Extreme close up of a shaky hand pressing elevator buttons 4 2 6 2 10, flicking fluorescent lights, cinematic grain, 35mm lens --ar 9:16",
+      "POV looking at the elevator floor, shadows stretching, rust stains appearing on the metal doors, atmospheric fog, moody lighting --ar 9:16",
+      "Digital display showing the number 5 in glowing red, distorted video signal, glitch art style, eerie atmosphere --ar 9:16",
+      "Inside the elevator, doors opening slowly to a dark hallway, a blurry female figure standing outside, liminal space aesthetic, grainy film --ar 9:16",
+      "Low angle POV of a woman's feet entering the elevator, long black dress, pale skin, damp floor, high contrast, cinematic shadows --ar 9:16",
+      "Smartphone POV looking down at shoes, shaky camera, a pale distorted hand visible in the corner of the frame, horror atmosphere, 8k --ar 9:16",
+      "Reflective metal surface of the elevator showing a distorted silhouette of a woman behind the cameraman, blurry face, creepy, photorealistic --ar 9:16",
+      "Macro shot of a speaker vent in the elevator, dark liquid dripping, VHS tape noise, unsettling texture, cinematic lighting --ar 9:16",
+      "Looking up at the ceiling of the elevator, the metal panels warping, gravity defying shadows, glowing unnatural light, 35mm lens --ar 9:16",
+      "Lights flickering rapidly, walls covered in dark stains, cinematic horror, red emergency light, high contrast, grainy --ar 9:16",
+      "Elevator doors opening to an infinite yellow-lit office hallway, backrooms aesthetic, liminal space, desolate, photorealistic --ar 9:16",
+      "Extreme close up of a terrified eye reflecting an endless empty hallway, glitch effect, final scene horror, 8k, cinematic --ar 9:16"
+    ]
+  }
+}
